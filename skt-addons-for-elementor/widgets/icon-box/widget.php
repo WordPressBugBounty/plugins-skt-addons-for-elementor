@@ -750,19 +750,20 @@ class Icon_Box extends Base {
 			</span>
 		<?php endif;
 		// Resolved escaping issue
-			if ( ! empty( $settings['title'] ) ) :
-				$title_tag = isset( $settings['title_tag'] ) ? sanitize_html_class( $settings['title_tag'] ) : 'h2';
-				$valid_tags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'div', 'span'];
-				if ( ! in_array( $title_tag, $valid_tags, true ) ) {
-					$title_tag = 'h2';
-				}
-				$title_content = wp_kses_post( skt_addons_elementor_kses_basic( $settings['title'] ) );
-				printf(
-					'<%1$s %2$s>%3$s</%1$s>',
-					esc_html( $title_tag ),
-					wp_kses_post( $this->get_render_attribute_string( 'title' ) ),
-				);
-			endif;
+		if ( ! empty( $settings['title'] ) ) :
+			$title_tag = isset( $settings['title_tag'] ) ? sanitize_html_class( $settings['title_tag'] ) : 'h2';
+			$valid_tags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'div', 'span'];
+			if ( ! in_array( $title_tag, $valid_tags, true ) ) {
+				$title_tag = 'h2';
+			}
+			$title_content = wp_kses_post( skt_addons_elementor_kses_basic( $settings['title'] ) );
+			printf(
+				'<%1$s %2$s>%3$s</%1$s>',
+				esc_html( $title_tag ),
+				wp_kses_post( $this->get_render_attribute_string( 'title' ) ),
+				$title_content // Add this argument for %3$s
+			);
+		endif;
 	}
 
 	public function content_template() {
