@@ -936,16 +936,17 @@ class Unfold extends Base {
 				'selector'  => '{{WRAPPER}} .skt-unfold-widget-wrapper .skt-unfold-btn:hover',
 			]
 		);
-
 		$this->end_controls_tab();
-
 		$this->end_controls_tabs();
-
 		$this->end_controls_section();
 	}
 
 	protected function render() {
-		$settings = $this->get_settings_for_display();
+		global $post;
+		$post_id = $post->ID;
+
+		if ( 'publish' == get_post_status( $post_id ) || (current_user_can('administrator')) ||(current_user_can('editor')) ) {
+			$settings = $this->get_settings_for_display();
 		?>
 		<div class="skt-unfold-widget-wrapper<?php echo esc_attr( ( $settings['content_position'] == 'yes' ) ? ' skt-unfold-direction-below' : '' ); ?>">
 			<?php if ( ! empty( $settings['title'] ) ) : ?>
@@ -968,6 +969,7 @@ class Unfold extends Base {
 			<div class="skt-unfold-data">
 				<div class="skt-unfold-data-render">
 					<?php
+
 					if ( $settings['source'] === 'editor' ) :
 						// Resolved escaping issue
 						echo wp_kses_post($this->parse_text_editor( $settings['editor'] )); 
@@ -988,5 +990,6 @@ class Unfold extends Base {
 			<?php endif; ?>
 		</div>
 		<?php
+		}
 	}
 }

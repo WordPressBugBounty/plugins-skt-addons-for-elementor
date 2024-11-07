@@ -1,12 +1,12 @@
 === SKT Addons for Elementor ===
 Plugin Name: SKT Addons for Elementor
-Version: 3.3
+Version: 3.4
 Author: sonalsinha21
 Author URI: https://www.sktthemes.org/
 Tags: Elementor, Elementor Addons, Elementor Widget, Elementor extension, page builder
 Requires at least: 5.0
 Tested up to: 6.6
-Stable tag: 3.3
+Stable tag: 3.4
 Requires PHP: 7.4
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -362,6 +362,9 @@ Check our documentation for a detailed working and guide:
 
 
 == Changelog ==
+= 3.4 =
+Resolved security issue for patchstack in Unfold Widget.
+
 = 3.3 =
 Resolved Icon Box Widget Issue.
 
