@@ -14,7 +14,6 @@ use Elementor\Group_Control_Image_Size;
 use Skt_Addons_Elementor\Elementor\Controls\Lazy_Select;
 use Skt_Addons_Elementor\Lazy_Query_Manager;
 use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
-use Elementor\Core\Schemes;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Css_Filter;
@@ -722,7 +721,7 @@ class Single_Product_New extends Base {
 				'label' => __( 'Typography', 'skt-addons-for-elementor' ),
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_TEXT,
-			],
+				],
 				'default' => [
 					'font_size' => ['']
 				],
@@ -874,7 +873,7 @@ class Single_Product_New extends Base {
 				'label' => __( 'Typography', 'skt-addons-for-elementor' ),
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_TEXT,
-			],
+				],
 				'default' => [
 					'font_size' => ['']
 				],
@@ -1279,10 +1278,12 @@ class Single_Product_New extends Base {
 			[
 				'name' => 'cat_typography',
 				'label' => __( 'Typography', 'skt-addons-for-elementor' ),
-				'scheme' => Schemes\Typography::TYPOGRAPHY_2,
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
 				'selector' => '{{WRAPPER}} .skt-single-product__category a',
 				'condition' => [
-					 'show_cat' => 'yes',
+					'show_cat' => 'yes',
 				],
 			]
 		);
@@ -1494,7 +1495,7 @@ class Single_Product_New extends Base {
 				'selector' => '{{WRAPPER}} .skt-single-product__desc',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_TEXT,
-			],
+				],
 				'condition' => [
 					 'excerpt_length!' => '',
 				],
@@ -1557,7 +1558,7 @@ class Single_Product_New extends Base {
 				'selector' => '{{WRAPPER}} .skt-single-product__price',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_TEXT,
-			],
+				],
 				'condition' => [
 					 'show_price' => 'yes',
 				],
@@ -1656,7 +1657,7 @@ class Single_Product_New extends Base {
 				'selector' => '{{WRAPPER}} .button, {{WRAPPER}} .added_to_cart',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
-			],
+				],
 				'condition' => [
 					 'show_cart_button' => 'yes',
 				],

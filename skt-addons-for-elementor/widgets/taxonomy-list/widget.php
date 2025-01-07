@@ -8,7 +8,7 @@
 namespace Skt_Addons_Elementor\Elementor\Widget;
 
 use Elementor\Controls_Manager;
-use Elementor\Core\Schemes;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
@@ -565,7 +565,9 @@ class Taxonomy_List extends Base {
 			[
 				'name' => 'title_typography',
 				'label' => __( 'Typography', 'skt-addons-for-elementor' ),
-				'scheme' => Schemes\Typography::TYPOGRAPHY_2,
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
+				],
 				'selector' => '{{WRAPPER}} .skt-taxonomy-list-title',
 			]
 		);

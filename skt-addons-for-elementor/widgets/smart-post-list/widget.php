@@ -12,7 +12,7 @@ use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Typography;
-use Elementor\Core\Schemes;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use Elementor\Group_Control_Background;
 use Skt_Addons_Elementor\Elementor\Traits\Lazy_Query_Builder;
 use Skt_Addons_Elementor\Elementor\Controls\Lazy_Select;
@@ -1068,7 +1068,9 @@ class Smart_Post_List extends Base {
 			[
 				'name' => 'spl_top_bar_widget_title_typography',
 				'label' => __( 'Typography', 'skt-addons-for-elementor' ),
-				'scheme' => Schemes\Typography::TYPOGRAPHY_2,
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
+				],
 				'selector' => '{{WRAPPER}} .skt-spl-widget-title',
 				'condition' => [
 					'widget_title!' => '',
@@ -1188,7 +1190,9 @@ class Smart_Post_List extends Base {
 			[
 				'name' => 'spl_top_bar_filter_item_typography',
 				'label' => __( 'Typography', 'skt-addons-for-elementor' ),
-				'scheme' => Schemes\Typography::TYPOGRAPHY_2,
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
+				],
 				'selector' => '{{WRAPPER}} .skt-spl-filter ul.skt-spl-filter-list li span',
 				'condition' => [
 					'category_filter' => 'yes',
@@ -1361,7 +1365,9 @@ class Smart_Post_List extends Base {
 			[
 				'name' => 'spl_top_bar_nice_select_typography',
 				'label' => __( 'Typography', 'skt-addons-for-elementor' ),
-				'scheme' => Schemes\Typography::TYPOGRAPHY_2,
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
+				],
 				'selector' => '{{WRAPPER}} .nice-select.skt-spl-custom-select span.current,
 				{{WRAPPER}} .nice-select.skt-spl-custom-select .option',
 				'condition' => [
@@ -1907,7 +1913,9 @@ class Smart_Post_List extends Base {
 			[
 				'name' => 'spl_feature_post_title_typography',
 				'label' => __( 'Typography', 'skt-addons-for-elementor' ),
-				'scheme' => Schemes\Typography::TYPOGRAPHY_2,
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
+				],
 				'selector' => '{{WRAPPER}} .skt-spl-featured-post .skt-spl-title a',
 				'condition' => [
 					'featured_post_title' => 'yes',
@@ -2037,7 +2045,9 @@ class Smart_Post_List extends Base {
 			[
 				'name' => 'spl_feature_post_meta_typography',
 				'label' => __( 'Typography', 'skt-addons-for-elementor' ),
-				'scheme' => Schemes\Typography::TYPOGRAPHY_2,
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
+				],
 				'selector' => '{{WRAPPER}} .skt-spl-featured-post .skt-spl-meta .skt-spl-meta-text',
 				'conditions' => $this->conditions('feature_meta_style'),
 			]
@@ -2111,7 +2121,9 @@ class Smart_Post_List extends Base {
 			[
 				'name' => 'spl_feature_post_content_typography',
 				'label' => __( 'Typography', 'skt-addons-for-elementor' ),
-				'scheme' => Schemes\Typography::TYPOGRAPHY_2,
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
+				],
 				'selector' => '{{WRAPPER}} .skt-spl-featured-post .skt-spl-desc',
 				'condition' => [
 					'featured_excerpt_length!' => '',
@@ -2236,7 +2248,9 @@ class Smart_Post_List extends Base {
 			[
 				'name' => 'spl_feature_badge_typography',
 				'label' => __( 'Typography', 'skt-addons-for-elementor' ),
-				'scheme' => Schemes\Typography::TYPOGRAPHY_2,
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
+				],
 				'selector' => '{{WRAPPER}} .skt-spl-featured-post .skt-spl-badge a',
 				'condition' => [
 					'show_badge' => 'yes',
@@ -2529,7 +2543,9 @@ class Smart_Post_List extends Base {
 			[
 				'name' => 'spl_list_post_title_typography',
 				'label' => __( 'Typography', 'skt-addons-for-elementor' ),
-				'scheme' => Schemes\Typography::TYPOGRAPHY_2,
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
+				],
 				'selector' => '{{WRAPPER}} .skt-spl-list .skt-spl-list-title a',
 			]
 		);
@@ -2633,7 +2649,9 @@ class Smart_Post_List extends Base {
 			[
 				'name' => 'spl_list_post_meta_typography',
 				'label' => __( 'Typography', 'skt-addons-for-elementor' ),
-				'scheme' => Schemes\Typography::TYPOGRAPHY_2,
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
+				],
 				'selector' => '{{WRAPPER}} .skt-spl-list .skt-spl-meta .skt-spl-meta-text',
 				'conditions' => $this->conditions('list_post_meta_style'),
 			]

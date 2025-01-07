@@ -9,7 +9,7 @@ namespace Skt_Addons_Elementor\Elementor\Widget;
 defined( 'ABSPATH' ) || die();
 
 use Elementor\Controls_Manager;
-use Elementor\Core\Schemes;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
@@ -698,7 +698,9 @@ class Post_List extends Base {
 			[
 				'name' => 'title_typography',
 				'label' => __( 'Typography', 'skt-addons-for-elementor' ),
-				'scheme' => Schemes\Typography::TYPOGRAPHY_2,
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
+				],
 				'selector' => '{{WRAPPER}} .skt-post-list-title',
 			]
 		);
@@ -923,7 +925,9 @@ class Post_List extends Base {
 			[
 				'name' => 'excerpt_typography',
 				'label' => __( 'Typography', 'skt-addons-for-elementor' ),
-				'scheme' => Schemes\Typography::TYPOGRAPHY_3,
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
 				'selector' => '{{WRAPPER}} .skt-post-list-excerpt p',
 			]
 		);
@@ -972,7 +976,9 @@ class Post_List extends Base {
 			[
 				'name' => 'meta_typography',
 				'label' => __( 'Typography', 'skt-addons-for-elementor' ),
-				'scheme' => Schemes\Typography::TYPOGRAPHY_3,
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
 				'selector' => '{{WRAPPER}} .skt-post-list-meta-wrap span',
 			]
 		);
