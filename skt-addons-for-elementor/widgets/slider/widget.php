@@ -854,7 +854,6 @@ class Slider extends Base {
 					$this->add_link_attributes( $id, $slide['link'] );
 				}
 				?>
-
 				<div class="skt-slick-slide">
 					<<?php echo wp_kses_post($item_tag); ?> <?php $this->print_render_attribute_string( $id ); ?>>
 						<?php if ( $image ) : ?>
@@ -864,12 +863,14 @@ class Slider extends Base {
 						<?php if ( $slide['title'] || $slide['subtitle'] ) : ?>
 							<div class="skt-slick-content">
 								<?php
-									if ( $slide['title'] ) {
-										// Resolved escaping issue
-										printf( '<%1$s class="skt-slick-title">%2$s</%1$s>',
-											esc_attr( $settings['title_tag'], 'h2' ),
-											esc_attr( $slide['title'] )
-										);
+									if ( ! empty( $slide['title'] ) ) {
+									    $allowed_tags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'span', 'p'];
+									    $title_tag = in_array( $settings['title_tag'], $allowed_tags ) ? $settings['title_tag'] : 'h2';
+									    printf(
+									        '<%1$s class="skt-slick-title">%2$s</%1$s>',
+									        esc_attr( $title_tag ),
+									        esc_html( $slide['title'] )
+									    );
 									}
 								?>
 								<?php if ( $slide['subtitle'] ) : ?>
@@ -879,7 +880,6 @@ class Slider extends Base {
 						<?php endif; ?>
 					</<?php echo wp_kses_post($item_tag); ?>>
 				</div>
-
 			<?php endforeach; ?>
 
 		</div>

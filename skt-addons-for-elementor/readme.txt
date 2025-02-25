@@ -1,12 +1,12 @@
 === SKT Addons for Elementor ===
 Plugin Name: SKT Addons for Elementor
-Version: 3.5
+Version: 3.6
 Author: sonalsinha21
 Author URI: https://www.sktthemes.org/
 Tags: Elementor, Elementor Addons, Elementor Widget, Elementor extension, page builder
 Requires at least: 5.0
-Tested up to: 6.6
-Stable tag: 3.5
+Tested up to: 7.2
+Stable tag: 3.6
 Requires PHP: 7.4
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -362,22 +362,25 @@ Check our documentation for a detailed working and guide:
 
 
 == Changelog ==
+= 3.6 =
+* Resolved XSS issue in the Widget Slider block.
+
 = 3.5 =
-Resolved prevents the loading of the Elementor when editing a page.
+* Resolved prevents the loading of the Elementor when editing a page.
 
 = 3.4 =
-Resolved security issue for patchstack in Unfold Widget.
+* Resolved security issue for patchstack in Unfold Widget.
 
 = 3.3 =
-Resolved Icon Box Widget Issue.
+* Resolved Icon Box Widget Issue.
 
 = 3.2 =
 
-Fixed the wrong escaping issue, which the reviewer pointed out.
+* Fixed the wrong escaping issue, which the reviewer pointed out.
 
 = 3.1 =
 
-Resolved security issue for patchstack
+* Resolved security issue for patchstack
 
 1. wp-content\plugins\skt-addons-for-elementor\widgets\archive\widget.php
 line no 215
