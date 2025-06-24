@@ -1,12 +1,12 @@
 === SKT Addons for Elementor ===
 Plugin Name: SKT Addons for Elementor
-Version: 3.6
+Version: 3.7
 Author: sonalsinha21
 Author URI: https://www.sktthemes.org/
 Tags: Elementor, Elementor Addons, Elementor Widget, Elementor extension, page builder
 Requires at least: 5.0
-Tested up to: 7.2
-Stable tag: 3.6
+Tested up to: 6.8
+Stable tag: 3.7
 Requires PHP: 7.4
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -362,6 +362,9 @@ Check our documentation for a detailed working and guide:
 
 
 == Changelog ==
+= 3.7 =
+* Resolved hmtl tag issue in the Widget WpForm block.
+
 = 3.6 =
 * Resolved XSS issue in the Widget Slider block.
 

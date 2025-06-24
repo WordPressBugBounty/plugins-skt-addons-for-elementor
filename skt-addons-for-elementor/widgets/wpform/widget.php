@@ -655,7 +655,6 @@ class WPForm extends Base {
 
         $this->end_controls_tab();
         $this->end_controls_tabs();
-
         $this->end_controls_section();
     }
 
@@ -709,7 +708,7 @@ class WPForm extends Base {
                     'aria-live' => [],
                 ],
             ];
-            echo wp_kses( $shortcode_output, $allowed_html );
+            echo $shortcode_output;
         }
     }
 }
