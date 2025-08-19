@@ -31,9 +31,9 @@ class Image_Compare extends Base {
         return __( 'Image Compare', 'skt-addons-for-elementor' );
     }
 
-	public function get_custom_help_url() {
-		return '#';
-	}
+    public function get_custom_help_url() {
+        return '#';
+    }
 
     /**
      * Get widget icon.
@@ -51,23 +51,23 @@ class Image_Compare extends Base {
         return [ 'compare', 'image', 'before', 'after' ];
     }
 
-	/**
+    /**
      * Register widget content controls
      */
-	protected function register_content_controls() {
-		$this->__image_content_controls();
-		$this->__settings_content_controls();
-	}
+    protected function register_content_controls() {
+        $this->__image_content_controls();
+        $this->__settings_content_controls();
+    }
 
-	protected function __image_content_controls() {
+    protected function __image_content_controls() {
 
-		$this->start_controls_section(
-			'_section_images',
-			[
-				'label' => __( 'Images', 'skt-addons-for-elementor' ),
-				'tab' => Controls_Manager::TAB_CONTENT,
-			]
-		);
+        $this->start_controls_section(
+            '_section_images',
+            [
+                'label' => __( 'Images', 'skt-addons-for-elementor' ),
+                'tab' => Controls_Manager::TAB_CONTENT,
+            ]
+        );
 
         $this->start_controls_tabs( '_tab_images' );
         $this->start_controls_tab(
@@ -155,9 +155,9 @@ class Image_Compare extends Base {
         );
 
         $this->end_controls_section();
-	}
+    }
 
-	protected function __settings_content_controls() {
+    protected function __settings_content_controls() {
 
         $this->start_controls_section(
             '_section_settings',
@@ -240,13 +240,13 @@ class Image_Compare extends Base {
         $this->end_controls_section();
     }
 
-	/**
+    /**
      * Register widget style controls
      */
     protected function register_style_controls() {
-		$this->__handle_style_controls();
-		$this->__label_style_controls();
-	}
+        $this->__handle_style_controls();
+        $this->__label_style_controls();
+    }
 
     protected function __handle_style_controls() {
 
@@ -371,7 +371,7 @@ class Image_Compare extends Base {
         );
 
         $this->end_controls_section();
-	}
+    }
 
     protected function __label_style_controls() {
 
@@ -512,8 +512,8 @@ class Image_Compare extends Base {
                 'name' => 'label_typography',
                 'selector' => '{{WRAPPER}} .twentytwenty-before-label:before, {{WRAPPER}} .twentytwenty-after-label:before',
                 'global' => [
-					'default' => Global_Typography::TYPOGRAPHY_TEXT,
-			],
+                    'default' => Global_Typography::TYPOGRAPHY_TEXT,
+            ],
             ]
         );
 
@@ -529,10 +529,13 @@ class Image_Compare extends Base {
             'before_label' => 'before_label.str',
             'after_label' => 'after_label.str',
         ];
+        $settings['before_label'] = esc_html( wp_strip_all_tags( $settings['before_label'] ) );
+        $settings['after_label'] = esc_html( wp_strip_all_tags( $settings['after_label'] ) );
+        
         return skt_addons_elementor_prepare_data_prop_settings( $settings, $field_map );
     }
 
-	protected function render() {
+    protected function render() {
         $settings = $this->get_settings_for_display();
 
         $this->add_render_attribute( 'container', 'class', [
@@ -542,13 +545,13 @@ class Image_Compare extends Base {
 
         $this->add_render_attribute( 'container', 'data-skt-settings', self::get_data_settings( $settings ) );
         ?>
-        <div <?php echo wp_kses_post($this->get_render_attribute_string( 'container' )); ?>>
+        <div <?php echo $this->get_render_attribute_string( 'container' ); ?>>
             <?php if ( $settings['before_image']['url'] || $settings['before_image']['id'] ) :
                 $this->add_render_attribute( 'before_image', 'src', $settings['before_image']['url'] );
                 $this->add_render_attribute( 'before_image', 'alt', Control_Media::get_image_alt( $settings['before_image'] ) );
                 $this->add_render_attribute( 'before_image', 'title', Control_Media::get_image_title( $settings['before_image'] ) );
                 $settings['hover_animation'] = 'disable-animation'; // hack to prevent image hover animation
-                echo wp_kses_post(Group_Control_Image_Size::get_attachment_image_html( $settings, 'thumbnail', 'before_image' ));
+                echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'thumbnail', 'before_image' );
             endif;
 
             if ( $settings['after_image']['url'] || $settings['after_image']['id'] ) :
@@ -556,7 +559,7 @@ class Image_Compare extends Base {
                 $this->add_render_attribute( 'after_image', 'alt', Control_Media::get_image_alt( $settings['after_image'] ) );
                 $this->add_render_attribute( 'after_image', 'title', Control_Media::get_image_title( $settings['after_image'] ) );
                 $settings['hover_animation'] = 'disable-animation'; // hack to prevent image hover animation
-                echo wp_kses_post(Group_Control_Image_Size::get_attachment_image_html( $settings, 'thumbnail', 'after_image' ));
+                echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'thumbnail', 'after_image' );
             endif; ?>
         </div>
         <?php

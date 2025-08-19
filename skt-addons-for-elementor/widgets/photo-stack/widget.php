@@ -92,18 +92,18 @@ class Photo_Stack extends Base {
         );
 
         /*$repeater->add_control(
-			'link',
-			[
-				'label' => __( 'Link', 'skt-addons-for-elementor' ),
-				'type' => Controls_Manager::URL,
-				'label_block' => true,
-				'placeholder' => 'https://example.com',
-				'dynamic' => [
-					'active' => true,
-				]
-			]
-		);*/
-		
+            'link',
+            [
+                'label' => __( 'Link', 'skt-addons-for-elementor' ),
+                'type' => Controls_Manager::URL,
+                'label_block' => true,
+                'placeholder' => 'https://example.com',
+                'dynamic' => [
+                    'active' => true,
+                ]
+            ]
+        );*/
+        
         $repeater->add_responsive_control(
             'image_offset_y',
             [
@@ -430,11 +430,11 @@ class Photo_Stack extends Base {
             ]
         );
         $this->add_control(
-			'hr',
-			[
-				'type' => Controls_Manager::DIVIDER,
-			]
-		);
+            'hr',
+            [
+                'type' => Controls_Manager::DIVIDER,
+            ]
+        );
         $this->start_controls_tabs('tabs_hover_style');
 
         $this->start_controls_tab(
@@ -516,14 +516,14 @@ class Photo_Stack extends Base {
         ?>
 
         <div class="skt-photo-stack-wrapper">
-			<?php foreach ($settings['image_list'] as $index => $item):
+            <?php foreach ($settings['image_list'] as $index => $item):
             $repeater_key  = 'skt_ps_item' . $index;
             $dynamic_class = 'elementor-repeater-item-' . $item['_id'];
             $tag           = 'div';
             $this->add_render_attribute($repeater_key, 'class', 'skt-photo-stack-item');
             $this->add_render_attribute($repeater_key, 'class', $dynamic_class);
             $this->add_render_attribute($repeater_key, 'class', $settings['image_infinite_animation']);
-			$this->add_render_attribute('image', 'class', $settings['hover_animation_style']);
+            $this->add_render_attribute('image', 'class', $settings['hover_animation_style']);
             $this->add_render_attribute('image', 'class', 'skt-photo-stack-img');
 
             if ( isset( $item['link'] ) && ! empty( $item['link']['url'] ) ) {
@@ -531,33 +531,33 @@ class Photo_Stack extends Base {
                 $this->add_link_attributes( 'link_tag', $item['link'] );
             }
             ?>
-				<?php printf( '<%s %s>', $tag, $this->get_render_attribute_string($repeater_key) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-					<?php !empty( $item['link']['url'] ) && printf( '<%s %s>', $anchor_tag, $this->get_render_attribute_string('link_tag') ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-						<?php if ($item['image']['id']) {
-								$this->add_render_attribute('image', 'alt', $item['image']['alt'] );
-								printf( '<img src="%s" %s/>',
-									Group_Control_Image_Size::get_attachment_image_src($item['image']['id'], 'thumbnail', $item), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-									$this->get_render_attribute_string('image') // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-								);
-								$this->remove_render_attribute( 'image' );
-							} else {
-								echo $this->get_placeholder($item, $this->get_render_attribute_string('image')); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-						}?>
-					<?php !empty( $item['link']['url'] ) && printf( '</%s>', $anchor_tag ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-				<?php printf( '</%s>', $tag ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped?>
-	            <?php endforeach;?>
+                <?php printf( '<%s %s>', $tag, $this->get_render_attribute_string($repeater_key) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                    <?php !empty( $item['link']['url'] ) && printf( '<%s %s>', $anchor_tag, $this->get_render_attribute_string('link_tag') ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                        <?php if ($item['image']['id']) {
+                                $this->add_render_attribute('image', 'alt', $item['image']['alt'] );
+                                printf( '<img src="%s" %s/>',
+                                    Group_Control_Image_Size::get_attachment_image_src($item['image']['id'], 'thumbnail', $item), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                                    $this->get_render_attribute_string('image') // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                                );
+                                $this->remove_render_attribute( 'image' );
+                            } else {
+                                echo $this->get_placeholder($item, $this->get_render_attribute_string('image')); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                        }?>
+                    <?php !empty( $item['link']['url'] ) && printf( '</%s>', $anchor_tag ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                <?php printf( '</%s>', $tag ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped?>
+                <?php endforeach;?>
         </div>
 
 
-		<?php
+        <?php
 }
-	 /**
-	  * Get placeholder image HTML.
-	  *
-	  * @param array $item
-	  * @param array|null $attr
-	  * @return void
-	  */
+     /**
+      * Get placeholder image HTML.
+      *
+      * @param array $item
+      * @param array|null $attr
+      * @return void
+      */
     protected function get_placeholder($item, $attr = null) {
         if ('custom' !== $item['thumbnail_size']) {
             $width  = get_option($item['thumbnail_size'] . '_size_w');
@@ -568,7 +568,7 @@ class Photo_Stack extends Base {
             $height = $item['thumbnail_custom_dimension']['height'];
             $height = '0' == $height ? 'auto' : $height . 'px';
         }
-        echo '<img src="' . $item['image']['url'] . '" style="width: ' . $width . 'px; height: ' . $height . ';" ' . $attr . '/>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+        echo '<img src="' . esc_url( $item['image']['url'] ) . '" style="width: ' . $width . 'px; height: ' . $height . ';" ' . $attr . '/>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
     }
 
 }

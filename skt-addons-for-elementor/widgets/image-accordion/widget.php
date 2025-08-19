@@ -558,13 +558,13 @@ class Image_Accordion extends Base {
         );
 
         $this->add_control(
-			'common_image_control_heading',
-			[
-				'label' => __( 'Image Controls', 'skt-addons-for-elementor' ),
-				'type' => Controls_Manager::HEADING,
-				'separator' => 'before',
-			]
-		);
+            'common_image_control_heading',
+            [
+                'label' => __( 'Image Controls', 'skt-addons-for-elementor' ),
+                'type' => Controls_Manager::HEADING,
+                'separator' => 'before',
+            ]
+        );
 
         $this->add_responsive_control(
             'image_gutter',
@@ -616,12 +616,12 @@ class Image_Accordion extends Base {
         );
 
         $this->add_control(
-			'common_overlay_color_heading',
-			[
-				'label' => __( 'Overlay Color', 'skt-addons-for-elementor' ),
-				'type' => Controls_Manager::HEADING,
-			]
-		);
+            'common_overlay_color_heading',
+            [
+                'label' => __( 'Overlay Color', 'skt-addons-for-elementor' ),
+                'type' => Controls_Manager::HEADING,
+            ]
+        );
 
         $this->start_controls_tabs('common_color');
 
@@ -634,14 +634,14 @@ class Image_Accordion extends Base {
         );
 
         $this->add_group_control(
-			Group_Control_Background::get_type(),
-			[
-				'name' => 'common_overlay_color',
-				'label' => __( 'Overlay Color', 'skt-addons-for-elementor' ),
-				'types' => [ 'classic', 'gradient' ],
-				'selector' => '{{WRAPPER}} .skt-ia-item .skt-overlay',
-			]
-		);
+            Group_Control_Background::get_type(),
+            [
+                'name' => 'common_overlay_color',
+                'label' => __( 'Overlay Color', 'skt-addons-for-elementor' ),
+                'types' => [ 'classic', 'gradient' ],
+                'selector' => '{{WRAPPER}} .skt-ia-item .skt-overlay',
+            ]
+        );
 
         // $this->add_control(
         //     'common_overlay_color',
@@ -665,14 +665,14 @@ class Image_Accordion extends Base {
         );
 
         $this->add_group_control(
-			Group_Control_Background::get_type(),
-			[
-				'name' => 'common_overlay_color_hover',
-				'label' => __( 'Overlay Color', 'skt-addons-for-elementor' ),
-				'types' => [ 'classic', 'gradient' ],
-				'selector' => '{{WRAPPER}} .skt-ia-item:hover .skt-overlay',
-			]
-		);
+            Group_Control_Background::get_type(),
+            [
+                'name' => 'common_overlay_color_hover',
+                'label' => __( 'Overlay Color', 'skt-addons-for-elementor' ),
+                'types' => [ 'classic', 'gradient' ],
+                'selector' => '{{WRAPPER}} .skt-ia-item:hover .skt-overlay',
+            ]
+        );
 
         // $this->add_control(
         //     'common_overlay_color_hover',
@@ -697,14 +697,14 @@ class Image_Accordion extends Base {
 
 
         $this->add_group_control(
-			Group_Control_Background::get_type(),
-			[
-				'name' => 'common_overlay_color_active',
-				'label' => __( 'Overlay Color', 'skt-addons-for-elementor' ),
-				'types' => [ 'classic', 'gradient' ],
-				'selector' => '{{WRAPPER}} .skt-ia-item.active .skt-overlay',
-			]
-		);
+            Group_Control_Background::get_type(),
+            [
+                'name' => 'common_overlay_color_active',
+                'label' => __( 'Overlay Color', 'skt-addons-for-elementor' ),
+                'types' => [ 'classic', 'gradient' ],
+                'selector' => '{{WRAPPER}} .skt-ia-item.active .skt-overlay',
+            ]
+        );
 
         // $this->add_control(
         //     'common_overlay_color_active',
@@ -1418,7 +1418,7 @@ class Image_Accordion extends Base {
             <div class="skt-ia-container">
                 <div class="skt-ia-gallery-wrap">
                     <?php foreach ($settings['accordion_items'] as $inx => $item) : ?>
-                        <div style="background-image: url('<?php echo esc_url($item['background_image']['url']); ?>');" class="skt-ia-item <?php echo esc_attr(($item['active'] == 'yes') ? 'active' : ''); ?>">
+                        <div style="background-image: url('');" class="skt-ia-item <?php echo esc_attr(($item['active'] == 'yes') ? 'active' : ''); ?>">
                             <div class="skt-overlay">
                                 <div class="skt-ia-content-wrapper <?php echo esc_attr($animation_class); ?>">
                                     <?php if ($item['enable_popup'] == 'yes' || $item['enable_link'] == 'yes') : ?>
@@ -1451,7 +1451,7 @@ class Image_Accordion extends Base {
                                         printf('<div class="skt-ia-content-description">%s</div>', esc_attr(skt_addons_elementor_kses_intermediate( $item['description'] )));
                                     endif; ?>
                                     <?php if ($item['enable_button'] == 'yes') : ?>
-                                        <a class="skt-ia-content-button" href="<?php echo esc_attr($item['button_url']['url']); ?>" <?php echo esc_attr($item['button_url']['is_external'] ? 'target=_blank' : ''); ?> <?php echo esc_attr($item['button_url']['nofollow'] ? 'rel=nofollow' : ''); ?>>
+                                        <a class="skt-ia-content-button" href="<?php echo esc_url($item['button_url']['url']); ?>" <?php echo esc_url($item['button_url']['is_external'] ? 'target=_blank' : ''); ?> <?php echo esc_url($item['button_url']['nofollow'] ? 'rel=nofollow' : ''); ?>>
                                             <?php echo esc_html($item['button_label']); ?>
                                         </a>
                                     <?php endif; ?>

@@ -602,7 +602,7 @@ class Image_Stack_Group extends Base {
 						$img_url = Utils::get_placeholder_image_src();
 					}
 
-					$content = '<img src="'.$img_url.'" alt="">';
+					$content = '<img src="'. esc_url( $img_url ).'" alt="">';
 				}
 
 				$tooltip_data = '';
@@ -615,7 +615,7 @@ class Image_Stack_Group extends Base {
 				}
 
 				if($tooltip_txt){
-					$tooltip_data = 'tooltip="'.$tooltip_txt.'" flow="'.$tooltip_position.'"';
+					$tooltip_data = 'tooltip="'. esc_attr( $tooltip_txt ).'" flow="'.$tooltip_position.'"';
 				}
 
 				$id = 'skt-cig-item-' . $item['_id'];

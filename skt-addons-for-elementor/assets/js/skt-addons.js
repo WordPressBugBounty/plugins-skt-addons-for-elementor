@@ -709,14 +709,14 @@ $.fn.isOnScreen = function() {
 
 
     var Event_Calendar = function Event_Calendar($scope) {
-      var calendarEl = $scope.find('.skt-ec');
-      var popup = $scope.find('.skt-ec-popup-wrapper');
-      var popupClose = $scope.find(".skt-ec-popup-close");
-      var events = calendarEl.data('events');
+      var calendarEl  = $scope.find('.skt-ec');
+      var popup       = $scope.find('.skt-ec-popup-wrapper');
+      var popupClose  = $scope.find(".skt-ec-popup-close");
+      var events      = calendarEl.data('events');
       var initialview = calendarEl.data('initialview');
-      var firstday = calendarEl.data('firstday');
-      var locale = calendarEl.data('locale');
-      var showPopup = calendarEl.data('show-popup');
+      var firstday    = calendarEl.data('firstday');
+      var locale      = calendarEl.data('locale');
+      var showPopup   = calendarEl.data('show-popup');
       var allday_text = calendarEl.data('allday-text');
 
       if ('undefined' == typeof events) {
@@ -753,34 +753,33 @@ $.fn.isOnScreen = function() {
           }
 
           function timeFormat(date) {
-            var hours = date.getHours();
+            var hours   = date.getHours();
             var minutes = date.getMinutes();
-            var ampm = hours >= 12 ? 'pm' : 'am';
-            hours = hours % 12;
-            hours = hours ? hours : 12; // the hour '0' should be '12'
+            var ampm    = hours >= 12 ? 'pm' : 'am';
+            hours       = hours % 12;
+            hours       = hours ? hours : 12; // the hour '0' should be '12'
 
             minutes = minutes < 10 ? '0' + minutes : minutes;
             var strTime = hours + ':' + minutes + '' + ampm;
             return strTime;
           }
-
           var todayDateString = info.view.calendar.currentData.currentDate.toString(),
-              allDay = info.event.allDay,
-              title = info.event.title,
-              startDate = info.event.startStr,
-              endDate = info.event.endStr,
-              guest = info.event.extendedProps.guest,
-              location = info.event.extendedProps.location,
-              description = info.event.extendedProps.description,
-              detailsUrl = info.event.url,
-              imageUrl = info.event.extendedProps.image;
-          var titleWrap = popup.find('.skt-ec-event-title'),
-              timeWrap = popup.find('.skt-ec-event-time-wrap'),
-              guestWrap = popup.find('.skt-ec-event-guest-wrap'),
+              allDay       = info.event.allDay,
+              title        = info.event.title,
+              startDate    = info.event.startStr,
+              endDate      = info.event.endStr,
+              guest        = info.event.extendedProps.guest,
+              location     = info.event.extendedProps.location,
+              description  = info.event.extendedProps.description,
+              detailsUrl   = info.event.url,
+              imageUrl     = info.event.extendedProps.image;
+          var titleWrap    = popup.find('.skt-ec-event-title'),
+              timeWrap     = popup.find('.skt-ec-event-time-wrap'),
+              guestWrap    = popup.find('.skt-ec-event-guest-wrap'),
               locationWrap = popup.find('.skt-ec-event-location-wrap'),
-              descWrap = popup.find('.skt-ec-popup-desc'),
-              detailsWrap = popup.find('.skt-ec-popup-readmore-link'),
-              imageWrap = popup.find('.skt-ec-popup-image'); // display none
+              descWrap     = popup.find('.skt-ec-popup-desc'),
+              detailsWrap  = popup.find('.skt-ec-popup-readmore-link'),
+              imageWrap    = popup.find('.skt-ec-popup-image'); // display none
 
           imageWrap.css('display', 'none');
           titleWrap.css('display', 'none');
@@ -840,7 +839,8 @@ $.fn.isOnScreen = function() {
           } // read more markup
 
 
-          if (detailsUrl) {
+
+          if (detailsUrl && /^https?:\/\//i.test(detailsUrl)) {
             detailsWrap.removeAttr("style");
             detailsWrap.attr("href", detailsUrl);
 
@@ -851,6 +851,10 @@ $.fn.isOnScreen = function() {
             if ("on" === info.event.extendedProps.nofollow) {
               detailsWrap.attr("rel", "nofollow");
             }
+          } else {
+            // Optionally, hide the link or set to '#'
+            detailsWrap.attr("href", "#");
+            detailsWrap.hide(); // or .addClass('disabled')
           }
         },
         dateClick: function dateClick(arg) {
