@@ -1418,7 +1418,7 @@ class Image_Accordion extends Base {
             <div class="skt-ia-container">
                 <div class="skt-ia-gallery-wrap">
                     <?php foreach ($settings['accordion_items'] as $inx => $item) : ?>
-                        <div style="background-image: url('');" class="skt-ia-item <?php echo esc_attr(($item['active'] == 'yes') ? 'active' : ''); ?>">
+                        <div style="background-image: url('<?php echo esc_url($item['background_image']['url']); ?>');" class="skt-ia-item <?php echo esc_attr(($item['active'] == 'yes') ? 'active' : ''); ?>">
                             <div class="skt-overlay">
                                 <div class="skt-ia-content-wrapper <?php echo esc_attr($animation_class); ?>">
                                     <?php if ($item['enable_popup'] == 'yes' || $item['enable_link'] == 'yes') : ?>
@@ -1450,6 +1450,8 @@ class Image_Accordion extends Base {
                                         // Resolved escaping issue
                                         printf('<div class="skt-ia-content-description">%s</div>', esc_attr(skt_addons_elementor_kses_intermediate( $item['description'] )));
                                     endif; ?>
+                             
+
                                     <?php if ($item['enable_button'] == 'yes') : ?>
                                         <a class="skt-ia-content-button" href="<?php echo esc_url($item['button_url']['url']); ?>" <?php echo esc_url($item['button_url']['is_external'] ? 'target=_blank' : ''); ?> <?php echo esc_url($item['button_url']['nofollow'] ? 'rel=nofollow' : ''); ?>>
                                             <?php echo esc_html($item['button_label']); ?>
