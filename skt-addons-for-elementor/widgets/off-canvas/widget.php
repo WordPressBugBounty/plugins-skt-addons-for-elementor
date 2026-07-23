@@ -2283,7 +2283,9 @@ class Off_Canvas extends Base {
 	 */
 	protected function render_custom_content() {
 		$settings = $this->get_settings_for_display();
-
+	?>
+	sdfsdfg dfsgsdfg dfg
+	<?php
 		foreach ( $settings['custom_content'] as $index => $item ) :
 			?>
 			<div class="skt-offcanvas-custom-widget">

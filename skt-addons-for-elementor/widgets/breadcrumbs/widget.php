@@ -13,7 +13,7 @@ use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Typography;
 use Elementor\Modules\DynamicTags\Module as TagsModule;
-use Skt_Addons_Elementor_Pro\Breadcrumb_Trail;
+use SKT_Addons_Elementor\Breadcrumb_Trail;
 
 defined('ABSPATH') || die();
 

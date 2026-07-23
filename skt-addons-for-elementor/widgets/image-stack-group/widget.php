@@ -195,7 +195,7 @@ class Image_Stack_Group extends Base {
 			\Elementor\Group_Control_Background::get_type(),
 			[
 				'name' => 'icon_bg_color',
-				'label' => __( 'Background', 'plugin-domain' ),
+				'label' => __( 'Background', 'skt-addons-for-elementor' ),
 				'types' => [ 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .skt-cig-item{{CURRENT_ITEM}} i'
 			]
@@ -410,7 +410,7 @@ class Image_Stack_Group extends Base {
 			\Elementor\Group_Control_Background::get_type(),
 			[
 				'name' => 'icon_bg_color',
-				'label' => __( 'Background', 'plugin-domain' ),
+				'label' => __( 'Background', 'skt-addons-for-elementor' ),
 				'types' => [ 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .skt-cig-item i'
 			]

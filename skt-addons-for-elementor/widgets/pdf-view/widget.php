@@ -87,7 +87,7 @@ class PDF_View extends Base {
 				'type' => Controls_Manager::URL,
 				'placeholder' => __( 'http://www.example.com/sample.pdf', 'skt-addons-for-elementor'),
                 'default' => [
-                    'url' =>  'https://sktthemesdemo.net/documentation/skt-addons-for-elementor-documentation/sample.pdf'
+                    'url' =>  'https://sktthemesdemo.net/documentation/skt-addons-elementor-documentation/sample.pdf'
                 ],
 				'show_external' => false,
 				'dynamic' => [

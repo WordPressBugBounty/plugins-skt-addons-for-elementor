@@ -237,8 +237,8 @@ class Ajax_Handler {
         $security = check_ajax_referer('skt_addons_elementor_addons_nonce', 'security');
 
         if (!$security) return;
-
-        parse_str(sanitize_text_field(wp_unslash(isset($_POST['subscriber_info']) ? $_POST['subscriber_info'] : '', $subsciber)));
+        $subsciber = [];
+        parse_str(sanitize_text_field(wp_unslash(isset($_POST['subscriber_info']) ? $_POST['subscriber_info'] : '', $subsciber))); // phpcs:ignore PluginCheck.CodeAnalysis.RequiredFunctionParameters.parse_str_resultMissing
 
 
 		if(!class_exists('Skt_Addons_Elementor\Elementor\Widget\Mailchimp\Mailchimp_api')) {

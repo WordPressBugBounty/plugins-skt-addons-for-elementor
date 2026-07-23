@@ -28,7 +28,7 @@ class Event_Calendar extends Base {
 	 *
 	 */
 	public function get_title () {
-		return __( 'Event Calendar', 'skt-addons-elementor' );
+		return __( 'Event Calendar', 'skt-addons-for-elementor' );
 	}
 
 	public function get_custom_help_url() {
@@ -180,7 +180,7 @@ class Event_Calendar extends Base {
 		$this->start_controls_section(
 			'_section_event',
 			[
-				'label' => __( 'Event', 'skt-addons-elementor' ),
+				'label' => __( 'Event', 'skt-addons-for-elementor' ),
 				'tab' => Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -188,13 +188,13 @@ class Event_Calendar extends Base {
 		$this->add_control(
 			'event_calendar_type',
 			[
-				'label' => __( 'Source', 'skt-addons-elementor' ),
+				'label' => __( 'Source', 'skt-addons-for-elementor' ),
 				'label_block' => false,
 				'type' => Controls_Manager::SELECT,
 				'default' => 'manual',
 				'options' => [
-					'manual' =>  __( 'Manual', 'skt-addons-elementor' ),
-					'the_events_calendar' =>  __( 'The Event Calendar', 'skt-addons-elementor' ),
+					'manual' =>  __( 'Manual', 'skt-addons-for-elementor' ),
+					'the_events_calendar' =>  __( 'The Event Calendar', 'skt-addons-for-elementor' ),
 				],
 				// 'multiple' => true,
 			]
@@ -206,17 +206,17 @@ class Event_Calendar extends Base {
         $repeater->start_controls_tab(
             'event_calendar_content_tab',
             [
-                'label' => __('Content', 'skt-addons-elementor'),
+                'label' => __('Content', 'skt-addons-for-elementor'),
             ]
 		);
 
 		$repeater->add_control(
 			'title',
 			[
-				'label' => __('Title', 'skt-addons-elementor'),
+				'label' => __('Title', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::TEXT,
 				'label_block' => true,
-				'default' => __('Event Title', 'skt-addons-elementor'),
+				'default' => __('Event Title', 'skt-addons-for-elementor'),
 				'dynamic' => [
 					'active' => true,
 				]
@@ -226,10 +226,10 @@ class Event_Calendar extends Base {
 		$repeater->add_control(
 			'guest',
 			[
-				'label' => __('Guest/Speaker', 'skt-addons-elementor'),
+				'label' => __('Guest/Speaker', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::TEXT,
 				'label_block' => true,
-				'default' => __('John Doe', 'skt-addons-elementor'),
+				'default' => __('John Doe', 'skt-addons-for-elementor'),
 				'dynamic' => [
 					'active' => true,
 				]
@@ -239,10 +239,10 @@ class Event_Calendar extends Base {
 		$repeater->add_control(
 			'location',
 			[
-				'label' => __('Location', 'skt-addons-elementor'),
+				'label' => __('Location', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::TEXT,
 				'label_block' => true,
-				'default' => __('4382 Roosevelt Road, KS, Kansas', 'skt-addons-elementor'),
+				'default' => __('4382 Roosevelt Road, KS, Kansas', 'skt-addons-for-elementor'),
 				'dynamic' => [
 					'active' => true,
 				]
@@ -252,7 +252,7 @@ class Event_Calendar extends Base {
 		$repeater->add_control(
 			'image',
 			[
-				'label' => __( 'Choose Image', 'skt-addons-elementor' ),
+				'label' => __( 'Choose Image', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::MEDIA,
 				'default' => [
 					'url' => Utils::get_placeholder_image_src(),
@@ -267,6 +267,7 @@ class Event_Calendar extends Base {
                 'label' => 'Thumbnail Size',
                 'default' => 'thumbnail',
                 'separator' => 'before',
+                // phpcs:ignore WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_exclude
                 'exclude' => [
                     'custom'
 				]
@@ -276,9 +277,9 @@ class Event_Calendar extends Base {
 		$repeater->add_control(
             'details_link',
             [
-                'label'         => __('Details Link', 'skt-addons-elementor'),
+                'label'         => __('Details Link', 'skt-addons-for-elementor'),
                 'type'          => Controls_Manager::URL,
-                'placeholder'   => __('https://example.com', 'skt-addons-elementor'),
+                'placeholder'   => __('https://example.com', 'skt-addons-for-elementor'),
                 'show_external' => true,
             ]
 		);
@@ -286,7 +287,7 @@ class Event_Calendar extends Base {
         $repeater->add_control(
             'all_day',
             [
-                'label'        => __('All Day', 'skt-addons-elementor'),
+                'label'        => __('All Day', 'skt-addons-for-elementor'),
                 'type'         => Controls_Manager::SWITCHER,
                 'label_block'  => false,
                 'return_value' => 'yes',
@@ -296,9 +297,9 @@ class Event_Calendar extends Base {
         $repeater->add_control(
             'start_date',
             [
-                'label'     => __('Start Date', 'skt-addons-elementor'),
+                'label'     => __('Start Date', 'skt-addons-for-elementor'),
                 'type'      => Controls_Manager::DATE_TIME,
-                'default'   => date('Y-m-d H:i', current_time('timestamp', 0)),
+                'default'   => gmdate('Y-m-d H:i', current_time('timestamp', 0)),
                 'condition' => [
                     'all_day' => '',
                 ],
@@ -308,9 +309,9 @@ class Event_Calendar extends Base {
         $repeater->add_control(
             'end_date',
             [
-                'label'     => __('End Date', 'skt-addons-elementor'),
+                'label'     => __('End Date', 'skt-addons-for-elementor'),
                 'type'      => Controls_Manager::DATE_TIME,
-                'default'   => date('Y-m-d H:i', strtotime("+59 minute", current_time('timestamp', 0))),
+                'default'   => gmdate('Y-m-d H:i', strtotime("+59 minute", current_time('timestamp', 0))),
                 'condition' => [
                     'all_day' => '',
                 ],
@@ -320,10 +321,10 @@ class Event_Calendar extends Base {
         $repeater->add_control(
             'start_date_allday',
             [
-                'label'          => __('Start Date', 'skt-addons-elementor'),
+                'label'          => __('Start Date', 'skt-addons-for-elementor'),
                 'type'           => Controls_Manager::DATE_TIME,
                 'picker_options' => ['enableTime' => false],
-                'default'        => date('Y-m-d', current_time('timestamp', 0)),
+                'default'        => gmdate('Y-m-d', current_time('timestamp', 0)),
                 'condition'      => [
                     'all_day' => 'yes',
                 ],
@@ -333,10 +334,10 @@ class Event_Calendar extends Base {
         $repeater->add_control(
             'end_date_allday',
             [
-                'label'          => __('End Date', 'skt-addons-elementor'),
+                'label'          => __('End Date', 'skt-addons-for-elementor'),
                 'type'           => Controls_Manager::DATE_TIME,
                 'picker_options' => ['enableTime' => false],
-                'default'        => date('Y-m-d', current_time('timestamp', 0)),
+                'default'        => gmdate('Y-m-d', current_time('timestamp', 0)),
                 'condition'      => [
                     'all_day' => 'yes',
                 ],
@@ -346,10 +347,10 @@ class Event_Calendar extends Base {
 		$repeater->add_control(
 			'individual_style',
 			[
-				'label' => __('Individual Style?', 'skt-addons-elementor'),
+				'label' => __('Individual Style?', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => __('Yes', 'skt-addons-elementor'),
-				'label_off' => __('No', 'skt-addons-elementor'),
+				'label_on' => __('Yes', 'skt-addons-for-elementor'),
+				'label_off' => __('No', 'skt-addons-for-elementor'),
 				'return_value' => 'yes',
 				'default' => 'no',
                 'style_transfer' => true,
@@ -360,7 +361,7 @@ class Event_Calendar extends Base {
 		$repeater->add_control(
 			'text_color',
 			[
-				'label' => __('Text Color', 'skt-addons-elementor'),
+				'label' => __('Text Color', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .skt-ec-wrapper {{CURRENT_ITEM}}' => 'color: {{VALUE}}!important;',
@@ -377,7 +378,7 @@ class Event_Calendar extends Base {
 		$repeater->add_control(
 			'bg_color',
 			[
-				'label' => __('Background', 'skt-addons-elementor'),
+				'label' => __('Background', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .skt-ec-wrapper {{CURRENT_ITEM}}' => 'background-color: {{VALUE}}!important;',
@@ -392,7 +393,7 @@ class Event_Calendar extends Base {
 		$repeater->add_control(
 			'border_color',
 			[
-				'label' => __('Dot Color', 'skt-addons-elementor'),
+				'label' => __('Dot Color', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .skt-ec-wrapper {{CURRENT_ITEM}} .fc-daygrid-event-dot' => 'border-color: {{VALUE}}!important;',
@@ -410,23 +411,23 @@ class Event_Calendar extends Base {
         $repeater->start_controls_tab(
             'event_calendar_description_tab',
             [
-                'label' => __('Description', 'skt-addons-elementor'),
+                'label' => __('Description', 'skt-addons-for-elementor'),
             ]
 		);
 
         $repeater->add_control(
             'description',
             [
-                'label' => __('Description', 'skt-addons-elementor'),
+                'label' => __('Description', 'skt-addons-for-elementor'),
                 'show_label' => true,
 				'type'  => Controls_Manager::WYSIWYG,
 				'default' => sprintf(
 					'<strong>%s</strong> %s',
-					__('Lorem Ipsum', 'skt-addons-elementor'),
-					__('is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries', 'skt-addons-elementor')
+					__('Lorem Ipsum', 'skt-addons-for-elementor'),
+					__('is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries', 'skt-addons-for-elementor')
 				),
 
-                'default' => __('<strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries', 'skt-addons-elementor'),
+                'default' => __('<strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries', 'skt-addons-for-elementor'),
             ]
         );
 
@@ -443,7 +444,7 @@ class Event_Calendar extends Base {
 				'title_field' => '{{{ title }}}',
 				'default' => [
 					[
-						'title' => __('Event Title', 'skt-addons-elementor'),
+						'title' => __('Event Title', 'skt-addons-for-elementor'),
 					],
 				],
 				'condition' => [
@@ -459,10 +460,10 @@ class Event_Calendar extends Base {
 					'type'            => Controls_Manager::RAW_HTML,
 					'raw'             => sprintf(
 						'<strong>%s</strong> %s <a href="plugin-install.php?s=the-events-calendar&tab=search&type=term" target="_blank">%s</a> %s',
-						__('The Events Calendar', 'skt-addons-elementor'),
-						__('is not installed/activated on your site. Please install and activate.', 'skt-addons-elementor'),
-						__('The Events Calendar', 'skt-addons-elementor'),
-						__(' first.', 'skt-addons-elementor')
+						__('The Events Calendar', 'skt-addons-for-elementor'),
+						__('is not installed/activated on your site. Please install and activate.', 'skt-addons-for-elementor'),
+						__('The Events Calendar', 'skt-addons-for-elementor'),
+						__(' first.', 'skt-addons-for-elementor')
 					),
 					// 'content_classes' => 'skt-warning',
 					'condition' => [
@@ -479,7 +480,7 @@ class Event_Calendar extends Base {
 		$this->start_controls_section(
             '_section_event_google_calendar',
             [
-                'label'     => __('Google Calendar', 'skt-addons-elementor'),
+                'label'     => __('Google Calendar', 'skt-addons-for-elementor'),
                 'tab'       => Controls_Manager::TAB_CONTENT,
                 'condition' => [
                     'event_calendar_type' => 'google_calendar',
@@ -490,47 +491,48 @@ class Event_Calendar extends Base {
         $this->add_control(
             'google_calendar_api_key',
             [
-                'label'       => __('API Key', 'skt-addons-elementor'),
+                'label'       => __('API Key', 'skt-addons-for-elementor'),
                 'label_block' => true,
                 'type'        => Controls_Manager::TEXT,
                 'default' => '',
-                'description' => sprintf(__('<a href="https://docs.simplecalendar.io/google-api-key/" target="_blank">%s</a>','skt-addons-elementor'), 'Get API Key'),
+                /* translators: %s: Link text for the Google API Key documentation. */
+                'description' => sprintf(__('<a href="https://docs.simplecalendar.io/google-api-key/" target="_blank">%s</a>','skt-addons-for-elementor'), 'Get API Key'),
             ]
         );
 
         $this->add_control(
             'google_calendar_id',
             [
-                'label'       => __('Calendar ID', 'skt-addons-elementor'),
+                'label'       => __('Calendar ID', 'skt-addons-for-elementor'),
                 'label_block' => true,
                 'type'        => Controls_Manager::TEXT,
                 'default' => '',
-                //'description' => sprintf(__('<a href="#" target="_blank">%s</a>','skt-addons-elementor'), 'Get calendar ID'),
+                //'description' => sprintf(__('<a href="#" target="_blank">%s</a>','skt-addons-for-elementor'), 'Get calendar ID'),
             ]
         );
 
         $this->add_control(
             'google_calendar_start_date',
             [
-                'label'   => __('Start Date', 'skt-addons-elementor'),
+                'label'   => __('Start Date', 'skt-addons-for-elementor'),
                 'type'    => Controls_Manager::DATE_TIME,
-                'default' => date('Y-m-d H:i', current_time('timestamp', 0)),
+                'default' => gmdate('Y-m-d H:i', current_time('timestamp', 0)),
             ]
         );
 
         $this->add_control(
             'google_calendar_end_date',
             [
-                'label'   => __('End Date', 'skt-addons-elementor'),
+                'label'   => __('End Date', 'skt-addons-for-elementor'),
                 'type'    => Controls_Manager::DATE_TIME,
-                'default' => date('Y-m-d H:i', strtotime("+6 months", current_time('timestamp', 0))),
+                'default' => gmdate('Y-m-d H:i', strtotime("+6 months", current_time('timestamp', 0))),
             ]
         );
 
         $this->add_control(
             'google_calendar_max_item',
             [
-                'label'   => __('Number Of Events', 'skt-addons-elementor'),
+                'label'   => __('Number Of Events', 'skt-addons-for-elementor'),
                 'type'    => Controls_Manager::NUMBER,
                 'min'     => 1,
                 'default' => 100,
@@ -548,7 +550,7 @@ class Event_Calendar extends Base {
 			$this->start_controls_section(
 				'_section_the_events_calendar',
 				[
-					'label'     => __('The Event Calendar', 'skt-addons-elementor'),
+					'label'     => __('The Event Calendar', 'skt-addons-for-elementor'),
 					'tab'       => Controls_Manager::TAB_CONTENT,
 					'condition' => [
 						'event_calendar_type' => 'the_events_calendar',
@@ -559,14 +561,14 @@ class Event_Calendar extends Base {
 			$this->add_control(
 				'the_events_calendar_source',
 				[
-					'label'       => __('Get Events By', 'skt-addons-elementor'),
+					'label'       => __('Get Events By', 'skt-addons-for-elementor'),
 					'type'        => Controls_Manager::SELECT,
 					'label_block' => true,
 					'default'     => ['all'],
 					'options'     => [
-						'all'        => __('All Event', 'skt-addons-elementor'),
-						'category'        => __('By Category', 'skt-addons-elementor'),
-						'selected_event' => __('Selected Event', 'skt-addons-elementor'),
+						'all'        => __('All Event', 'skt-addons-for-elementor'),
+						'category'        => __('By Category', 'skt-addons-for-elementor'),
+						'selected_event' => __('Selected Event', 'skt-addons-for-elementor'),
 					],
 					// 'render_type' => 'none',
 				]
@@ -576,7 +578,7 @@ class Event_Calendar extends Base {
 			$this->add_control(
 				'the_events_calendar_category',
 				[
-					'label'       => __('Event Category', 'skt-addons-elementor'),
+					'label'       => __('Event Category', 'skt-addons-for-elementor'),
 					'label_block' => true,
 					'type'        => Controls_Manager::SELECT2,
 					'multiple'    => true,
@@ -590,7 +592,7 @@ class Event_Calendar extends Base {
 			$this->add_control(
 				'the_events_calendar_selected',
 				[
-					'label'       => __('Select Events', 'skt-addons-elementor'),
+					'label'       => __('Select Events', 'skt-addons-for-elementor'),
 					'label_block' => true,
 					'type'        => Controls_Manager::SELECT2,
 					'multiple'    => true,
@@ -604,7 +606,7 @@ class Event_Calendar extends Base {
 			$this->add_control(
 				'the_events_calendar_item',
 				[
-					'label'   => __('Event Item', 'skt-addons-elementor'),
+					'label'   => __('Event Item', 'skt-addons-for-elementor'),
 					'type'    => Controls_Manager::NUMBER,
 					'min'     => 1,
 					'default' => 12,
@@ -624,7 +626,7 @@ class Event_Calendar extends Base {
 		$this->start_controls_section(
 			'_section_event_settings',
 			[
-				'label' => __( 'Settings', 'skt-addons-elementor' ),
+				'label' => __( 'Settings', 'skt-addons-for-elementor' ),
 				'tab' => Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -632,11 +634,11 @@ class Event_Calendar extends Base {
 		$this->add_control(
             'language',
             [
-                'label'   => __('Language', 'skt-addons-elementor'),
+                'label'   => __('Language', 'skt-addons-for-elementor'),
                 'type'    => Controls_Manager::SELECT,
 				'options' => [
-					'manual' =>  __( 'Manual', 'skt-addons-elementor' ),
-					'google_calendar' =>  __( 'Google Calendar', 'skt-addons-elementor' ),
+					'manual' =>  __( 'Manual', 'skt-addons-for-elementor' ),
+					'google_calendar' =>  __( 'Google Calendar', 'skt-addons-for-elementor' ),
 				],
 				'options' => $this->language_code_list(),
                 'default' => 'en'
@@ -646,13 +648,13 @@ class Event_Calendar extends Base {
         $this->add_control(
             'default_view',
             [
-                'label'   => __('Calendar Default View', 'skt-addons-elementor'),
+                'label'   => __('Calendar Default View', 'skt-addons-for-elementor'),
                 'type'    => Controls_Manager::SELECT,
                 'options' => [
-                    'timeGridDay'  => __('Day', 'skt-addons-elementor'),
-                    'timeGridWeek' => __('Week', 'skt-addons-elementor'),
-                    'dayGridMonth' => __('Month', 'skt-addons-elementor'),
-                    'listMonth'    => __('List', 'skt-addons-elementor'),
+                    'timeGridDay'  => __('Day', 'skt-addons-for-elementor'),
+                    'timeGridWeek' => __('Week', 'skt-addons-for-elementor'),
+                    'dayGridMonth' => __('Month', 'skt-addons-for-elementor'),
+                    'listMonth'    => __('List', 'skt-addons-for-elementor'),
                 ],
                 'default' => 'dayGridMonth',
             ]
@@ -661,16 +663,16 @@ class Event_Calendar extends Base {
         $this->add_control(
             'event_calendar_first_day',
             [
-                'label'   => __('First Day of Week', 'skt-addons-elementor'),
+                'label'   => __('First Day of Week', 'skt-addons-for-elementor'),
                 'type'    => Controls_Manager::SELECT,
                 'options' => [
-                    '0' => __('Sunday', 'skt-addons-elementor'),
-                    '1' => __('Monday', 'skt-addons-elementor'),
-                    '2' => __('Tuesday', 'skt-addons-elementor'),
-                    '3' => __('Wednesday', 'skt-addons-elementor'),
-                    '4' => __('Thursday', 'skt-addons-elementor'),
-                    '5' => __('Friday', 'skt-addons-elementor'),
-                    '6' => __('Saturday', 'skt-addons-elementor'),
+                    '0' => __('Sunday', 'skt-addons-for-elementor'),
+                    '1' => __('Monday', 'skt-addons-for-elementor'),
+                    '2' => __('Tuesday', 'skt-addons-for-elementor'),
+                    '3' => __('Wednesday', 'skt-addons-for-elementor'),
+                    '4' => __('Thursday', 'skt-addons-for-elementor'),
+                    '5' => __('Friday', 'skt-addons-for-elementor'),
+                    '6' => __('Saturday', 'skt-addons-for-elementor'),
                 ],
                 'default' => '0',
             ]
@@ -679,7 +681,7 @@ class Event_Calendar extends Base {
 		$this->add_control(
             'show_event_popup',
             [
-                'label'        => __('Show Event Popup', 'skt-addons-elementor'),
+                'label'        => __('Show Event Popup', 'skt-addons-for-elementor'),
                 'label_block'  => false,
                 'type'         => Controls_Manager::SWITCHER,
 				'return_value' => 'yes',
@@ -690,10 +692,10 @@ class Event_Calendar extends Base {
 		$this->add_control(
             'allday_text',
             [
-                'label'        => __('All Day Text', 'skt-addons-elementor'),
+                'label'        => __('All Day Text', 'skt-addons-for-elementor'),
                 'label_block'  => false,
                 'type'         => Controls_Manager::TEXT,
-				'default' 	   => __('All Day', 'skt-addons-elementor'),
+				'default' 	   => __('All Day', 'skt-addons-for-elementor'),
                 'condition' => [
                     'show_event_popup' => 'yes',
                 ],
@@ -703,10 +705,10 @@ class Event_Calendar extends Base {
 		$this->add_control(
             'readmore_text',
             [
-                'label'        => __('Read More Text', 'skt-addons-elementor'),
+                'label'        => __('Read More Text', 'skt-addons-for-elementor'),
                 'label_block'  => false,
                 'type'         => Controls_Manager::TEXT,
-				'default' 	   => __('Read More', 'skt-addons-elementor'),
+				'default' 	   => __('Read More', 'skt-addons-for-elementor'),
                 'condition' => [
                     'show_event_popup' => 'yes',
                 ],
@@ -716,10 +718,10 @@ class Event_Calendar extends Base {
 		$this->add_control(
             'time_title',
             [
-                'label'        => __('Time Title', 'skt-addons-elementor'),
+                'label'        => __('Time Title', 'skt-addons-for-elementor'),
                 'label_block'  => false,
                 'type'         => Controls_Manager::TEXT,
-				'default' 	   => __('Timezone UTC+6', 'skt-addons-elementor'),
+				'default' 	   => __('Timezone UTC+6', 'skt-addons-for-elementor'),
                 'condition' => [
                     'show_event_popup' => 'yes',
                 ],
@@ -729,10 +731,10 @@ class Event_Calendar extends Base {
 		$this->add_control(
             'speaker_title',
             [
-                'label'        => __('Speaker Title', 'skt-addons-elementor'),
+                'label'        => __('Speaker Title', 'skt-addons-for-elementor'),
                 'label_block'  => false,
                 'type'         => Controls_Manager::TEXT,
-				'default' 	   => __('Speaker', 'skt-addons-elementor'),
+				'default' 	   => __('Speaker', 'skt-addons-for-elementor'),
                 'condition' => [
                     'show_event_popup' => 'yes',
                 ],
@@ -742,10 +744,10 @@ class Event_Calendar extends Base {
 		$this->add_control(
             'location_title',
             [
-                'label'        => __('Location Title', 'skt-addons-elementor'),
+                'label'        => __('Location Title', 'skt-addons-for-elementor'),
                 'label_block'  => false,
                 'type'         => Controls_Manager::TEXT,
-				'default' 	   => __('Address', 'skt-addons-elementor'),
+				'default' 	   => __('Address', 'skt-addons-for-elementor'),
                 'condition' => [
                     'show_event_popup' => 'yes',
                 ],
@@ -777,7 +779,7 @@ class Event_Calendar extends Base {
 		$this->start_controls_section(
 			'_section_style_calendar_wrapper',
 			[
-				'label' => __( 'Calendar', 'skt-addons-elementor' ),
+				'label' => __( 'Calendar', 'skt-addons-for-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -786,7 +788,7 @@ class Event_Calendar extends Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'calendar_typography',
-				'label'    => __('Calendar Font Family', 'skt-addons-elementor'),
+				'label'    => __('Calendar Font Family', 'skt-addons-for-elementor'),
 				'include' => [
 					'font_family',
 				],
@@ -797,7 +799,7 @@ class Event_Calendar extends Base {
 		$this->add_control(
             'calendar_background_color',
             [
-                'label'     => __('Background', 'skt-addons-elementor'),
+                'label'     => __('Background', 'skt-addons-for-elementor'),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .skt-ec-wrapper .fc-view > table'=> 'background-color: {{VALUE}}',
@@ -809,7 +811,7 @@ class Event_Calendar extends Base {
         $this->add_control(
             'calendar_border_color',
             [
-                'label'     => __('Border Color', 'skt-addons-elementor'),
+                'label'     => __('Border Color', 'skt-addons-for-elementor'),
                 'type'      => Controls_Manager::COLOR,
                 'default'   => '#CFCFDA',
                 'selectors' => [
@@ -826,7 +828,7 @@ class Event_Calendar extends Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name'     => 'calendar_box_shadow',
-                'label'    => __('Box Shadow', 'skt-addons-elementor'),
+                'label'    => __('Box Shadow', 'skt-addons-for-elementor'),
                 'selector' => '{{WRAPPER}} .skt-ec-wrapper .fc-view table.fc-scrollgrid,
 				{{WRAPPER}} .skt-ec-wrapper .fc-view table.fc-list-table',
             ]
@@ -835,7 +837,7 @@ class Event_Calendar extends Base {
 		$this->add_control(
 			'calendar_todays_background',
 			[
-				'label'     => __('Today\'s Background', 'skt-addons-elementor'),
+				'label'     => __('Today\'s Background', 'skt-addons-for-elementor'),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .skt-ec-wrapper .fc .fc-daygrid-day.fc-day-today' => 'background-color: {{VALUE}};',
@@ -847,7 +849,7 @@ class Event_Calendar extends Base {
 		$this->add_control(
 			'calendar_heading_heading',
 			[
-				'label' => __('Calendar Heading', 'skt-addons-elementor'),
+				'label' => __('Calendar Heading', 'skt-addons-for-elementor'),
 				'type'  => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -856,7 +858,7 @@ class Event_Calendar extends Base {
 		$this->add_responsive_control(
             'calendar_heading_padding',
             [
-                'label'      => __('Padding', 'skt-addons-elementor'),
+                'label'      => __('Padding', 'skt-addons-for-elementor'),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors'  => [
@@ -869,7 +871,7 @@ class Event_Calendar extends Base {
         $this->add_responsive_control(
 			'calendar_heading_font_size',
 			[
-				'label' => __( 'Font Size', 'skt-addons-elementor' ),
+				'label' => __( 'Font Size', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'range' => [
@@ -893,7 +895,7 @@ class Event_Calendar extends Base {
         $this->add_control(
             'calendar_heading_color',
             [
-                'label'     => __('Color', 'skt-addons-elementor'),
+                'label'     => __('Color', 'skt-addons-for-elementor'),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .skt-ec-wrapper .fc .fc-list-table th .fc-list-day-cushion' => 'color: {{VALUE}};',
@@ -905,7 +907,7 @@ class Event_Calendar extends Base {
 		$this->add_control(
 			'calendar_heading_background',
 			[
-				'label'     => __('Background', 'skt-addons-elementor'),
+				'label'     => __('Background', 'skt-addons-for-elementor'),
 				'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .skt-ec-wrapper th.fc-col-header-cell.fc-day' => 'background-color: {{VALUE}};',
@@ -916,7 +918,7 @@ class Event_Calendar extends Base {
 		$this->add_control(
 			'calendar_date_and_time_heading',
 			[
-				'label' => __('Date&Time', 'skt-addons-elementor'),
+				'label' => __('Date&Time', 'skt-addons-for-elementor'),
 				'type'  => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -925,7 +927,7 @@ class Event_Calendar extends Base {
         $this->add_responsive_control(
 			'calendar_date_and_time_font_size',
 			[
-				'label' => __( 'Font Size', 'skt-addons-elementor' ),
+				'label' => __( 'Font Size', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'range' => [
@@ -950,7 +952,7 @@ class Event_Calendar extends Base {
         $this->add_control(
             'calendar_text_color',
             [
-                'label'     => __('Color', 'skt-addons-elementor'),
+                'label'     => __('Color', 'skt-addons-for-elementor'),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .skt-ec-wrapper span.fc-timegrid-axis-cushion.fc-scrollgrid-shrink-cushion.fc-scrollgrid-sync-inner' => 'color: {{VALUE}};',
@@ -968,7 +970,7 @@ class Event_Calendar extends Base {
 		$this->start_controls_section(
 			'_section_style_calendar_topbar',
 			[
-				'label' => __( 'Top Bar', 'skt-addons-elementor' ),
+				'label' => __( 'Top Bar', 'skt-addons-for-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -976,7 +978,7 @@ class Event_Calendar extends Base {
 		$this->add_responsive_control(
 			'topbar_margin_bottom',
 			[
-				'label'      => __('Margin Bottom', 'skt-addons-elementor'),
+				'label'      => __('Margin Bottom', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'range' => [
@@ -999,7 +1001,7 @@ class Event_Calendar extends Base {
 		$this->add_control(
 			'topbar_background',
 			[
-				'label'     => __('Background', 'skt-addons-elementor'),
+				'label'     => __('Background', 'skt-addons-for-elementor'),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .skt-ec-wrapper .fc-toolbar.fc-header-toolbar' => 'background-color: {{VALUE}};',
@@ -1010,7 +1012,7 @@ class Event_Calendar extends Base {
 		$this->add_control(
 			'topbar_title_heading',
 			[
-				'label' => __('Title', 'skt-addons-elementor'),
+				'label' => __('Title', 'skt-addons-for-elementor'),
 				'type'  => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -1020,7 +1022,8 @@ class Event_Calendar extends Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'topbar_title_typography',
-				'label'    => __('Typography', 'skt-addons-elementor'),
+				'label'    => __('Typography', 'skt-addons-for-elementor'),
+				// phpcs:ignore WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_exclude
 				'exclude' => [
 					'font_family',
 				],
@@ -1031,7 +1034,7 @@ class Event_Calendar extends Base {
         $this->add_control(
             'topbar_title_color',
             [
-                'label'     => __('Color', 'skt-addons-elementor'),
+                'label'     => __('Color', 'skt-addons-for-elementor'),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .skt-ec-wrapper .fc-toolbar h2.fc-toolbar-title' => 'color: {{VALUE}};',
@@ -1043,7 +1046,7 @@ class Event_Calendar extends Base {
         $this->add_control(
             'topbar_buttons_heading',
             [
-                'label'     => __('Button', 'skt-addons-elementor'),
+                'label'     => __('Button', 'skt-addons-for-elementor'),
                 'type'      => Controls_Manager::HEADING,
                 'separator' => 'before',
             ]
@@ -1052,7 +1055,7 @@ class Event_Calendar extends Base {
 		$this->add_responsive_control(
 			'topbar_buttons_space',
 			[
-				'label'      => __('Space Between', 'skt-addons-elementor'),
+				'label'      => __('Space Between', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'range' => [
@@ -1077,7 +1080,8 @@ class Event_Calendar extends Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'topbar_buttons_typography',
-				'label'    => __('Typography', 'skt-addons-elementor'),
+				'label'    => __('Typography', 'skt-addons-for-elementor'),
+				// phpcs:ignore WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_exclude
 				'exclude' => [
 					'font_family',
 				],
@@ -1089,7 +1093,8 @@ class Event_Calendar extends Base {
             Group_Control_Border::get_type(),
             [
                 'name'     => 'topbar_buttons_border',
-                'label'    => __('Border', 'skt-addons-elementor'),
+                'label'    => __('Border', 'skt-addons-for-elementor'),
+                // phpcs:ignore WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_exclude
 				'exclude' => ['color'], //remove border color
                 'selector' => '{{WRAPPER}} .skt-ec-wrapper .fc-toolbar.fc-header-toolbar button.fc-button',
             ]
@@ -1101,14 +1106,14 @@ class Event_Calendar extends Base {
         $this->start_controls_tab(
             'topbar_buttons_normal_state',
             [
-                'label' => __('Normal', 'skt-addons-elementor'),
+                'label' => __('Normal', 'skt-addons-for-elementor'),
             ]
         );
 
         $this->add_control(
             'topbar_buttons_color_normal',
             [
-                'label'     => __('Color', 'skt-addons-elementor'),
+                'label'     => __('Color', 'skt-addons-for-elementor'),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .skt-ec-wrapper .fc-toolbar.fc-header-toolbar button.fc-button' => 'color: {{VALUE}};',
@@ -1119,7 +1124,7 @@ class Event_Calendar extends Base {
         $this->add_control(
             'topbar_buttons_background_normal',
             [
-                'label'     => __('Background', 'skt-addons-elementor'),
+                'label'     => __('Background', 'skt-addons-for-elementor'),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .skt-ec-wrapper .fc-toolbar.fc-header-toolbar button.fc-button' => 'background-color: {{VALUE}};',
@@ -1130,7 +1135,7 @@ class Event_Calendar extends Base {
 		$this->add_control(
 			'topbar_buttons_border_color_normal',
 			[
-				'label' => __( 'Border Color', 'skt-addons-elementor' ),
+				'label' => __( 'Border Color', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .skt-ec-wrapper .fc-toolbar.fc-header-toolbar button.fc-button' => 'border-color: {{VALUE}}',
@@ -1143,14 +1148,14 @@ class Event_Calendar extends Base {
         $this->start_controls_tab(
             'topbar_buttons_hover_state',
             [
-                'label' => __('Hover', 'skt-addons-elementor'),
+                'label' => __('Hover', 'skt-addons-for-elementor'),
             ]
         );
 
         $this->add_control(
             'topbar_buttons_color_hover',
             [
-                'label'     => __('Color', 'skt-addons-elementor'),
+                'label'     => __('Color', 'skt-addons-for-elementor'),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .skt-ec-wrapper .fc-toolbar.fc-header-toolbar button.fc-button:hover' => 'color: {{VALUE}};',
@@ -1162,7 +1167,7 @@ class Event_Calendar extends Base {
         $this->add_control(
             'topbar_buttons_background_hover',
             [
-                'label'     => __('Background', 'skt-addons-elementor'),
+                'label'     => __('Background', 'skt-addons-for-elementor'),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .skt-ec-wrapper .fc-toolbar.fc-header-toolbar button.fc-button:hover' => 'background-color: {{VALUE}};',
@@ -1174,7 +1179,7 @@ class Event_Calendar extends Base {
 		$this->add_control(
 			'topbar_buttons_border_color_hover',
 			[
-				'label' => __( 'Border Color', 'skt-addons-elementor' ),
+				'label' => __( 'Border Color', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .skt-ec-wrapper .fc-toolbar.fc-header-toolbar button.fc-button:hover' => 'border-color: {{VALUE}}',
@@ -1189,7 +1194,7 @@ class Event_Calendar extends Base {
         $this->add_responsive_control(
             'topbar_buttons_border_radius_normal',
             [
-                'label'      => __('Border Radius', 'skt-addons-elementor'),
+                'label'      => __('Border Radius', 'skt-addons-for-elementor'),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors'  => [
@@ -1206,7 +1211,7 @@ class Event_Calendar extends Base {
 		$this->start_controls_section(
 			'_section_style_event',
 			[
-				'label' => __( 'Event', 'skt-addons-elementor' ),
+				'label' => __( 'Event', 'skt-addons-for-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -1214,7 +1219,7 @@ class Event_Calendar extends Base {
 		$this->add_responsive_control(
 			'event_item_font_size',
 			[
-				'label'      => __('Font Size', 'skt-addons-elementor'),
+				'label'      => __('Font Size', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'range' => [
@@ -1241,7 +1246,7 @@ class Event_Calendar extends Base {
         $this->add_control(
             'event_item_color',
             [
-                'label'     => __('Color', 'skt-addons-elementor'),
+                'label'     => __('Color', 'skt-addons-for-elementor'),
                 'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .skt-ec-wrapper .fc-daygrid-event' => 'color: {{VALUE}};',
@@ -1256,7 +1261,7 @@ class Event_Calendar extends Base {
 		$this->add_control(
 			'event_item_background',
 			[
-				'label'     => __('Background', 'skt-addons-elementor'),
+				'label'     => __('Background', 'skt-addons-for-elementor'),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .skt-ec-wrapper .fc-daygrid-event' => 'background-color: {{VALUE}};',
@@ -1269,7 +1274,7 @@ class Event_Calendar extends Base {
 		$this->add_control(
 			'event_item_dot_color',
 			[
-				'label'     => __('Dot Color', 'skt-addons-elementor'),
+				'label'     => __('Dot Color', 'skt-addons-for-elementor'),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .skt-ec-wrapper .fc-daygrid-event .fc-daygrid-event-dot' => 'border-color: {{VALUE}};',
@@ -1286,7 +1291,7 @@ class Event_Calendar extends Base {
 		$this->start_controls_section(
 			'_section_style_event_popup',
 			[
-				'label' => __( 'Event Popup', 'skt-addons-elementor' ),
+				'label' => __( 'Event Popup', 'skt-addons-for-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -1294,7 +1299,7 @@ class Event_Calendar extends Base {
         $this->add_control(
             'event_popup_wrapper_background',
             [
-                'label'     => __('Wrapper Background', 'skt-addons-elementor'),
+                'label'     => __('Wrapper Background', 'skt-addons-for-elementor'),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .skt-ec-popup-wrapper.skt-ec-popup-ready:before' => 'background: {{VALUE}}',
@@ -1306,7 +1311,7 @@ class Event_Calendar extends Base {
 		$this->add_responsive_control(
 			'event_popup_width',
 			[
-				'label'      => __('Width', 'skt-addons-elementor'),
+				'label'      => __('Width', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'range' => [
@@ -1329,7 +1334,7 @@ class Event_Calendar extends Base {
 		$this->add_responsive_control(
             'event_popup_padding',
             [
-                'label'      => __('Padding', 'skt-addons-elementor'),
+                'label'      => __('Padding', 'skt-addons-for-elementor'),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors'  => [
@@ -1342,7 +1347,7 @@ class Event_Calendar extends Base {
         $this->add_control(
             'event_popup_background',
             [
-                'label'     => __('Background', 'skt-addons-elementor'),
+                'label'     => __('Background', 'skt-addons-for-elementor'),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .skt-ec-popup-wrapper .skt-ec-popup' => 'background-color: {{VALUE}}',
@@ -1353,7 +1358,7 @@ class Event_Calendar extends Base {
 		$this->add_responsive_control(
             'event_popup_border_radius',
             [
-                'label'      => __('Border Radius', 'skt-addons-elementor'),
+                'label'      => __('Border Radius', 'skt-addons-for-elementor'),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors'  => [
@@ -1366,7 +1371,7 @@ class Event_Calendar extends Base {
             Group_Control_Border::get_type(),
             [
                 'name'     => 'event_popup_border',
-                'label'    => __('Border', 'skt-addons-elementor'),
+                'label'    => __('Border', 'skt-addons-for-elementor'),
                 'selector' => '{{WRAPPER}} .skt-ec-popup-wrapper .skt-ec-popup',
             ]
 		);
@@ -1374,7 +1379,7 @@ class Event_Calendar extends Base {
         $this->add_control(
             'event_popup_image_heading',
             [
-                'label' => __('Image', 'skt-addons-elementor'),
+                'label' => __('Image', 'skt-addons-for-elementor'),
                 'type'  => Controls_Manager::HEADING,
                 'separator'  => 'before',
             ]
@@ -1383,7 +1388,7 @@ class Event_Calendar extends Base {
 		$this->add_control(
 			'event_popup_image_width',
 			[
-				'label'      => __('Width', 'skt-addons-elementor'),
+				'label'      => __('Width', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'range' => [
@@ -1406,7 +1411,7 @@ class Event_Calendar extends Base {
 		$this->add_control(
             'event_popup_image_border_radius',
             [
-                'label'      => __('Border Radius', 'skt-addons-elementor'),
+                'label'      => __('Border Radius', 'skt-addons-for-elementor'),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors'  => [
@@ -1418,7 +1423,7 @@ class Event_Calendar extends Base {
         $this->add_control(
             'event_popup_title_heading',
             [
-                'label' => __('Title', 'skt-addons-elementor'),
+                'label' => __('Title', 'skt-addons-for-elementor'),
                 'type'  => Controls_Manager::HEADING,
                 'separator'  => 'before',
             ]
@@ -1427,7 +1432,7 @@ class Event_Calendar extends Base {
         $this->add_responsive_control(
 			'event_popup_title_margin_bottom',
 			[
-				'label' => __( 'Margin Bottom', 'skt-addons-elementor' ),
+				'label' => __( 'Margin Bottom', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'range' => [
@@ -1447,7 +1452,8 @@ class Event_Calendar extends Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'event_popup_title_typography',
-				'label'    => __('Typography', 'skt-addons-elementor'),
+				'label'    => __('Typography', 'skt-addons-for-elementor'),
+				// phpcs:ignore WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_exclude
 				'exclude' => [
 					'font_family',
 				],
@@ -1458,7 +1464,7 @@ class Event_Calendar extends Base {
         $this->add_control(
             'event_popup_title_color',
             [
-                'label'     => __('Color', 'skt-addons-elementor'),
+                'label'     => __('Color', 'skt-addons-for-elementor'),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .skt-ec-popup-wrapper .skt-ec-popup-content h3' => 'color: {{VALUE}}',
@@ -1469,7 +1475,7 @@ class Event_Calendar extends Base {
         $this->add_control(
             'event_popup_desc_heading',
             [
-                'label' => __('Description', 'skt-addons-elementor'),
+                'label' => __('Description', 'skt-addons-for-elementor'),
                 'type'  => Controls_Manager::HEADING,
                 'separator'  => 'before',
             ]
@@ -1478,7 +1484,7 @@ class Event_Calendar extends Base {
         $this->add_responsive_control(
 			'event_popup_desc__margin_bottom',
 			[
-				'label' => __( 'Margin Bottom', 'skt-addons-elementor' ),
+				'label' => __( 'Margin Bottom', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'range' => [
@@ -1498,7 +1504,8 @@ class Event_Calendar extends Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'event_popup_desc_typography',
-				'label'    => __('Typography', 'skt-addons-elementor'),
+				'label'    => __('Typography', 'skt-addons-for-elementor'),
+				// phpcs:ignore WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_exclude
 				'exclude' => [
 					'font_family',
 				],
@@ -1509,7 +1516,7 @@ class Event_Calendar extends Base {
         $this->add_control(
             'event_popup_desc_color',
             [
-                'label'     => __('Color', 'skt-addons-elementor'),
+                'label'     => __('Color', 'skt-addons-for-elementor'),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .skt-ec-popup-wrapper p.skt-ec-popup-desc' => 'color: {{VALUE}}',
@@ -1522,7 +1529,7 @@ class Event_Calendar extends Base {
         $this->add_control(
             'event_popup_readmore_heading',
             [
-                'label' => __('Read More', 'skt-addons-elementor'),
+                'label' => __('Read More', 'skt-addons-for-elementor'),
                 'type'  => Controls_Manager::HEADING,
                 'separator'  => 'before',
             ]
@@ -1532,7 +1539,8 @@ class Event_Calendar extends Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'event_popup_readmore_typography',
-				'label'    => __('Typography', 'skt-addons-elementor'),
+				'label'    => __('Typography', 'skt-addons-for-elementor'),
+				// phpcs:ignore WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_exclude
 				'exclude' => [
 					'font_family',
 				],
@@ -1543,7 +1551,7 @@ class Event_Calendar extends Base {
         $this->add_control(
             'event_popup_readmore_color',
             [
-                'label'     => __('Color', 'skt-addons-elementor'),
+                'label'     => __('Color', 'skt-addons-for-elementor'),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .skt-ec-popup-wrapper a.skt-ec-popup-readmore-link' => 'color: {{VALUE}}',
@@ -1554,7 +1562,7 @@ class Event_Calendar extends Base {
         $this->add_control(
             'event_popup_close_btn_heading',
             [
-                'label' => __('Close Button', 'skt-addons-elementor'),
+                'label' => __('Close Button', 'skt-addons-for-elementor'),
                 'type'  => Controls_Manager::HEADING,
                 'separator'  => 'before',
             ]
@@ -1563,7 +1571,7 @@ class Event_Calendar extends Base {
         $this->add_responsive_control(
 			'event_popup_close_btn_font_size',
 			[
-				'label' => __( 'Icon Size', 'skt-addons-elementor' ),
+				'label' => __( 'Icon Size', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'range' => [
@@ -1582,7 +1590,7 @@ class Event_Calendar extends Base {
         $this->add_control(
             'event_popup_close_btn_color',
             [
-                'label'     => __('Color', 'skt-addons-elementor'),
+                'label'     => __('Color', 'skt-addons-for-elementor'),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .skt-ec-popup-wrapper .skt-ec-popup-close' => 'color: {{VALUE}}',
@@ -1593,7 +1601,7 @@ class Event_Calendar extends Base {
         $this->add_control(
             'event_popup_close_btn_background',
             [
-                'label'     => __('Background', 'skt-addons-elementor'),
+                'label'     => __('Background', 'skt-addons-for-elementor'),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .skt-ec-popup-wrapper .skt-ec-popup-close' => 'background: {{VALUE}}',
@@ -1605,7 +1613,7 @@ class Event_Calendar extends Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name'     => 'event_popup_close_btn_box_shadow',
-                'label'    => __('Box Shadow', 'skt-addons-elementor'),
+                'label'    => __('Box Shadow', 'skt-addons-for-elementor'),
                 'selector' => '{{WRAPPER}} .skt-ec-popup-wrapper .skt-ec-popup-close',
             ]
 		);
@@ -1618,7 +1626,7 @@ class Event_Calendar extends Base {
         $this->add_control(
             'event_popup_meta_heading',
             [
-                'label' => __('Meta', 'skt-addons-elementor'),
+                'label' => __('Meta', 'skt-addons-for-elementor'),
                 'type'  => Controls_Manager::HEADING,
                 'separator'  => 'before',
             ]
@@ -1627,7 +1635,7 @@ class Event_Calendar extends Base {
 		$this->add_responsive_control(
             'event_popup_meta_item_margin',
             [
-                'label'      => __('Item Margin', 'skt-addons-elementor'),
+                'label'      => __('Item Margin', 'skt-addons-for-elementor'),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors'  => [
@@ -1640,7 +1648,7 @@ class Event_Calendar extends Base {
         $this->add_control(
             'event_popup_meta_icon_heading',
             [
-                'label' => __('Meta Icon', 'skt-addons-elementor'),
+                'label' => __('Meta Icon', 'skt-addons-for-elementor'),
                 'type'  => Controls_Manager::HEADING,
                 'separator'  => 'before',
             ]
@@ -1649,7 +1657,7 @@ class Event_Calendar extends Base {
         $this->add_responsive_control(
 			'event_popup_meta_icon_font_size',
 			[
-				'label' => __( 'Icon Size', 'skt-addons-elementor' ),
+				'label' => __( 'Icon Size', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'range' => [
@@ -1670,7 +1678,7 @@ class Event_Calendar extends Base {
         $this->add_control(
             'event_popup_meta_icon_color',
             [
-                'label'     => __('Color', 'skt-addons-elementor'),
+                'label'     => __('Color', 'skt-addons-for-elementor'),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .skt-ec-popup-wrapper .skt-ec-popup-content ul li .skt-ec-time-icon' => 'color: {{VALUE}}',
@@ -1683,7 +1691,7 @@ class Event_Calendar extends Base {
         $this->add_control(
             'event_popup_meta_title_heading',
             [
-                'label' => __('Meta Title', 'skt-addons-elementor'),
+                'label' => __('Meta Title', 'skt-addons-for-elementor'),
                 'type'  => Controls_Manager::HEADING,
                 'separator'  => 'before',
             ]
@@ -1692,7 +1700,7 @@ class Event_Calendar extends Base {
         $this->add_responsive_control(
 			'event_popup_meta_title_margin_bottom',
 			[
-				'label' => __( 'Margin Bottom', 'skt-addons-elementor' ),
+				'label' => __( 'Margin Bottom', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'range' => [
@@ -1714,7 +1722,8 @@ class Event_Calendar extends Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'event_popup_meta_title_typography',
-				'label'    => __('Typography', 'skt-addons-elementor'),
+				'label'    => __('Typography', 'skt-addons-for-elementor'),
+				// phpcs:ignore WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_exclude
 				'exclude' => [
 					'font_family',
 				],
@@ -1725,7 +1734,7 @@ class Event_Calendar extends Base {
         $this->add_control(
             'event_popup_meta_title_color',
             [
-                'label'     => __('Color', 'skt-addons-elementor'),
+                'label'     => __('Color', 'skt-addons-for-elementor'),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .skt-ec-popup-wrapper .skt-ec-popup-content ul li .skt-ec-time-title' => 'color: {{VALUE}}',
@@ -1738,7 +1747,7 @@ class Event_Calendar extends Base {
         $this->add_control(
             'event_popup_meta_content_heading',
             [
-                'label' => __('Meta Content', 'skt-addons-elementor'),
+                'label' => __('Meta Content', 'skt-addons-for-elementor'),
                 'type'  => Controls_Manager::HEADING,
                 'separator'  => 'before',
             ]
@@ -1748,7 +1757,8 @@ class Event_Calendar extends Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'event_popup_meta_content_typography',
-				'label'    => __('Typography', 'skt-addons-elementor'),
+				'label'    => __('Typography', 'skt-addons-for-elementor'),
+				// phpcs:ignore WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_exclude
 				'exclude' => [
 					'font_family',
 				],
@@ -1759,7 +1769,7 @@ class Event_Calendar extends Base {
         $this->add_control(
             'event_popup_meta_content_color',
             [
-                'label'     => __('Color', 'skt-addons-elementor'),
+                'label'     => __('Color', 'skt-addons-for-elementor'),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .skt-ec-popup-wrapper .skt-ec-popup-content ul li .skt-ec-event-time' => 'color: {{VALUE}}',
@@ -1828,14 +1838,14 @@ class Event_Calendar extends Base {
 
                 if ( $event['all_day'] == 'yes' ) {
                     $start = $event["start_date_allday"];
-					$end = date('Y-m-d', strtotime("+1 days", strtotime($event["end_date_allday"])));
+					$end = gmdate('Y-m-d', strtotime("+1 days", strtotime($event["end_date_allday"])));
 
 					$colors["textColor"] = !empty($event['text_color']) ? $event['text_color'] : '';
 					$colors["backgroundColor"] = !empty($event['bg_color']) ? $event['bg_color'] : '';
 
                 } else {
                     $start = $event["start_date"];
-                    $end = date('Y-m-d H:i', strtotime($event["end_date"])).":01";
+                    $end = gmdate('Y-m-d H:i', strtotime($event["end_date"])).":01";
 				}
 
 				$image = !empty( $event['image']['url'] ) ? esc_url( $event['image']['url'] ) : '' ;
@@ -1869,7 +1879,7 @@ class Event_Calendar extends Base {
     public function get_google_calendar_events ($settings) {
 
         if ( empty( $settings['google_calendar_api_key'] ) && empty( $settings['google_calendar_id'] ) ) {
-			$message = __('Please input API key & Calendar ID.', 'skt-addons-elementor');
+			$message = __('Please input API key & Calendar ID.', 'skt-addons-for-elementor');
 			printf('<span class="skt-ec-error-message">%1$s</span>', esc_html( $message ) );
             return [];
 		}
@@ -1883,12 +1893,12 @@ class Event_Calendar extends Base {
         $arg = [
             'key' => $settings['google_calendar_api_key'],
             'maxResults' => $settings['google_calendar_max_item'],
-            'timeMin' => urlencode( date( 'c', $start_date ) ),
+            'timeMin' => urlencode( gmdate( 'c', $start_date ) ),
             'singleEvents' => 'true',
         ];
 
         if ( ! empty( $end_date ) && $end_date > $start_date ) {
-            $arg['timeMax'] = urlencode( date( 'c', $end_date ) );
+            $arg['timeMax'] = urlencode( gmdate( 'c', $end_date ) );
         }
 
         $transient_key = 'skt_addons_elementor_ec_google_calendar_'.md5( urlencode($settings['google_calendar_id']) . implode('', $arg) );
@@ -1903,7 +1913,7 @@ class Event_Calendar extends Base {
         }
 
 		if( is_object( json_decode( $data ) ) && array_key_exists('error', json_decode( $data ) ) ){
-			$message = __('Please input valid API key & Calendar ID.', 'skt-addons-elementor');
+			$message = __('Please input valid API key & Calendar ID.', 'skt-addons-for-elementor');
 			printf('<span class="skt-ec-error-message">%1$s</span>', esc_html( $message ));
 			return [];
 		}
@@ -1959,12 +1969,14 @@ class Event_Calendar extends Base {
 		}
 
 		if ( 'selected_event' !== $settings['the_events_calendar_source'] ) {
+			// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
             $arg = [
 				'posts_per_page' => $settings['the_events_calendar_item'],
 			];
 		}
 
         if ( 'category' == $settings['the_events_calendar_source'] && !empty( $settings['the_events_calendar_category'] ) ) {
+        	// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
             $arg['tax_query'] = [
                 [
                     'taxonomy' => 'tribe_events_cat',

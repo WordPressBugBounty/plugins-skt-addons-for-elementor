@@ -220,17 +220,12 @@ function skt_addons_elementor() {
  * @return string $default default tag will be return during no matches
  */
 
-function skt_addons_elementor_escape_tags($tag, $default = 'span', $extra = []) {
+function skt_addons_elementor_escape_tags( $tag, $default = 'span', $extra = [] ) {
+    $supports = [ 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'span', 'p' ];
+    $supports = array_merge( $supports, $extra );
+    $tag      = strtolower( trim( (string) $tag ) );
 
-	$supports = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'span', 'p'];
-
-	$supports = array_merge($supports, $extra);
-
-	if (!in_array($tag, $supports, true)) {
-		return $default;
-	}
-
-	return $tag;
+    return in_array( $tag, $supports, true ) ? $tag : $default;
 }
 
 /**

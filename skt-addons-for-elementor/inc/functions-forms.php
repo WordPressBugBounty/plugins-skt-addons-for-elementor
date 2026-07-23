@@ -218,7 +218,7 @@ function skt_addons_elementor_get_fluent_forms() {
 		global $wpdb;
 
 		$table_fluentform_forms = $wpdb->prefix . 'fluentform_forms';
-		$fluent_forms = $wpdb->get_results( $wpdb->prepare("SELECT * FROM $table_fluentform_forms" )); // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+		$fluent_forms = $wpdb->get_results( $wpdb->prepare("SELECT * FROM $table_fluentform_forms" )); // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, PluginCheck.Security.DirectDB.UnescapedDBParameter
 
 		if ( $fluent_forms ) {
 			foreach( $fluent_forms as $form ) {

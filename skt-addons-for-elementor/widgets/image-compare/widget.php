@@ -545,13 +545,13 @@ class Image_Compare extends Base {
 
         $this->add_render_attribute( 'container', 'data-skt-settings', self::get_data_settings( $settings ) );
         ?>
-        <div <?php echo $this->get_render_attribute_string( 'container' ); ?>>
+        <div <?php echo wp_kses_post( $this->get_render_attribute_string( 'container' ) ); ?>>
             <?php if ( $settings['before_image']['url'] || $settings['before_image']['id'] ) :
                 $this->add_render_attribute( 'before_image', 'src', $settings['before_image']['url'] );
                 $this->add_render_attribute( 'before_image', 'alt', Control_Media::get_image_alt( $settings['before_image'] ) );
                 $this->add_render_attribute( 'before_image', 'title', Control_Media::get_image_title( $settings['before_image'] ) );
                 $settings['hover_animation'] = 'disable-animation'; // hack to prevent image hover animation
-                echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'thumbnail', 'before_image' );
+                echo wp_kses_post( Group_Control_Image_Size::get_attachment_image_html( $settings, 'thumbnail', 'before_image' ) );
             endif;
 
             if ( $settings['after_image']['url'] || $settings['after_image']['id'] ) :
@@ -559,7 +559,7 @@ class Image_Compare extends Base {
                 $this->add_render_attribute( 'after_image', 'alt', Control_Media::get_image_alt( $settings['after_image'] ) );
                 $this->add_render_attribute( 'after_image', 'title', Control_Media::get_image_title( $settings['after_image'] ) );
                 $settings['hover_animation'] = 'disable-animation'; // hack to prevent image hover animation
-                echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'thumbnail', 'after_image' );
+                echo wp_kses_post( Group_Control_Image_Size::get_attachment_image_html( $settings, 'thumbnail', 'after_image' ) );
             endif; ?>
         </div>
         <?php

@@ -771,7 +771,7 @@ class Step_Flow extends Base {
 		printf( '<%1$s %2$s>%3$s</%1$s>',
 			esc_attr(skt_addons_elementor_escape_tags( $settings['title_tag'], 'h2' )),
 			wp_kses_post($this->get_render_attribute_string( 'title' )),
-			esc_attr($title)
+			wp_kses_post( $title )
 		);
 		?>
 		<?php if ( $settings['description'] ) : ?>

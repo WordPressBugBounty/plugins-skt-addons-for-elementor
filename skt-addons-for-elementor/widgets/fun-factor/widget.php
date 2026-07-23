@@ -219,7 +219,7 @@ class Fun_Factor extends Base {
 			'animate_number',
 			[
 				'label'        => __('Animate', 'skt-addons-for-elementor'),
-				'description'  => __('Only number is animatable'),
+				'description'  => __('Only number is animatable', 'skt-addons-for-elementor'),
 				'type'         => Controls_Manager::SWITCHER,
 				'label_on'     => __('Yes', 'skt-addons-for-elementor'),
 				'label_off'    => __('No', 'skt-addons-for-elementor'),
@@ -878,11 +878,10 @@ class Fun_Factor extends Base {
 					if (!in_array($title_tag, $valid_tags)) {
 						$title_tag = 'h2';
 					}
-					$fun_factor_title_escaped = wp_kses_post(skt_addons_elementor_kses_basic( $fun_factor_title ));
 					printf(
 						'<%1$s class="skt-fun-factor__content-text">%2$s</%1$s>',
 						esc_html($title_tag),
-						$fun_factor_title_escaped
+						wp_kses_post(skt_addons_elementor_kses_basic( $fun_factor_title ))
 					);
 				?>
             </div>

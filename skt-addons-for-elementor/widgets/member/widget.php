@@ -176,7 +176,7 @@ class Member extends Base {
 		$this->add_control(
 			'extra_hover_cls',
 			[
-				'label' => __( 'Extra class added', 'plugin-domain' ),
+				'label' => __( 'Extra class added', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::HIDDEN,
 				'default' => 'on',
 				'prefix_class' => 'skt-member-hover-image-',

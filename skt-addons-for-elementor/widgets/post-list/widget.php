@@ -1135,11 +1135,11 @@ class Post_List extends Base {
 										if ( ! in_array( $title_tag, $valid_tags, true ) ) {
 											$title_tag = 'h2';
 										}
-										$escaped_title = esc_html( $title );
+
 										printf(
 											'<%1$s class="skt-post-list-title">%2$s</%1$s>',
 											esc_html( $title_tag ),
-											$escaped_title
+											esc_html( $title )
 										);
 									}
 									?>

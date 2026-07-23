@@ -247,7 +247,7 @@ class Gradient_Heading extends Base {
 			'<%1$s %2$s>%3$s</%1$s>',
 			esc_attr( $title_tag ), 
 			esc_attr( $this->get_render_attribute_string( 'title' ) ),
-			esc_html( $title ) 
+			wp_kses_post( $title ) 
 		);
 		
 	}

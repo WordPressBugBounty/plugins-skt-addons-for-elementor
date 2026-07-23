@@ -73,7 +73,7 @@ class Dashboard {
             wp_send_json_error();
         }
 
-        $posted_data = wp_unslash(! empty( $_POST['data'] ) ? $_POST['data'] : '');
+        $posted_data = wp_unslash(! empty( $_POST['data'] ) ? $_POST['data'] : ''); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
         $data = [];
         parse_str( $posted_data, $data );
 

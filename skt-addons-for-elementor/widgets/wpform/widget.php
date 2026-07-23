@@ -660,55 +660,17 @@ class WPForm extends Base {
 
     protected function render() {
         if ( ! skt_addons_elementor_is_wpforms_activated() ) {
-			skt_addons_elementor_show_plugin_missing_alert( __( 'WPForms', 'skt-addons-for-elementor' ) );
+            skt_addons_elementor_show_plugin_missing_alert( __( 'WPForms', 'skt-addons-for-elementor' ) );
             return;
         }
 
         $settings = $this->get_settings_for_display();
-        // Resolved escaping issue
+
         if ( ! empty( $settings['form_id'] ) ) {
-            $shortcode_output = skt_addons_elementor_do_shortcode( 'wpforms', [
+            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- WPForms shortcode output is trusted, self-escaped plugin markup.
+            echo skt_addons_elementor_do_shortcode( 'wpforms', [
                 'id' => $settings['form_id'],
             ] );
-
-            $allowed_html = [
-                'form' => [
-                    'action' => [],
-                    'method' => [],
-                    'id' => [],
-                    'class' => [],
-                ],
-                'input' => [
-                    'type' => [],
-                    'name' => [],
-                    'value' => [],
-                    'class' => [],
-                    'id' => [],
-                ],
-                'label' => [
-                    'for' => [],
-                    'class' => [],
-                ],
-                'div' => [
-                    'class' => [],
-                    'id' => [],
-                ],
-                'span' => [
-                    'class' => [],
-                ],
-                'button' => [  
-                    'type' => [],
-                    'class' => [],
-                    'id' => [],
-                    'name' => [],
-                    'value' => [],
-                    'onclick' => [],
-                    'data-alt-text' => [],
-                    'data-submit-text' => [],
-                    'aria-live' => [],
-                ],
-            ];
-            echo $shortcode_output;
         }
     }
 }

@@ -1156,16 +1156,18 @@ class Card extends Base {
 		<div class="skt-card-body">
 			<?php
             // Resolved escaping issue
-            if ( $settings['title'] ) :
-                $title_tag = sanitize_html_class( $settings['title_tag'] );
-                $title_attributes = esc_attr( $this->get_render_attribute_string( 'title' ) );
-                $title_content = esc_html( $settings['title'] );
-                printf( '<%1$s %2$s>%3$s</%1$s>',
-                    $title_tag,
-                    $title_attributes,
-                    $title_content
-                );
-            endif;
+			if ( $settings['title'] ) :
+			    $allowed_tags = [ 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'span', 'p' ];
+			    $title_tag    = strtolower( $settings['title_tag'] );
+			    $title_tag    = in_array( $title_tag, $allowed_tags, true ) ? $title_tag : 'h2';
+
+			    printf(
+			        '<%1$s %2$s>%3$s</%1$s>',
+			        tag_escape( $title_tag ),
+			        $this->get_render_attribute_string( 'title' ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Elementor escapes attribute values internally via esc_attr.
+			        esc_html( $settings['title'] )
+			    );
+			endif;
             ?>
 			<?php if ( $settings['description'] ) : ?>
 				<div <?php echo wp_kses_post($this->get_render_attribute_string( 'description' )); ?>>

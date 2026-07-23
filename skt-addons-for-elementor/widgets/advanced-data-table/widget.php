@@ -25,7 +25,7 @@ class Advanced_Data_Table extends Base {
 	 *
 	 */
 	public function get_title() {
-		return __( 'Advanced Data Table', 'skt-addons-elementor' );
+		return __( 'Advanced Data Table', 'skt-addons-for-elementor' );
 	}
 
 	/**
@@ -62,7 +62,7 @@ class Advanced_Data_Table extends Base {
 		$this->start_controls_section(
 			'_section_table',
 			[
-				'label' => __( 'Data Table', 'skt-addons-elementor' ),
+				'label' => __( 'Data Table', 'skt-addons-for-elementor' ),
 				'tab' => Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -71,12 +71,12 @@ class Advanced_Data_Table extends Base {
 			'table_type',
 			[
 				'type' => Controls_Manager::SELECT,
-				'label' => __( 'Table Type', 'skt-addons-elementor' ),
+				'label' => __( 'Table Type', 'skt-addons-for-elementor' ),
 				'default' => 'table_press',
 				'options' => [
-					'table_press' => __( 'TablePress', 'skt-addons-elementor' ),
-					'database' => __( 'Database', 'skt-addons-elementor' ),
-					'import' => __( 'Import', 'skt-addons-elementor' ),
+					'table_press' => __( 'TablePress', 'skt-addons-for-elementor' ),
+					'database' => __( 'Database', 'skt-addons-for-elementor' ),
+					'import' => __( 'Import', 'skt-addons-for-elementor' ),
 				]
 			]
 		);
@@ -84,8 +84,8 @@ class Advanced_Data_Table extends Base {
 		$this->add_control(
 			'import_table_data',
 			[
-				'label' => __( 'Add Data', 'skt-addons-elementor' ),
-				'description' => __( 'Paste Data in CSV format. First Row will be Column Labels', 'skt-addons-elementor' ),
+				'label' => __( 'Add Data', 'skt-addons-for-elementor' ),
+				'description' => __( 'Paste Data in CSV format. First Row will be Column Labels', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::TEXTAREA,
 				'rows' => 10,
 				'label_block' => true,
@@ -98,38 +98,38 @@ class Advanced_Data_Table extends Base {
 		$this->add_control(
 			'database_tables_list',
 			[
-				'label' => __( 'Tables', 'skt-addons-elementor' ),
+				'label' => __( 'Tables', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::SELECT,
 				'label_block' => true,
 				'condition' => [
 					'table_type' => 'database'
 				],
-				'options' => ['' => __( 'Select Database Table', 'skt-addons-elementor' ) ] + \sktaddonselementorextra_db_tables_list(),
+				'options' => ['' => __( 'Select Database Table', 'skt-addons-for-elementor' ) ] + \sktaddonselementorextra_db_tables_list(),
 			]
 		);
 
 		$this->add_control(
 			'table_press_list',
 			[
-				'label' => __( 'Select Table', 'skt-addons-elementor' ),
+				'label' => __( 'Select Table', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::SELECT,
 				'label_block' => true,
 				'condition' => [
 					'table_type' => 'table_press'
 				],
-				'options' => ['' => __( 'Select Table', 'skt-addons-elementor' ) ] + \sktaddonselementorextra_get_table_press_list(),
+				'options' => ['' => __( 'Select Table', 'skt-addons-for-elementor' ) ] + \sktaddonselementorextra_get_table_press_list(),
 			]
 		);
 
         $this->add_control(
             'credentials',
             [
-                'label' => __('Credentials from', 'skt-addons-elementor'),
+                'label' => __('Credentials from', 'skt-addons-for-elementor'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'custom',
                 'options' =>  [
-                    'global' => __('Global', 'skt-addons-elementor'),
-                    'custom' => __('Custom', 'skt-addons-elementor'),
+                    'global' => __('Global', 'skt-addons-for-elementor'),
+                    'custom' => __('Custom', 'skt-addons-for-elementor'),
                 ],
 				'condition' => [
 					'table_type' => 'google_sheet'
@@ -140,7 +140,7 @@ class Advanced_Data_Table extends Base {
         $this->add_control(
             'credentials_set_notice',
             [
-                'raw' => '<strong>' . esc_html__('Note!', 'skt-addons-elementor') . '</strong> ' . esc_html__('Please set credentials in SKT Addons Dashboard - ', 'skt-addons-elementor') . '<a style="border-bottom-color: inherit;" href="'. esc_url(admin_url('admin.php?page=skt-addons#credentials')) . '" target="_blank" >'. esc_html__('Credentials', 'skt-addons-elementor') .'</a>',
+                'raw' => '<strong>' . esc_html__('Note!', 'skt-addons-for-elementor') . '</strong> ' . esc_html__('Please set credentials in SKT Addons Dashboard - ', 'skt-addons-for-elementor') . '<a style="border-bottom-color: inherit;" href="'. esc_url(admin_url('admin.php?page=skt-addons#credentials')) . '" target="_blank" >'. esc_html__('Credentials', 'skt-addons-for-elementor') .'</a>',
                 'type' => Controls_Manager::RAW_HTML,
                 'content_classes' => 'elementor-panel-alert elementor-panel-alert-warning',
                 'render_type' => 'ui',
@@ -154,10 +154,10 @@ class Advanced_Data_Table extends Base {
 		$this->add_control(
 			'api_key',
 			[
-				'label' => __( 'Google API Key', 'skt-addons-elementor' ),
+				'label' => __( 'Google API Key', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::TEXT,
 				'label_block' => true,
-				'description' => sprintf('<a href="https://console.developers.google.com/" target="_blank">%s</a>', __( 'Get API Key', 'skt-addons-elementor' ) ),
+				'description' => sprintf('<a href="https://console.developers.google.com/" target="_blank">%s</a>', __( 'Get API Key', 'skt-addons-for-elementor' ) ),
 				'condition' => [
 					'table_type' => 'google_sheet',
 					'credentials' => 'custom',
@@ -168,10 +168,10 @@ class Advanced_Data_Table extends Base {
 		$this->add_control(
 			'sheet_id',
 			[
-				'label' => __( 'Google Sheet ID', 'skt-addons-elementor' ),
+				'label' => __( 'Google Sheet ID', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::TEXT,
 				'label_block' => true,
-				'description' => __( 'Add Google Sheets ID.', 'skt-addons-elementor' ),
+				'description' => __( 'Add Google Sheets ID.', 'skt-addons-for-elementor' ),
 				'condition' => [
 					'table_type' => 'google_sheet',
 					'credentials' => 'custom',
@@ -182,10 +182,10 @@ class Advanced_Data_Table extends Base {
 		$this->add_control(
 			'sheet_range',
 			[
-				'label' => __( 'Google Sheets Range', 'skt-addons-elementor' ),
+				'label' => __( 'Google Sheets Range', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::TEXT,
 				'label_block' => true,
-				'description' => __( 'Add Google Sheets Range. Ex: A1:D5', 'skt-addons-elementor' ),
+				'description' => __( 'Add Google Sheets Range. Ex: A1:D5', 'skt-addons-for-elementor' ),
 				'condition' => [
 					'table_type' => 'google_sheet',
 					'credentials' => 'custom',
@@ -196,20 +196,20 @@ class Advanced_Data_Table extends Base {
 		$this->add_responsive_control(
 			'head_align',
 			[
-				'label' => __( 'Head Alignment', 'skt-addons-elementor' ),
+				'label' => __( 'Head Alignment', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::CHOOSE,
 				'separator' => 'before',
 				'options' => [
 					'left' => [
-						'title' => __( 'Left', 'skt-addons-elementor' ),
+						'title' => __( 'Left', 'skt-addons-for-elementor' ),
 						'icon' => 'eicon-text-align-left',
 					],
 					'center' => [
-						'title' => __( 'Center', 'skt-addons-elementor' ),
+						'title' => __( 'Center', 'skt-addons-for-elementor' ),
 						'icon' => 'eicon-text-align-center',
 					],
 					'right' => [
-						'title' => __( 'Right', 'skt-addons-elementor' ),
+						'title' => __( 'Right', 'skt-addons-for-elementor' ),
 						'icon' => 'eicon-text-align-right',
 					]
 				],
@@ -222,19 +222,19 @@ class Advanced_Data_Table extends Base {
 		$this->add_responsive_control(
 			'row_align',
 			[
-				'label' => __( 'Row Alignment', 'skt-addons-elementor' ),
+				'label' => __( 'Row Alignment', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => __( 'Left', 'skt-addons-elementor' ),
+						'title' => __( 'Left', 'skt-addons-for-elementor' ),
 						'icon' => 'eicon-text-align-left',
 					],
 					'center' => [
-						'title' => __( 'Center', 'skt-addons-elementor' ),
+						'title' => __( 'Center', 'skt-addons-for-elementor' ),
 						'icon' => 'eicon-text-align-center',
 					],
 					'right' => [
-						'title' => __( 'Right', 'skt-addons-elementor' ),
+						'title' => __( 'Right', 'skt-addons-for-elementor' ),
 						'icon' => 'eicon-text-align-right',
 					]
 				],
@@ -247,11 +247,11 @@ class Advanced_Data_Table extends Base {
 		$this->add_control(
 			'remove_cash',
 			[
-				'label' => __( 'Remove Cache', 'skt-addons-elementor' ),
-				'description' => __( "Don't forget to off when you have done editing Google Sheet.", 'skt-addons-elementor' ),
+				'label' => __( 'Remove Cache', 'skt-addons-for-elementor' ),
+				'description' => __( "Don't forget to off when you have done editing Google Sheet.", 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => __( 'ON', 'skt-addons-elementor' ),
-				'label_off' => __( 'OFF', 'skt-addons-elementor' ),
+				'label_on' => __( 'ON', 'skt-addons-for-elementor' ),
+				'label_off' => __( 'OFF', 'skt-addons-for-elementor' ),
 				'return_value' => 'yes',
 				'default' => 'no',
 				'separator' => 'before',
@@ -269,7 +269,7 @@ class Advanced_Data_Table extends Base {
 		$this->start_controls_section(
 			'_section_table_settings',
 			[
-				'label' => __( 'Settings', 'skt-addons-elementor' ),
+				'label' => __( 'Settings', 'skt-addons-for-elementor' ),
 				'tab' => Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -277,10 +277,10 @@ class Advanced_Data_Table extends Base {
 		$this->add_control(
 			'show_search',
 			[
-				'label' => __( 'Enable Search', 'skt-addons-elementor' ),
+				'label' => __( 'Enable Search', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => __( 'ON', 'skt-addons-elementor' ),
-				'label_off' => __( 'OFF', 'skt-addons-elementor' ),
+				'label_on' => __( 'ON', 'skt-addons-for-elementor' ),
+				'label_off' => __( 'OFF', 'skt-addons-for-elementor' ),
 				'return_value' => 'yes',
 				'default' => '',
 			]
@@ -289,10 +289,10 @@ class Advanced_Data_Table extends Base {
 		$this->add_control(
 			'show_pagination',
 			[
-				'label' => __( 'Enable Pagination', 'skt-addons-elementor' ),
+				'label' => __( 'Enable Pagination', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => __( 'ON', 'skt-addons-elementor' ),
-				'label_off' => __( 'OFF', 'skt-addons-elementor' ),
+				'label_on' => __( 'ON', 'skt-addons-for-elementor' ),
+				'label_off' => __( 'OFF', 'skt-addons-for-elementor' ),
 				'return_value' => 'yes',
 				'default' => '',
 				'prefix_class' => 'skt-enable-pagination-'
@@ -302,10 +302,10 @@ class Advanced_Data_Table extends Base {
 		$this->add_control(
 			'show_entries',
 			[
-				'label' => __( 'Enable Entries', 'skt-addons-elementor' ),
+				'label' => __( 'Enable Entries', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => __( 'ON', 'skt-addons-elementor' ),
-				'label_off' => __( 'OFF', 'skt-addons-elementor' ),
+				'label_on' => __( 'ON', 'skt-addons-for-elementor' ),
+				'label_off' => __( 'OFF', 'skt-addons-for-elementor' ),
 				'return_value' => 'yes',
 				'default' => 'yes',
 				'prefix_class' => 'skt-show-entries-',
@@ -318,11 +318,11 @@ class Advanced_Data_Table extends Base {
 		$this->add_control(
 			'export_table',
 			[
-				'label' => __( 'Enable Export Table', 'skt-addons-elementor' ),
-				'description' => __( 'Export as CSV file', 'skt-addons-elementor' ),
+				'label' => __( 'Enable Export Table', 'skt-addons-for-elementor' ),
+				'description' => __( 'Export as CSV file', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => __( 'ON', 'skt-addons-elementor' ),
-				'label_off' => __( 'OFF', 'skt-addons-elementor' ),
+				'label_on' => __( 'ON', 'skt-addons-for-elementor' ),
+				'label_off' => __( 'OFF', 'skt-addons-for-elementor' ),
 				'return_value' => 'yes',
 				'default' => '',
 			]
@@ -331,10 +331,10 @@ class Advanced_Data_Table extends Base {
 		$this->add_control(
 			'export_table_text',
 			[
-				'label' => __( 'Export Table', 'skt-addons-elementor' ),
+				'label' => __( 'Export Table', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::TEXT,
 				'label_block' => false,
-				'default' => __( 'Export Table', 'skt-addons-elementor' ),
+				'default' => __( 'Export Table', 'skt-addons-for-elementor' ),
 				'condition' => [
 					'export_table' => 'yes'
 				]
@@ -344,10 +344,10 @@ class Advanced_Data_Table extends Base {
 		$this->add_control(
 			'allow_visitors_export_table',
 			[
-				'label' => __( 'Allow Visitors to Export Table', 'skt-addons-elementor' ),
+				'label' => __( 'Allow Visitors to Export Table', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => __( 'ON', 'skt-addons-elementor' ),
-				'label_off' => __( 'OFF', 'skt-addons-elementor' ),
+				'label_on' => __( 'ON', 'skt-addons-for-elementor' ),
+				'label_off' => __( 'OFF', 'skt-addons-for-elementor' ),
 				'return_value' => 'yes',
 				'default' => '',
 				'condition' => [
@@ -359,7 +359,7 @@ class Advanced_Data_Table extends Base {
 		$this->add_responsive_control(
 			'table_width',
 			[
-				'label' => __( 'Table Width for Horizontal Scroll', 'skt-addons-elementor' ),
+				'label' => __( 'Table Width for Horizontal Scroll', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => ['px'],
 				'range' => [
@@ -403,7 +403,7 @@ class Advanced_Data_Table extends Base {
 		$this->start_controls_section(
 			'_section_table_common',
 			[
-				'label' => __( 'Common', 'skt-addons-elementor' ),
+				'label' => __( 'Common', 'skt-addons-for-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -411,7 +411,7 @@ class Advanced_Data_Table extends Base {
 		$this->add_control(
 			'search_heading',
 			[
-				'label' => __( 'Search', 'skt-addons-elementor' ),
+				'label' => __( 'Search', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::HEADING,
 			]
 		);
@@ -424,14 +424,14 @@ class Advanced_Data_Table extends Base {
 				'condition' => [
 					'show_search' => ''
 				],
-				'raw' => __( 'Search is not Enable on <strong>Settings</strong>.', 'skt-addons-elementor' ),
+				'raw' => __( 'Search is not Enable on <strong>Settings</strong>.', 'skt-addons-for-elementor' ),
 			]
 		);
 
 		$this->add_responsive_control(
 			'search_padding',
 			[
-				'label' => __( 'Padding', 'skt-addons-elementor' ),
+				'label' => __( 'Padding', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
@@ -443,7 +443,7 @@ class Advanced_Data_Table extends Base {
 		$this->add_responsive_control(
 			'search_border_radius',
 			[
-				'label' => __( 'Border Radius', 'skt-addons-elementor' ),
+				'label' => __( 'Border Radius', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
@@ -463,7 +463,7 @@ class Advanced_Data_Table extends Base {
 		$this->add_control(
 			'search_label_color',
 			[
-				'label' => __( 'Label Color', 'skt-addons-elementor' ),
+				'label' => __( 'Label Color', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .dataTables_filter label' => 'color: {{VALUE}}',
@@ -474,7 +474,7 @@ class Advanced_Data_Table extends Base {
 		$this->add_control(
 			'search_input_background_color',
 			[
-				'label' => __( 'Input Background Color', 'skt-addons-elementor' ),
+				'label' => __( 'Input Background Color', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .dataTables_filter input' => 'background-color: {{VALUE}}',
@@ -485,7 +485,7 @@ class Advanced_Data_Table extends Base {
 		$this->add_control(
 			'pagination_heading',
 			[
-				'label' => __( 'Pagination', 'skt-addons-elementor' ),
+				'label' => __( 'Pagination', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before'
 			]
@@ -499,14 +499,14 @@ class Advanced_Data_Table extends Base {
 				'condition' => [
 					'show_pagination' => ''
 				],
-				'raw' => __( 'Pagination is not Enable on <strong>Settings</strong>.', 'skt-addons-elementor' ),
+				'raw' => __( 'Pagination is not Enable on <strong>Settings</strong>.', 'skt-addons-for-elementor' ),
 			]
 		);
 
 		$this->add_responsive_control(
 			'pagination_top_spacing',
 			[
-				'label' => __( 'Top Spacing', 'skt-addons-elementor' ),
+				'label' => __( 'Top Spacing', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => ['px'],
 				'selectors' => [
@@ -519,7 +519,7 @@ class Advanced_Data_Table extends Base {
 		$this->add_responsive_control(
 			'pagination_spacing',
 			[
-				'label' => __( 'Space between', 'skt-addons-elementor' ),
+				'label' => __( 'Space between', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => ['px'],
 				'selectors' => [
@@ -532,7 +532,7 @@ class Advanced_Data_Table extends Base {
 		$this->add_responsive_control(
 			'pagination_padding',
 			[
-				'label' => __( 'Padding', 'skt-addons-elementor' ),
+				'label' => __( 'Padding', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
@@ -544,7 +544,7 @@ class Advanced_Data_Table extends Base {
 		$this->add_responsive_control(
 			'pagination_border_radius',
 			[
-				'label' => __( 'Border Radius', 'skt-addons-elementor' ),
+				'label' => __( 'Border Radius', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
@@ -564,7 +564,7 @@ class Advanced_Data_Table extends Base {
 		$this->add_control(
 			'show_entries_color',
 			[
-				'label' => __( 'Show Entries Color', 'skt-addons-elementor' ),
+				'label' => __( 'Show Entries Color', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .dataTables_length' => 'color: {{VALUE}}',
@@ -575,7 +575,7 @@ class Advanced_Data_Table extends Base {
 		$this->add_control(
 			'show_entries_Counter',
 			[
-				'label' => __( 'Data Counter Color', 'skt-addons-elementor' ),
+				'label' => __( 'Data Counter Color', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .dataTables_info' => 'color: {{VALUE}}',
@@ -588,14 +588,14 @@ class Advanced_Data_Table extends Base {
         $this->start_controls_tab(
             '_tab_arrow_normal',
             [
-                'label' => __( 'Normal', 'skt-addons-elementor' ),
+                'label' => __( 'Normal', 'skt-addons-for-elementor' ),
             ]
 		);
 
 		$this->add_control(
 			'pagination_normal_background_color',
 			[
-				'label' => __( 'Background Color', 'skt-addons-elementor' ),
+				'label' => __( 'Background Color', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .dataTables_paginate a' => 'background-color: {{VALUE}}',
@@ -606,7 +606,7 @@ class Advanced_Data_Table extends Base {
 		$this->add_control(
 			'pagination_normal_color',
 			[
-				'label' => __( 'Color', 'skt-addons-elementor' ),
+				'label' => __( 'Color', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .dataTables_paginate a' => 'color: {{VALUE}} !important',
@@ -619,14 +619,14 @@ class Advanced_Data_Table extends Base {
 		$this->start_controls_tab(
             '_tab_active',
             [
-                'label' => __( 'Active', 'skt-addons-elementor' ),
+                'label' => __( 'Active', 'skt-addons-for-elementor' ),
             ]
 		);
 
 		$this->add_control(
 			'pagination_active_background_color',
 			[
-				'label' => __( 'Background Color', 'skt-addons-elementor' ),
+				'label' => __( 'Background Color', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .dataTables_paginate span .paginate_button.current' => 'background-color: {{VALUE}}',
@@ -637,7 +637,7 @@ class Advanced_Data_Table extends Base {
 		$this->add_control(
 			'pagination_active_color',
 			[
-				'label' => __( 'Color', 'skt-addons-elementor' ),
+				'label' => __( 'Color', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .dataTables_paginate span .paginate_button.current' => 'color: {{VALUE}} !important',
@@ -650,14 +650,14 @@ class Advanced_Data_Table extends Base {
         $this->start_controls_tab(
             '_tab_disabled',
             [
-                'label' => __( 'Disabled', 'skt-addons-elementor' ),
+                'label' => __( 'Disabled', 'skt-addons-for-elementor' ),
             ]
 		);
 
 		$this->add_control(
 			'pagination_disabled_background_color',
 			[
-				'label' => __( 'Background Color', 'skt-addons-elementor' ),
+				'label' => __( 'Background Color', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .dataTables_paginate .paginate_button.disabled' => 'background-color: {{VALUE}}',
@@ -668,7 +668,7 @@ class Advanced_Data_Table extends Base {
 		$this->add_control(
 			'pagination_disabled_color',
 			[
-				'label' => __( 'Color', 'skt-addons-elementor' ),
+				'label' => __( 'Color', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .dataTables_paginate .paginate_button.disabled' => 'color: {{VALUE}} !important',
@@ -681,14 +681,14 @@ class Advanced_Data_Table extends Base {
 		$this->start_controls_tab(
             '_tab_hover',
             [
-                'label' => __( 'Hover', 'skt-addons-elementor' ),
+                'label' => __( 'Hover', 'skt-addons-for-elementor' ),
             ]
 		);
 
 		$this->add_control(
 			'pagination_hover_background_color',
 			[
-				'label' => __( 'Background Color', 'skt-addons-elementor' ),
+				'label' => __( 'Background Color', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .dataTables_paginate .paginate_button:not(.disabled):hover' => 'background-color: {{VALUE}}',
@@ -699,7 +699,7 @@ class Advanced_Data_Table extends Base {
 		$this->add_control(
 			'pagination_hover_color',
 			[
-				'label' => __( 'Color', 'skt-addons-elementor' ),
+				'label' => __( 'Color', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .dataTables_paginate .paginate_button:not(.disabled):hover' => 'color: {{VALUE}} !important',
@@ -710,7 +710,7 @@ class Advanced_Data_Table extends Base {
 		$this->add_control(
 			'pagination_hover_border_color',
 			[
-				'label' => __( 'Border Color', 'skt-addons-elementor' ),
+				'label' => __( 'Border Color', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'condition' => [
 					'pagination_border_border!' => '',
@@ -732,7 +732,7 @@ class Advanced_Data_Table extends Base {
 		$this->start_controls_section(
 			'_section_table_head',
 			[
-				'label' => __( 'Table Head', 'skt-addons-elementor' ),
+				'label' => __( 'Table Head', 'skt-addons-for-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -740,7 +740,7 @@ class Advanced_Data_Table extends Base {
 		$this->add_responsive_control(
 			'table_head_padding',
 			[
-				'label' => __( 'Padding', 'skt-addons-elementor' ),
+				'label' => __( 'Padding', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
@@ -771,7 +771,7 @@ class Advanced_Data_Table extends Base {
 		$this->add_control(
 			'head_background_color',
 			[
-				'label' => __( 'Background Color', 'skt-addons-elementor' ),
+				'label' => __( 'Background Color', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .skt-advanced-table__head .skt-advanced-table__head-column' => 'background-color: {{VALUE}}',
@@ -782,7 +782,7 @@ class Advanced_Data_Table extends Base {
 		$this->add_control(
 			'head_color',
 			[
-				'label' => __( 'Color', 'skt-addons-elementor' ),
+				'label' => __( 'Color', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .skt-advanced-table__head .skt-advanced-table__head-column-cell' => 'color: {{VALUE}}',
@@ -793,7 +793,7 @@ class Advanced_Data_Table extends Base {
 		$this->add_control(
 			'column_short_icon_color',
 			[
-				'label' => __( 'Sorting Icon Color', 'skt-addons-elementor' ),
+				'label' => __( 'Sorting Icon Color', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .skt-advanced-table__head-column-cell.sorting_asc:before' => 'border-bottom-color: {{VALUE}}',
@@ -812,7 +812,7 @@ class Advanced_Data_Table extends Base {
 		$this->start_controls_section(
 			'_section_table_row',
 			[
-				'label' => __( 'Table Row', 'skt-addons-elementor' ),
+				'label' => __( 'Table Row', 'skt-addons-for-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -820,7 +820,7 @@ class Advanced_Data_Table extends Base {
 		$this->add_responsive_control(
 			'table_row_padding',
 			[
-				'label' => __( 'Padding', 'skt-addons-elementor' ),
+				'label' => __( 'Padding', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
@@ -852,14 +852,14 @@ class Advanced_Data_Table extends Base {
 		$this->start_controls_tab(
 			'_tab_head_row',
 			[
-				'label' => __( 'Normal', 'skt-addons-elementor' )
+				'label' => __( 'Normal', 'skt-addons-for-elementor' )
 			]
 		);
 
 		$this->add_control(
 			'row_background_color_even',
 			[
-				'label' => __( 'Background Color (Even)', 'skt-addons-elementor' ),
+				'label' => __( 'Background Color (Even)', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .skt-advanced-table__body .skt-advanced-table__body-row:nth-child(even)' => 'background-color: {{VALUE}}',
@@ -870,7 +870,7 @@ class Advanced_Data_Table extends Base {
 		$this->add_control(
 			'row_background_color_odd',
 			[
-				'label' => __( 'Background Color (Odd)', 'skt-addons-elementor' ),
+				'label' => __( 'Background Color (Odd)', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .skt-advanced-table__body .skt-advanced-table__body-row:nth-child(odd)' => 'background-color: {{VALUE}}',
@@ -881,7 +881,7 @@ class Advanced_Data_Table extends Base {
 		$this->add_control(
 			'row_color_even',
 			[
-				'label' => __( 'Color (Even) ', 'skt-addons-elementor' ),
+				'label' => __( 'Color (Even) ', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .skt-advanced-table__body .skt-advanced-table__body-row:nth-child(even)' => 'color: {{VALUE}}',
@@ -892,7 +892,7 @@ class Advanced_Data_Table extends Base {
 		$this->add_control(
 			'row_color_odd',
 			[
-				'label' => __( 'Color (Odd)', 'skt-addons-elementor' ),
+				'label' => __( 'Color (Odd)', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .skt-advanced-table__body .skt-advanced-table__body-row:nth-child(odd)' => 'color: {{VALUE}}',
@@ -905,14 +905,14 @@ class Advanced_Data_Table extends Base {
 		$this->start_controls_tab(
 			'_tab_row',
 			[
-				'label' => __( 'Hover', 'skt-addons-elementor' )
+				'label' => __( 'Hover', 'skt-addons-for-elementor' )
 			]
 		);
 
 		$this->add_control(
 			'row_hover_background_color_even',
 			[
-				'label' => __( 'Background Color (Even)', 'skt-addons-elementor' ),
+				'label' => __( 'Background Color (Even)', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .skt-advanced-table__body .skt-advanced-table__body-row:nth-child(even):hover' => 'background-color: {{VALUE}}',
@@ -923,7 +923,7 @@ class Advanced_Data_Table extends Base {
 		$this->add_control(
 			'row_hover_background_color_odd',
 			[
-				'label' => __( 'Background Color (Odd)', 'skt-addons-elementor' ),
+				'label' => __( 'Background Color (Odd)', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .skt-advanced-table__body .skt-advanced-table__body-row:nth-child(odd):hover' => 'background-color: {{VALUE}}',
@@ -934,7 +934,7 @@ class Advanced_Data_Table extends Base {
 		$this->add_control(
 			'row_hover_color_even',
 			[
-				'label' => __( 'Color (Even)', 'skt-addons-elementor' ),
+				'label' => __( 'Color (Even)', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .skt-advanced-table__body .skt-advanced-table__body-row:nth-child(even):hover' => 'color: {{VALUE}}',
@@ -945,7 +945,7 @@ class Advanced_Data_Table extends Base {
 		$this->add_control(
 			'row_hover_color_odd',
 			[
-				'label' => __( 'Color (Odd)', 'skt-addons-elementor' ),
+				'label' => __( 'Color (Odd)', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .skt-advanced-table__body .skt-advanced-table__body-row:nth-child(odd):hover' => 'color: {{VALUE}}',
@@ -1024,11 +1024,11 @@ class Advanced_Data_Table extends Base {
 
 		// error handling for editor fields.
 		if ( empty( $api_key ) ) {
-			$error_message[] = __( 'Add API key', 'skt-addons-elementor' );
+			$error_message[] = __( 'Add API key', 'skt-addons-for-elementor' );
 		} elseif ( empty( $sheet_id ) ) {
-			$error_message[] = __( 'Add Google Sheets ID', 'skt-addons-elementor' );
+			$error_message[] = __( 'Add Google Sheets ID', 'skt-addons-for-elementor' );
 		} elseif ( empty( $range ) ) {
-			$error_message[] = __( 'Add Sheets Range', 'skt-addons-elementor' );
+			$error_message[] = __( 'Add Sheets Range', 'skt-addons-for-elementor' );
 		}
 		if ( ! empty( $error_message ) ) {
 			return printf( '<div class="skt-data-table-error">%s</div>', esc_attr($error_message[0] ));
@@ -1048,7 +1048,7 @@ class Advanced_Data_Table extends Base {
 
 		// error handling for google sheet
 		if ( empty( $table_data ) ) {
-			$error_message['sheet_empty'] = __( 'Google Sheet is Empty', 'skt-addons-elementor' );
+			$error_message['sheet_empty'] = __( 'Google Sheet is Empty', 'skt-addons-for-elementor' );
 			return printf( '<div class="skt-data-table-error">%s</div>', esc_attr($error_message['sheet_empty'] ));
 		} elseif ( ! empty( $table_data ) && ! empty( $table_data['error'] ) ) {
 			$error_message['sheet_error'] = $table_data['error']['message'];
@@ -1109,10 +1109,10 @@ class Advanced_Data_Table extends Base {
 
 		$table_name = $settings["database_tables_list"];
 		if ( empty( $table_name ) ) {
-			return printf( '<div class="skt-data-table-error">%s</div>', esc_html( 'Select Table', 'skt-addons-elementor' ) );
+			return printf( '<div class="skt-data-table-error">%s</div>', esc_html( 'Select Table', 'skt-addons-for-elementor' ) );
 		}
 		
-		$table = $wpdb->get_results("SELECT * FROM $table_name", ARRAY_A); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared  
+		$table = $wpdb->get_results("SELECT * FROM $table_name", ARRAY_A); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared, PluginCheck.Security.DirectDB.UnescapedDBParameter 
 
 		if ( is_wp_error( $table ) ) {
 			return printf( '<div class="skt-data-table-error">%s</div>', esc_html($table->get_error_message()) );
@@ -1148,13 +1148,13 @@ class Advanced_Data_Table extends Base {
 		$settings = $this->get_settings_for_display();
 
 		if ( ! sktaddonselementorextra_is_table_press_activated() ) {
-			return printf( '<div class="skt-data-table-error">%s</div>', esc_attr__( 'Install TablePress', 'skt-addons-elementor' ) );
+			return printf( '<div class="skt-data-table-error">%s</div>', esc_attr__( 'Install TablePress', 'skt-addons-for-elementor' ) );
 		}
 		if ( empty( sktaddonselementorextra_get_table_press_list() ) ) {
-			return printf( '<div class="skt-data-table-error">%s</div>', esc_attr__( 'Create Table', 'skt-addons-elementor' ) );
+			return printf( '<div class="skt-data-table-error">%s</div>', esc_attr__( 'Create Table', 'skt-addons-for-elementor' ) );
 		}
 		if ( empty( $settings['table_press_list'] ) ) {
-			return printf( '<div class="skt-data-table-error">%s</div>', esc_attr__( 'Select Table', 'skt-addons-elementor' ) );
+			return printf( '<div class="skt-data-table-error">%s</div>', esc_attr__( 'Select Table', 'skt-addons-for-elementor' ) );
 		}
 
 		$tables = [];
@@ -1195,7 +1195,7 @@ class Advanced_Data_Table extends Base {
 		$settings = $this->get_settings_for_display();
 
 		if ( empty( $settings['import_table_data'] ) ) {
-			return printf( '<div class="skt-data-table-error">%s</div>', esc_html( 'Paste Data in CSV format.', 'skt-addons-elementor' ) );
+			return printf( '<div class="skt-data-table-error">%s</div>', esc_html( 'Paste Data in CSV format.', 'skt-addons-for-elementor' ) );
 		}
 
 		$table_data = explode( "\n", $settings['import_table_data'] );

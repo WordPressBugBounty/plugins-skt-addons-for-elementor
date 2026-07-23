@@ -1025,12 +1025,12 @@ class InfoBox extends Base {
 					if ( ! in_array( $title_tag, $valid_tags, true ) ) {
 						$title_tag = 'h2';
 					}
-					$title_content = wp_kses_post( $settings['title'] );
+
 					printf(
 						'<%1$s %2$s>%3$s</%1$s>',
 						esc_html( $title_tag ),
 						wp_kses_post( $this->get_render_attribute_string( 'title' ) ),
-						$title_content
+						wp_kses_post( $settings['title'] )
 					);
 				endif;
 			?>

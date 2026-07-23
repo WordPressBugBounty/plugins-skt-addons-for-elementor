@@ -1,12 +1,12 @@
 === SKT Addons for Elementor ===
 Plugin Name: SKT Addons for Elementor
-Version: 3.9
+Version: 4.0
 Author: sonalsinha21
 Author URI: https://www.sktthemes.org/
 Tags: Elementor, Elementor Addons, Elementor Widget, Elementor extension, page builder
 Requires at least: 5.0
-Tested up to: 6.8
-Stable tag: 3.9
+Tested up to: 7.0
+Stable tag: 4.0
 Requires PHP: 7.4
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -347,7 +347,7 @@ Yes absolutely it works with Elementor pro as well.
 
 Check our documentation for a detailed working and guide:
 
-[**Documentation**](https://sktthemesdemo.net/documentation/skt-addons-for-elementor-documentation/)
+[**Documentation**](https://sktthemesdemo.net/documentation/skt-addons-elementor-documentation/)
 
 
 == Screenshots ==
@@ -362,6 +362,9 @@ Check our documentation for a detailed working and guide:
 
 
 == Changelog ==
+= 4.0 =
+* Security: Fixed an authorization issue in the clone functionality by enforcing object-level capability checks and strengthening nonce validation.
+
 = 3.9 =
 * Code refactored in the Image Accordion widget.
 
@@ -868,7 +871,7 @@ $this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
 				'name' => 'badge_border',
-				'label' => __( 'Border', 'skt-addons-elementor' ),
+				'label' => __( 'Border', 'skt-addons-for-elementor' ),
 				'exclude' => [
 					'color'
 				],
@@ -882,7 +885,7 @@ $this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
 				'name' => 'badge_border_test',
-				'label' => __( 'Border', 'skt-addons-elementor' ),
+				'label' => __( 'Border', 'skt-addons-for-elementor' ),
 				'selector' => '{{WRAPPER}} .skt-pg-item .skt-pg-badge a',
 			]
 		);
@@ -892,7 +895,7 @@ Old: $this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
 				'name' => 'readmore_border',
-				'label' => __( 'Border', 'skt-addons-elementor' ),
+				'label' => __( 'Border', 'skt-addons-for-elementor' ),
 				'exclude' => [
 					'color',
 				],
@@ -909,7 +912,7 @@ $this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
 				'name' => 'readmore_border_test',
-				'label' => __( 'Border', 'skt-addons-elementor' ),
+				'label' => __( 'Border', 'skt-addons-for-elementor' ),
 				'selector' => '{{WRAPPER}} .skt-pg-readmore a',
 				// 'condition' => [
 				// 	$this->get_control_id( 'read_more!' ) => '',

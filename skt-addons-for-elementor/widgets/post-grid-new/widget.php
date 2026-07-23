@@ -36,7 +36,7 @@ class Post_Grid_New extends Base {
 	 *
 	 */
 	public function get_title() {
-		return __( 'Post Grid', 'skt-addons-elementor' );
+		return __( 'Post Grid', 'skt-addons-for-elementor' );
 	}
 
 	/**
@@ -266,7 +266,7 @@ class Post_Grid_New extends Base {
 		$this->start_controls_section(
 			'_section_layout',
 			[
-				'label' => __( 'Layout', 'skt-addons-elementor' ),
+				'label' => __( 'Layout', 'skt-addons-for-elementor' ),
 				'tab' => Controls_Manager::TAB_CONTENT,
 			]
         );
@@ -274,16 +274,16 @@ class Post_Grid_New extends Base {
 		$this->add_control(
 			'skin',
 			[
-				'label' => __( 'Skin', 'skt-addons-elementor' ),
+				'label' => __( 'Skin', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'classic' => __( 'Classic', 'skt-addons-elementor' ),
-					'hawai' => __( 'Hawai', 'skt-addons-elementor' ),
-					'standard' => __( 'Standard', 'skt-addons-elementor' ),
-					'monastic' => __( 'Monastic', 'skt-addons-elementor' ),
-					'stylica' => __( 'Stylica', 'skt-addons-elementor' ),
-					'outbox' => __( 'Outbox', 'skt-addons-elementor' ),
-					'crossroad' => __( 'Crossroad', 'skt-addons-elementor' ),
+					'classic' => __( 'Classic', 'skt-addons-for-elementor' ),
+					'hawai' => __( 'Hawai', 'skt-addons-for-elementor' ),
+					'standard' => __( 'Standard', 'skt-addons-for-elementor' ),
+					'monastic' => __( 'Monastic', 'skt-addons-for-elementor' ),
+					'stylica' => __( 'Stylica', 'skt-addons-for-elementor' ),
+					'outbox' => __( 'Outbox', 'skt-addons-for-elementor' ),
+					'crossroad' => __( 'Crossroad', 'skt-addons-for-elementor' ),
 				],
 				'default' => 'classic',
 			]
@@ -292,7 +292,7 @@ class Post_Grid_New extends Base {
         $this->add_responsive_control(
 			'columns',
 			[
-				'label' => __( 'Columns', 'skt-addons-elementor' ),
+				'label' => __( 'Columns', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => '3',
 				'tablet_default' => '2',
@@ -316,7 +316,7 @@ class Post_Grid_New extends Base {
         $this->add_control(
             'posts_per_page',
             [
-                'label'   => __( 'Posts Per Page', 'skt-addons-elementor' ),
+                'label'   => __( 'Posts Per Page', 'skt-addons-for-elementor' ),
                 'type'    => Controls_Manager::NUMBER,
                 'default' => 3,
             ]
@@ -329,10 +329,10 @@ class Post_Grid_New extends Base {
 		$this->add_control(
 			'show_title',
 			[
-				'label' => __( 'Title', 'skt-addons-elementor' ),
+				'label' => __( 'Title', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => __( 'Show', 'skt-addons-elementor' ),
-				'label_off' => __( 'Hide', 'skt-addons-elementor' ),
+				'label_on' => __( 'Show', 'skt-addons-for-elementor' ),
+				'label_off' => __( 'Hide', 'skt-addons-for-elementor' ),
 				'return_value' => 'yes',
 				'default' => 'yes',
 			]
@@ -341,17 +341,17 @@ class Post_Grid_New extends Base {
 		$this->add_control(
 			'title_tag',
 			[
-				'label' => __( 'Title Tag', 'skt-addons-elementor' ),
+				'label' => __( 'Title Tag', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'h4',
 				'options' => [
-					'h1' => __( 'H1', 'skt-addons-elementor' ),
-					'h2' => __( 'H2', 'skt-addons-elementor' ),
-					'h3' => __( 'H3', 'skt-addons-elementor' ),
-					'h4' => __( 'H4', 'skt-addons-elementor' ),
-					'h5' => __( 'H5', 'skt-addons-elementor' ),
-					'h6' => __( 'H6', 'skt-addons-elementor' ),
-					'div' => __( 'DIV', 'skt-addons-elementor' ),
+					'h1' => __( 'H1', 'skt-addons-for-elementor' ),
+					'h2' => __( 'H2', 'skt-addons-for-elementor' ),
+					'h3' => __( 'H3', 'skt-addons-for-elementor' ),
+					'h4' => __( 'H4', 'skt-addons-for-elementor' ),
+					'h5' => __( 'H5', 'skt-addons-for-elementor' ),
+					'h6' => __( 'H6', 'skt-addons-for-elementor' ),
+					'div' => __( 'DIV', 'skt-addons-for-elementor' ),
 				],
 				'condition' => [
 					// $this->get_control_id( 'show_title' ) => 'yes',
@@ -366,8 +366,8 @@ class Post_Grid_New extends Base {
 			'excerpt_length',
 			[
 				'type'        => Controls_Manager::NUMBER,
-				'label'       => __( 'Excerpt Length', 'skt-addons-elementor' ),
-				'description' => __( 'Leave it blank to hide it.', 'skt-addons-elementor' ),
+				'label'       => __( 'Excerpt Length', 'skt-addons-for-elementor' ),
+				'description' => __( 'Leave it blank to hide it.', 'skt-addons-for-elementor' ),
 				'separator'   => 'before',
 				'min'         => 0,
 				'default'     => 15,
@@ -387,10 +387,10 @@ class Post_Grid_New extends Base {
 		$this->add_control(
 			'featured_image',
 			[
-				'label' => __( 'Featured Image', 'skt-addons-elementor' ),
+				'label' => __( 'Featured Image', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => __( 'Show', 'skt-addons-elementor' ),
-				'label_off' => __( 'Hide', 'skt-addons-elementor' ),
+				'label_on' => __( 'Show', 'skt-addons-for-elementor' ),
+				'label_off' => __( 'Hide', 'skt-addons-for-elementor' ),
 				'return_value' => 'yes',
 				'default' => 'yes',
 			]
@@ -419,10 +419,10 @@ class Post_Grid_New extends Base {
 		$this->add_control(
 			'show_badge',
 			[
-				'label' => __( 'Badge', 'skt-addons-elementor' ),
+				'label' => __( 'Badge', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => __( 'Show', 'skt-addons-elementor' ),
-				'label_off' => __( 'Hide', 'skt-addons-elementor' ),
+				'label_on' => __( 'Show', 'skt-addons-for-elementor' ),
+				'label_off' => __( 'Hide', 'skt-addons-for-elementor' ),
 				'return_value' => 'yes',
 				'default' => 'yes',
 			]
@@ -431,7 +431,7 @@ class Post_Grid_New extends Base {
 		$this->add_control(
 			'taxonomy_badge',
 			[
-				'label' => __( 'Badge Taxonomy', 'skt-addons-elementor' ),
+				'label' => __( 'Badge Taxonomy', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::SELECT2,
 				'label_block' => true,
 				'default' => 'category',
@@ -454,16 +454,16 @@ class Post_Grid_New extends Base {
 			'active_meta',
 			[
 				'type' => Controls_Manager::SELECT2,
-				'label' => __( 'Active Meta', 'skt-addons-elementor' ),
-				'description' => __( 'Select to show and unselect to hide', 'skt-addons-elementor' ),
+				'label' => __( 'Active Meta', 'skt-addons-for-elementor' ),
+				'description' => __( 'Select to show and unselect to hide', 'skt-addons-for-elementor' ),
 				'label_block' => true,
 				'separator' => 'before',
 				'multiple' => true,
 				'default' => ['author', 'date'],
 				'options' => [
-					'author' => __( 'Author', 'skt-addons-elementor' ),
-					'date' => __( 'Date', 'skt-addons-elementor' ),
-					'comments' => __( 'Comments', 'skt-addons-elementor' ),
+					'author' => __( 'Author', 'skt-addons-for-elementor' ),
+					'date' => __( 'Date', 'skt-addons-for-elementor' ),
+					'comments' => __( 'Comments', 'skt-addons-for-elementor' ),
 				]
 			]
 		);
@@ -472,7 +472,7 @@ class Post_Grid_New extends Base {
 			'meta_has_icon',
 			[
 				'type' => Controls_Manager::SWITCHER,
-				'label' => __( 'Enable Icon', 'skt-addons-elementor' ),
+				'label' => __( 'Enable Icon', 'skt-addons-for-elementor' ),
 				'return_value' => 'yes',
 				'default' => 'yes',
 				'condition' => [
@@ -486,7 +486,7 @@ class Post_Grid_New extends Base {
 			'meta_separator',
 			[
 				'type'      => Controls_Manager::TEXT,
-				'label'     => __( 'Separator', 'skt-addons-elementor' ),
+				'label'     => __( 'Separator', 'skt-addons-for-elementor' ),
 				'selectors' => [
 					'{{WRAPPER}} .skt-pg-meta-wrap ul li + li:before' => 'content: "{{VALUE}}"',
 				],
@@ -501,13 +501,13 @@ class Post_Grid_New extends Base {
 			'meta_position',
 			[
 				'type' => Controls_Manager::SELECT,
-				'label' => __( 'Position', 'skt-addons-elementor' ),
+				'label' => __( 'Position', 'skt-addons-for-elementor' ),
 				'label_block' => false,
 				'multiple' => true,
 				'default' => 'after',
 				'options' => [
-					'before' => __( 'Before Title', 'skt-addons-elementor' ),
-					'after' => __( 'After Title', 'skt-addons-elementor' ),
+					'before' => __( 'Before Title', 'skt-addons-for-elementor' ),
+					'after' => __( 'After Title', 'skt-addons-for-elementor' ),
 				],
 				'condition' => [
 					// $this->get_control_id( 'active_meta!' ) => [],
@@ -529,10 +529,10 @@ class Post_Grid_New extends Base {
 			'read_more',
 			[
 				'type' => Controls_Manager::TEXT,
-				'label' => __( 'Read More', 'skt-addons-elementor' ),
-				'placeholder' => __( 'Read More Text', 'skt-addons-elementor' ),
-				'description' => __( 'Leave it blank to hide it.', 'skt-addons-elementor' ),
-				'default' => __( 'Continue Reading »', 'skt-addons-elementor' ),
+				'label' => __( 'Read More', 'skt-addons-for-elementor' ),
+				'placeholder' => __( 'Read More Text', 'skt-addons-for-elementor' ),
+				'description' => __( 'Leave it blank to hide it.', 'skt-addons-for-elementor' ),
+				'default' => __( 'Continue Reading »', 'skt-addons-for-elementor' ),
 				'conditions' => $this->conditions('read_more_content'),
 			]
 		);
@@ -541,7 +541,7 @@ class Post_Grid_New extends Base {
 			'read_more_new_tab',
 			[
 				'type' => Controls_Manager::SWITCHER,
-				'label' => __( 'Open in new window', 'skt-addons-elementor' ),
+				'label' => __( 'Open in new window', 'skt-addons-for-elementor' ),
 				'return_value' => 'yes',
 				'default' => 'yes',
 				'conditions' => $this->conditions('read_more_new_tab_content'),
@@ -560,7 +560,7 @@ class Post_Grid_New extends Base {
 		$this->start_controls_section(
 			'_section_query',
 			[
-				'label' => __( 'Query', 'skt-addons-elementor' ),
+				'label' => __( 'Query', 'skt-addons-for-elementor' ),
 				'tab' => Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -610,7 +610,7 @@ class Post_Grid_New extends Base {
 		$this->start_controls_section(
 			'_section_layout_style',
 			[
-				'label' => __( 'Layout', 'skt-addons-elementor' ),
+				'label' => __( 'Layout', 'skt-addons-for-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -618,7 +618,7 @@ class Post_Grid_New extends Base {
 		$this->add_responsive_control(
 			'column_gap',
 			[
-				'label' => __( 'Columns Gap', 'skt-addons-elementor' ),
+				'label' => __( 'Columns Gap', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 30,
@@ -638,7 +638,7 @@ class Post_Grid_New extends Base {
 		$this->add_responsive_control(
 			'row_gap',
 			[
-				'label' => __( 'Rows Gap', 'skt-addons-elementor' ),
+				'label' => __( 'Rows Gap', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 35,
@@ -658,19 +658,19 @@ class Post_Grid_New extends Base {
 		$this->add_control(
 			'alignment',
 			[
-				'label' => __( 'Alignment', 'skt-addons-elementor' ),
+				'label' => __( 'Alignment', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => __( 'Left', 'skt-addons-elementor' ),
+						'title' => __( 'Left', 'skt-addons-for-elementor' ),
 						'icon' => 'eicon-text-align-left',
 					],
 					'center' => [
-						'title' => __( 'Center', 'skt-addons-elementor' ),
+						'title' => __( 'Center', 'skt-addons-for-elementor' ),
 						'icon' => 'eicon-text-align-center',
 					],
 					'right' => [
-						'title' => __( 'Right', 'skt-addons-elementor' ),
+						'title' => __( 'Right', 'skt-addons-for-elementor' ),
 						'icon' => 'eicon-text-align-right',
 					],
                 ],
@@ -695,7 +695,7 @@ class Post_Grid_New extends Base {
 		$this->start_controls_section(
 			'_section_item_box_style',
 			[
-				'label' => __( 'Item Box', 'skt-addons-elementor' ),
+				'label' => __( 'Item Box', 'skt-addons-for-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -703,7 +703,7 @@ class Post_Grid_New extends Base {
 		$this->add_responsive_control(
 			'item_box_padding',
 			[
-				'label' => __( 'Padding', 'skt-addons-elementor' ),
+				'label' => __( 'Padding', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
@@ -716,7 +716,7 @@ class Post_Grid_New extends Base {
 			Group_Control_Background::get_type(),
 			[
 				'name' => 'item_box_background',
-				'label' => __( 'Background', 'skt-addons-elementor' ),
+				'label' => __( 'Background', 'skt-addons-for-elementor' ),
 				'types' => [ 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .skt-pg-item',
 			]
@@ -726,7 +726,7 @@ class Post_Grid_New extends Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name' => 'item_box_box_shadow',
-				'label' => __( 'Box Shadow', 'skt-addons-elementor' ),
+				'label' => __( 'Box Shadow', 'skt-addons-for-elementor' ),
 				'selector' => '{{WRAPPER}} .skt-pg-item',
 			]
 		);
@@ -735,7 +735,7 @@ class Post_Grid_New extends Base {
 			Group_Control_Border::get_type(),
 			[
 				'name' => 'item_box_border',
-				'label' => __( 'Border', 'skt-addons-elementor' ),
+				'label' => __( 'Border', 'skt-addons-for-elementor' ),
 				'selector' => '{{WRAPPER}} .skt-pg-item',
 			]
 		);
@@ -743,7 +743,7 @@ class Post_Grid_New extends Base {
 		$this->add_responsive_control(
 			'item_box_border_radius',
 			[
-				'label' => __( 'Border Radius', 'skt-addons-elementor' ),
+				'label' => __( 'Border Radius', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
@@ -765,7 +765,7 @@ class Post_Grid_New extends Base {
 		$this->start_controls_section(
 			'_section_image_style',
 			[
-				'label' => __( 'Image', 'skt-addons-elementor' ),
+				'label' => __( 'Image', 'skt-addons-for-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					// $this->get_control_id( 'featured_image' ) => 'yes',
@@ -800,7 +800,7 @@ class Post_Grid_New extends Base {
 		$this->add_control(
 			'avatar_bg',
 			[
-				'label' => __( 'View', 'skt-addons-elementor' ),
+				'label' => __( 'View', 'skt-addons-for-elementor' ),
 				'type' => \Elementor\Controls_Manager::HIDDEN,
 				'default' => 'avater_bg',
 				'selectors' => [
@@ -822,8 +822,8 @@ class Post_Grid_New extends Base {
 		$this->add_control(
 			'feature_image_overlay_heading',
 			[
-				'label' => __( 'Image Overlay', 'skt-addons-elementor' ),
-				'description' => __( 'This overlay color only apply when post has an image.', 'skt-addons-elementor' ),
+				'label' => __( 'Image Overlay', 'skt-addons-for-elementor' ),
+				'description' => __( 'This overlay color only apply when post has an image.', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => [
@@ -836,8 +836,8 @@ class Post_Grid_New extends Base {
 			Group_Control_Background::get_type(),
 			[
 				'name' => 'feature_image_overlay',
-				'label' => __( 'Background', 'skt-addons-elementor' ),
-				'description' => __( 'This overlay color only apply when post has an image.', 'skt-addons-elementor' ),
+				'label' => __( 'Background', 'skt-addons-for-elementor' ),
+				'description' => __( 'This overlay color only apply when post has an image.', 'skt-addons-for-elementor' ),
 				'types' => [ 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .skt-pg-classic .skt-pg-thumb:before',
 				'condition' => [
@@ -849,7 +849,7 @@ class Post_Grid_New extends Base {
 		$this->add_control(
 			'feature_image_heading',
 			[
-				'label' => __( 'Image', 'skt-addons-elementor' ),
+				'label' => __( 'Image', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => [
@@ -868,7 +868,7 @@ class Post_Grid_New extends Base {
 		$this->add_responsive_control(
 			'feature_image_width',
 			[
-				'label' => __( 'Width', 'skt-addons-elementor' ),
+				'label' => __( 'Width', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px','%' ],
 				'range' => [
@@ -894,7 +894,7 @@ class Post_Grid_New extends Base {
 		$this->add_responsive_control(
 			'feature_image_height',
 			[
-				'label' => __( 'Height', 'skt-addons-elementor' ),
+				'label' => __( 'Height', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px','%' ],
 				'range' => [
@@ -918,7 +918,7 @@ class Post_Grid_New extends Base {
 		$this->add_responsive_control(
 			'feature_image_margin_btm',
 			[
-				'label' => __( 'Margin Bottom', 'skt-addons-elementor' ),
+				'label' => __( 'Margin Bottom', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'selectors' => [
@@ -935,7 +935,7 @@ class Post_Grid_New extends Base {
 		$this->add_responsive_control(
 			'crossroad_feature_image_margin_btm',
 			[
-				'label' => __( 'Margin Bottom', 'skt-addons-elementor' ),
+				'label' => __( 'Margin Bottom', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'range' => [
@@ -973,7 +973,7 @@ class Post_Grid_New extends Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name' => 'feature_image_shadow',
-				'label' => __( 'Box Shadow', 'skt-addons-elementor' ),
+				'label' => __( 'Box Shadow', 'skt-addons-for-elementor' ),
 				'selector' => '
 					{{WRAPPER}} .skt-pg-classic .skt-pg-thumb-area .skt-pg-thumb,
 					{{WRAPPER}} .skt-pg-hawai .skt-pg-thumb-area .skt-pg-thumb,
@@ -999,7 +999,7 @@ class Post_Grid_New extends Base {
 			Group_Control_Border::get_type(),
 			[
 				'name' => 'feature_image_border',
-				'label' => __( 'Border', 'skt-addons-elementor' ),
+				'label' => __( 'Border', 'skt-addons-for-elementor' ),
 				// 'selector' => '{{WRAPPER}} .skt-pg-thumb-area .skt-pg-thumb',
 				'selector' => '
 					{{WRAPPER}} .skt-pg-classic .skt-pg-thumb-area .skt-pg-thumb,
@@ -1026,7 +1026,7 @@ class Post_Grid_New extends Base {
 		$this->add_responsive_control(
 			'feature_image_border_radius',
 			[
-				'label' => __( 'Border Radius', 'skt-addons-elementor' ),
+				'label' => __( 'Border Radius', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
@@ -1058,7 +1058,7 @@ class Post_Grid_New extends Base {
 		$this->start_controls_tab(
 			'feature_image_normal_tab',
 			[
-				'label' => __( 'Normal', 'skt-addons-elementor' ),
+				'label' => __( 'Normal', 'skt-addons-for-elementor' ),
 			]
 		);
 
@@ -1075,7 +1075,7 @@ class Post_Grid_New extends Base {
 		$this->start_controls_tab(
 			'feature_image_hover_tab',
 			[
-				'label' => __( 'Hover', 'skt-addons-elementor' ),
+				'label' => __( 'Hover', 'skt-addons-for-elementor' ),
 			]
 		);
 
@@ -1100,7 +1100,7 @@ class Post_Grid_New extends Base {
 		$this->start_controls_section(
 			'_section_taxonomy_badge_style',
 			[
-				'label' => __( 'Badge', 'skt-addons-elementor' ),
+				'label' => __( 'Badge', 'skt-addons-for-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					// $this->get_control_id( 'show_badge' ) => 'yes',
@@ -1114,7 +1114,7 @@ class Post_Grid_New extends Base {
 		$this->add_responsive_control(
 			'badge_margin',
 			[
-				'label' => __( 'Margin', 'skt-addons-elementor' ),
+				'label' => __( 'Margin', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
@@ -1140,7 +1140,7 @@ class Post_Grid_New extends Base {
 		$this->add_responsive_control(
 			'badge_padding',
 			[
-				'label' => __( 'Padding', 'skt-addons-elementor' ),
+				'label' => __( 'Padding', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
@@ -1153,7 +1153,7 @@ class Post_Grid_New extends Base {
 			Group_Control_Border::get_type(),
 			[
 				'name' => 'badge_border_test',
-				'label' => __( 'Border', 'skt-addons-elementor' ),
+				'label' => __( 'Border', 'skt-addons-for-elementor' ),
 				'selector' => '{{WRAPPER}} .skt-pg-item .skt-pg-badge a',
 			]
 		);
@@ -1161,7 +1161,7 @@ class Post_Grid_New extends Base {
 		$this->add_responsive_control(
 			'badge_border_radius',
 			[
-				'label' => __( 'Border Radius', 'skt-addons-elementor' ),
+				'label' => __( 'Border Radius', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
@@ -1174,7 +1174,7 @@ class Post_Grid_New extends Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'badge_typography',
-				'label' => __( 'Typography', 'skt-addons-elementor' ),
+				'label' => __( 'Typography', 'skt-addons-for-elementor' ),
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
 			],
@@ -1186,14 +1186,14 @@ class Post_Grid_New extends Base {
 		$this->start_controls_tab(
 			'badge_normal_tab',
 			[
-				'label' => __( 'Normal', 'skt-addons-elementor' ),
+				'label' => __( 'Normal', 'skt-addons-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'badge_color',
 			[
-				'label' => __( 'Text Color', 'skt-addons-elementor' ),
+				'label' => __( 'Text Color', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .skt-pg-item .skt-pg-badge a' => 'color: {{VALUE}}',
@@ -1205,7 +1205,7 @@ class Post_Grid_New extends Base {
 			Group_Control_Background::get_type(),
 			[
 				'name' => 'badge_background',
-				'label' => __( 'Background', 'skt-addons-elementor' ),
+				'label' => __( 'Background', 'skt-addons-for-elementor' ),
 				'types' => [ 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .skt-pg-item .skt-pg-badge a',
 			]
@@ -1214,7 +1214,7 @@ class Post_Grid_New extends Base {
 		$this->add_control(
 			'badge_border_color',
 			[
-				'label' => __( 'Border Color', 'skt-addons-elementor' ),
+				'label' => __( 'Border Color', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .skt-pg-item .skt-pg-badge a' => 'border-color: {{VALUE}}',
@@ -1227,14 +1227,14 @@ class Post_Grid_New extends Base {
 		$this->start_controls_tab(
 			'badge_hover_tab',
 			[
-				'label' => __( 'Hover', 'skt-addons-elementor' ),
+				'label' => __( 'Hover', 'skt-addons-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'badge_hover_color',
 			[
-				'label' => __( 'Text Color', 'skt-addons-elementor' ),
+				'label' => __( 'Text Color', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .skt-pg-item .skt-pg-badge a:hover' => 'color: {{VALUE}}',
@@ -1246,7 +1246,7 @@ class Post_Grid_New extends Base {
 			Group_Control_Background::get_type(),
 			[
 				'name' => 'badge_hover_background',
-				'label' => __( 'Background', 'skt-addons-elementor' ),
+				'label' => __( 'Background', 'skt-addons-for-elementor' ),
 				'types' => [ 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .skt-pg-item .skt-pg-badge a:hover',
 			]
@@ -1255,7 +1255,7 @@ class Post_Grid_New extends Base {
 		$this->add_control(
 			'badge_hover_border_color',
 			[
-				'label' => __( 'Border Color', 'skt-addons-elementor' ),
+				'label' => __( 'Border Color', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .skt-pg-badge a:hover' => 'border-color: {{VALUE}}',
@@ -1278,10 +1278,10 @@ class Post_Grid_New extends Base {
         $this->add_control(
 			'badge_position_toggle',
 			[
-				'label' => __( 'Position', 'skt-addons-elementor' ),
+				'label' => __( 'Position', 'skt-addons-for-elementor' ),
 				'type' => \Elementor\Controls_Manager::POPOVER_TOGGLE,
-				'label_off' => __( 'None', 'skt-addons-elementor' ),
-				'label_on' => __( 'Custom', 'skt-addons-elementor' ),
+				'label_off' => __( 'None', 'skt-addons-for-elementor' ),
+				'label_on' => __( 'Custom', 'skt-addons-for-elementor' ),
 				'return_value' => 'yes',
 				'conditions' => [
 					'relation' => 'or',
@@ -1306,7 +1306,7 @@ class Post_Grid_New extends Base {
 		$this->add_responsive_control(
 			'badge_position_x',
 			[
-				'label' => __( 'Position Left', 'skt-addons-elementor' ),
+				'label' => __( 'Position Left', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => ['px', '%', 'em'],
 				'condition' => [
@@ -1332,7 +1332,7 @@ class Post_Grid_New extends Base {
 		$this->add_responsive_control(
 			'badge_position_y',
 			[
-				'label' => __( 'Position Top', 'skt-addons-elementor' ),
+				'label' => __( 'Position Top', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => ['px'],
 				'condition' => [
@@ -1366,7 +1366,7 @@ class Post_Grid_New extends Base {
 		$this->start_controls_section(
 			'_section_content_style',
 			[
-				'label' => __( 'Content', 'skt-addons-elementor' ),
+				'label' => __( 'Content', 'skt-addons-for-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -1374,7 +1374,7 @@ class Post_Grid_New extends Base {
 		$this->add_responsive_control(
 			'content_area_margin',
 			[
-				'label' => __( 'Margin', 'skt-addons-elementor' ),
+				'label' => __( 'Margin', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
@@ -1390,7 +1390,7 @@ class Post_Grid_New extends Base {
 		$this->add_responsive_control(
 			'content_area_padding',
 			[
-				'label' => __( 'Padding', 'skt-addons-elementor' ),
+				'label' => __( 'Padding', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
@@ -1403,7 +1403,7 @@ class Post_Grid_New extends Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name' => 'content_area_shadow',
-				'label' => __( 'Box Shadow', 'skt-addons-elementor' ),
+				'label' => __( 'Box Shadow', 'skt-addons-for-elementor' ),
 				'selector' => '{{WRAPPER}} .skt-pg-content-area',
 				'condition' => [
 					'skin' => 'crossroad',
@@ -1415,7 +1415,7 @@ class Post_Grid_New extends Base {
 			Group_Control_Border::get_type(),
 			[
 				'name' => 'content_area_border',
-				'label' => __( 'Border', 'skt-addons-elementor' ),
+				'label' => __( 'Border', 'skt-addons-for-elementor' ),
 				'selector' => '{{WRAPPER}} .skt-pg-content-area',
 				'condition' => [
 					'skin' => 'crossroad',
@@ -1426,7 +1426,7 @@ class Post_Grid_New extends Base {
 		$this->add_responsive_control(
 			'content_area_border_radius',
 			[
-				'label' => __( 'Border Radius', 'skt-addons-elementor' ),
+				'label' => __( 'Border Radius', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
@@ -1442,7 +1442,7 @@ class Post_Grid_New extends Base {
 		$this->add_control(
 			'post_title_heading',
 			[
-				'label' => __( 'Title', 'skt-addons-elementor' ),
+				'label' => __( 'Title', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => [
@@ -1455,7 +1455,7 @@ class Post_Grid_New extends Base {
 		$this->add_responsive_control(
 			'post_title_margin_btm',
 			[
-				'label' => __( 'Margin Bottom', 'skt-addons-elementor' ),
+				'label' => __( 'Margin Bottom', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -1483,7 +1483,7 @@ class Post_Grid_New extends Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'post_title_typography',
-				'label' => __( 'Typography', 'skt-addons-elementor' ),
+				'label' => __( 'Typography', 'skt-addons-for-elementor' ),
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
 			],
@@ -1506,14 +1506,14 @@ class Post_Grid_New extends Base {
 		$this->start_controls_tab(
 			'post_title_normal_tab',
 			[
-				'label' => __( 'Normal', 'skt-addons-elementor' ),
+				'label' => __( 'Normal', 'skt-addons-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'post_title_color',
 			[
-				'label' => __( 'Text Color', 'skt-addons-elementor' ),
+				'label' => __( 'Text Color', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .skt-pg-title a' => 'color: {{VALUE}}',
@@ -1526,14 +1526,14 @@ class Post_Grid_New extends Base {
 		$this->start_controls_tab(
 			'post_title_hover_tab',
 			[
-				'label' => __( 'Hover', 'skt-addons-elementor' ),
+				'label' => __( 'Hover', 'skt-addons-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'post_title_hover_color',
 			[
-				'label' => __( 'Text Color', 'skt-addons-elementor' ),
+				'label' => __( 'Text Color', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .skt-pg-title a:hover' => 'color: {{VALUE}}',
@@ -1548,7 +1548,7 @@ class Post_Grid_New extends Base {
 		$this->add_control(
 			'post_content_heading',
 			[
-				'label' => __( 'Content', 'skt-addons-elementor' ),
+				'label' => __( 'Content', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => [
@@ -1561,7 +1561,7 @@ class Post_Grid_New extends Base {
 		$this->add_responsive_control(
 			'post_content_margin_btm',
 			[
-				'label' => __( 'Margin Bottom', 'skt-addons-elementor' ),
+				'label' => __( 'Margin Bottom', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -1590,7 +1590,7 @@ class Post_Grid_New extends Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'post_content_typography',
-				'label' => __( 'Typography', 'skt-addons-elementor' ),
+				'label' => __( 'Typography', 'skt-addons-for-elementor' ),
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
 			],
@@ -1605,7 +1605,7 @@ class Post_Grid_New extends Base {
 		$this->add_control(
 			'post_content_color',
 			[
-				'label' => __( 'Text Color', 'skt-addons-elementor' ),
+				'label' => __( 'Text Color', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .skt-pg-excerpt' => 'color: {{VALUE}}',
@@ -1629,7 +1629,7 @@ class Post_Grid_New extends Base {
 		$this->start_controls_section(
 			'_section_meta_style',
 			[
-				'label' => __( 'Meta', 'skt-addons-elementor' ),
+				'label' => __( 'Meta', 'skt-addons-for-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					// $this->get_control_id( 'active_meta!' ) => []
@@ -1642,7 +1642,7 @@ class Post_Grid_New extends Base {
 		$this->add_control(
 			'meta_heading',
 			[
-				'label' => __( 'Meta', 'skt-addons-elementor' ),
+				'label' => __( 'Meta', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -1651,7 +1651,7 @@ class Post_Grid_New extends Base {
 		$this->add_responsive_control(
 			'meta_icon_space',
 			[
-				'label' => __( 'Icon Space', 'skt-addons-elementor' ),
+				'label' => __( 'Icon Space', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'selectors' => [
@@ -1664,7 +1664,7 @@ class Post_Grid_New extends Base {
 		$this->add_responsive_control(
 			'meta_space',
 			[
-				'label' => __( 'Space Between', 'skt-addons-elementor' ),
+				'label' => __( 'Space Between', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'selectors' => [
@@ -1678,7 +1678,7 @@ class Post_Grid_New extends Base {
 		$this->add_responsive_control(
 			'meta_margin_btm',
 			[
-				'label' => __( 'Margin Bottom', 'skt-addons-elementor' ),
+				'label' => __( 'Margin Bottom', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'selectors' => [
@@ -1691,7 +1691,7 @@ class Post_Grid_New extends Base {
 			Group_Control_Border::get_type(),
 			[
 				'name' => 'meta_border',
-				'label' => __( 'Border', 'skt-addons-elementor' ),
+				'label' => __( 'Border', 'skt-addons-for-elementor' ),
 				'selector' => '{{WRAPPER}} .skt-pg-meta-wrap',
 				'conditions' => [
 					'relation' => 'or',
@@ -1715,7 +1715,7 @@ class Post_Grid_New extends Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'meta_typography',
-				'label' => __( 'Typography', 'skt-addons-elementor' ),
+				'label' => __( 'Typography', 'skt-addons-for-elementor' ),
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
 			],
@@ -1727,14 +1727,14 @@ class Post_Grid_New extends Base {
 		$this->start_controls_tab(
 			'meta_normal_tab',
 			[
-				'label' => __( 'Normal', 'skt-addons-elementor' ),
+				'label' => __( 'Normal', 'skt-addons-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'meta_color',
 			[
-				'label' => __( 'Text Color', 'skt-addons-elementor' ),
+				'label' => __( 'Text Color', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .skt-pg-meta-wrap ul li a' => 'color: {{VALUE}}',
@@ -1749,14 +1749,14 @@ class Post_Grid_New extends Base {
 		$this->start_controls_tab(
 			'meta_hover_tab',
 			[
-				'label' => __( 'Hover', 'skt-addons-elementor' ),
+				'label' => __( 'Hover', 'skt-addons-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'meta_hover_color',
 			[
-				'label' => __( 'Text Color', 'skt-addons-elementor' ),
+				'label' => __( 'Text Color', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .skt-pg-meta-wrap ul li a:hover' => 'color: {{VALUE}}',
@@ -1772,7 +1772,7 @@ class Post_Grid_New extends Base {
 		$this->add_control(
 			'meta_separator_color',
 			[
-				'label' => __( 'Separator Color', 'skt-addons-elementor' ),
+				'label' => __( 'Separator Color', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'separator' => 'before',
 				'selectors' => [
@@ -1797,7 +1797,7 @@ class Post_Grid_New extends Base {
 		$this->start_controls_section(
 			'_section_readmore_style',
 			[
-				'label' => __( 'Read More', 'skt-addons-elementor' ),
+				'label' => __( 'Read More', 'skt-addons-for-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'conditions' => $this->conditions('read_more_content'),
 				// 'condition' => [
@@ -1809,8 +1809,8 @@ class Post_Grid_New extends Base {
 		$this->add_control(
 			'readmore_overlay_heading',
 			[
-				'label' => __( 'Overlay', 'skt-addons-elementor' ),
-				'description' => __( 'This overlay color only apply when post has an image.', 'skt-addons-elementor' ),
+				'label' => __( 'Overlay', 'skt-addons-for-elementor' ),
+				'description' => __( 'This overlay color only apply when post has an image.', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::HEADING,
 				'condition' => [
 					'skin' => 'standard',
@@ -1822,8 +1822,8 @@ class Post_Grid_New extends Base {
 			Group_Control_Background::get_type(),
 			[
 				'name' => 'readmore_overlay',
-				'label' => __( 'Background', 'skt-addons-elementor' ),
-				'description' => __( 'This overlay color only apply when post has an image.', 'skt-addons-elementor' ),
+				'label' => __( 'Background', 'skt-addons-for-elementor' ),
+				'description' => __( 'This overlay color only apply when post has an image.', 'skt-addons-for-elementor' ),
 				'types' => [ 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .skt-pg-standard .skt-pg-item .skt-pg-readmore::before',
 				'condition' => [
@@ -1836,7 +1836,7 @@ class Post_Grid_New extends Base {
 		$this->add_control(
 			'readmore_heading',
 			[
-				'label' => __( 'Read More', 'skt-addons-elementor' ),
+				'label' => __( 'Read More', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => [
@@ -1848,7 +1848,7 @@ class Post_Grid_New extends Base {
 		$this->add_responsive_control(
 			'readmore_margin',
 			[
-				'label' => __( 'Margin', 'skt-addons-elementor' ),
+				'label' => __( 'Margin', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
@@ -1863,7 +1863,7 @@ class Post_Grid_New extends Base {
 		$this->add_responsive_control(
 			'readmore_padding',
 			[
-				'label' => __( 'Padding', 'skt-addons-elementor' ),
+				'label' => __( 'Padding', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
@@ -1879,7 +1879,7 @@ class Post_Grid_New extends Base {
 			Group_Control_Border::get_type(),
 			[
 				'name' => 'readmore_border_test',
-				'label' => __( 'Border', 'skt-addons-elementor' ),
+				'label' => __( 'Border', 'skt-addons-for-elementor' ),
 				'selector' => '{{WRAPPER}} .skt-pg-readmore a',
 				// 'condition' => [
 				// 	$this->get_control_id( 'read_more!' ) => '',
@@ -1890,7 +1890,7 @@ class Post_Grid_New extends Base {
 		$this->add_responsive_control(
 			'readmore_border_radius',
 			[
-				'label' => __( 'Border Radius', 'skt-addons-elementor' ),
+				'label' => __( 'Border Radius', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
@@ -1906,7 +1906,7 @@ class Post_Grid_New extends Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'readmore_typography',
-				'label' => __( 'Typography', 'skt-addons-elementor' ),
+				'label' => __( 'Typography', 'skt-addons-for-elementor' ),
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
 			],
@@ -1927,14 +1927,14 @@ class Post_Grid_New extends Base {
 		$this->start_controls_tab(
 			'readmore_normal_tab',
 			[
-				'label' => __( 'Normal', 'skt-addons-elementor' ),
+				'label' => __( 'Normal', 'skt-addons-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'readmore_color',
 			[
-				'label' => __( 'Text Color', 'skt-addons-elementor' ),
+				'label' => __( 'Text Color', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .skt-pg-readmore a' => 'color: {{VALUE}}',
@@ -1946,7 +1946,7 @@ class Post_Grid_New extends Base {
 			Group_Control_Background::get_type(),
 			[
 				'name' => 'readmore_background',
-				'label' => __( 'Background', 'skt-addons-elementor' ),
+				'label' => __( 'Background', 'skt-addons-for-elementor' ),
 				'types' => [ 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .skt-pg-readmore a',
 			]
@@ -1955,7 +1955,7 @@ class Post_Grid_New extends Base {
 		$this->add_control(
 			'readmore_border_color',
 			[
-				'label' => __( 'Border Color', 'skt-addons-elementor' ),
+				'label' => __( 'Border Color', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .skt-pg-readmore a' => 'border-color: {{VALUE}}',
@@ -1968,14 +1968,14 @@ class Post_Grid_New extends Base {
 		$this->start_controls_tab(
 			'readmore_hover_tab',
 			[
-				'label' => __( 'Hover', 'skt-addons-elementor' ),
+				'label' => __( 'Hover', 'skt-addons-for-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'readmore_hover_color',
 			[
-				'label' => __( 'Text Color', 'skt-addons-elementor' ),
+				'label' => __( 'Text Color', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .skt-pg-readmore a:hover' => 'color: {{VALUE}}',
@@ -1987,7 +1987,7 @@ class Post_Grid_New extends Base {
 			Group_Control_Background::get_type(),
 			[
 				'name' => 'readmore_hover_background',
-				'label' => __( 'Background', 'skt-addons-elementor' ),
+				'label' => __( 'Background', 'skt-addons-for-elementor' ),
 				'types' => [ 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .skt-pg-readmore a:hover',
 			]
@@ -1996,7 +1996,7 @@ class Post_Grid_New extends Base {
 		$this->add_control(
 			'readmore_border_hover_color',
 			[
-				'label' => __( 'Border Color', 'skt-addons-elementor' ),
+				'label' => __( 'Border Color', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .skt-pg-readmore a:hover' => 'border-color: {{VALUE}}',
@@ -2019,7 +2019,7 @@ class Post_Grid_New extends Base {
 		$this->start_controls_section(
 			'_section_image_devider_shape_style',
 			[
-				'label' => __( 'Divider Shape', 'skt-addons-elementor' ),
+				'label' => __( 'Divider Shape', 'skt-addons-for-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'skin' => 'stylica',
@@ -2034,26 +2034,26 @@ class Post_Grid_New extends Base {
 			'devider_shape',
 			[
 				'type' => Controls_Manager::SELECT,
-				'label' => __( 'Type', 'skt-addons-elementor' ),
+				'label' => __( 'Type', 'skt-addons-for-elementor' ),
 				'label_block' => false,
 				'multiple' => true,
 				'default' => 'clouds',
 				'options' => [
-					'none'     => __( 'None', 'skt-addons-elementor' ),
-					'clouds'     => __( 'Clouds', 'skt-addons-elementor' ),
-					'corner'     => __( 'Corner', 'skt-addons-elementor' ),
-					'cross-line' => __( 'Cross Line', 'skt-addons-elementor' ),
-					'curve'      => __( 'Curve', 'skt-addons-elementor' ),
-					'drops'      => __( 'Drops', 'skt-addons-elementor' ),
-					'mountains'  => __( 'Mountains', 'skt-addons-elementor' ),
-					'pyramids'   => __( 'Pyramids', 'skt-addons-elementor' ),
-					'splash'     => __( 'Splash', 'skt-addons-elementor' ),
-					'split'      => __( 'Split', 'skt-addons-elementor' ),
-					'tilt'       => __( 'Tilt', 'skt-addons-elementor' ),
-					'torn-paper' => __( 'Torn Paper', 'skt-addons-elementor' ),
-					'triangle'   => __( 'Triangle', 'skt-addons-elementor' ),
-					'wave'       => __( 'Wave', 'skt-addons-elementor' ),
-					'zigzag'     => __( 'Zigzag', 'skt-addons-elementor' ),
+					'none'     => __( 'None', 'skt-addons-for-elementor' ),
+					'clouds'     => __( 'Clouds', 'skt-addons-for-elementor' ),
+					'corner'     => __( 'Corner', 'skt-addons-for-elementor' ),
+					'cross-line' => __( 'Cross Line', 'skt-addons-for-elementor' ),
+					'curve'      => __( 'Curve', 'skt-addons-for-elementor' ),
+					'drops'      => __( 'Drops', 'skt-addons-for-elementor' ),
+					'mountains'  => __( 'Mountains', 'skt-addons-for-elementor' ),
+					'pyramids'   => __( 'Pyramids', 'skt-addons-for-elementor' ),
+					'splash'     => __( 'Splash', 'skt-addons-for-elementor' ),
+					'split'      => __( 'Split', 'skt-addons-for-elementor' ),
+					'tilt'       => __( 'Tilt', 'skt-addons-for-elementor' ),
+					'torn-paper' => __( 'Torn Paper', 'skt-addons-for-elementor' ),
+					'triangle'   => __( 'Triangle', 'skt-addons-for-elementor' ),
+					'wave'       => __( 'Wave', 'skt-addons-for-elementor' ),
+					'zigzag'     => __( 'Zigzag', 'skt-addons-for-elementor' ),
 				],
 				// 'condition' => [
 				// 	$this->get_control_id( 'featured_image' ) => 'yes',
@@ -2064,7 +2064,7 @@ class Post_Grid_New extends Base {
 		$this->add_control(
 			'devider_shape_color',
 			[
-				'label' => __( 'Color', 'skt-addons-elementor' ),
+				'label' => __( 'Color', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				// 'condition' => [
 				// 	$this->get_control_id( 'featured_image' ) => 'yes',
@@ -2082,7 +2082,7 @@ class Post_Grid_New extends Base {
 		$this->add_responsive_control(
 			'devider_shape_width',
 			[
-				'label' => __( 'Width', 'skt-addons-elementor' ),
+				'label' => __( 'Width', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'unit' => '%',
@@ -2115,7 +2115,7 @@ class Post_Grid_New extends Base {
 		$this->add_responsive_control(
 			'devider_shape_height',
 			[
-				'label' => __( 'Height', 'skt-addons-elementor' ),
+				'label' => __( 'Height', 'skt-addons-for-elementor' ),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [

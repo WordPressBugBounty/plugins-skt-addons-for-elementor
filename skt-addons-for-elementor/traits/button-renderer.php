@@ -57,13 +57,13 @@ trait Button_Renderer {
 				$this->add_render_attribute( 'button', 'class', 'skt-btn--icon-before' );
 				$button_text = sprintf( '<span %1$s>%2$s</span>', $this->get_render_attribute_string( $args['text'] ), esc_html( $button_text ) );
 				?>
-				<a <?php $this->print_render_attribute_string( 'button' ); ?>><?php skt_addons_elementor_render_button_icon( $settings, $args['old_icon'], $args['new_icon'], ['class' => 'skt-btn-icon'] ); ?> <?php echo esc_html($button_text); ?></a>
+				<a <?php $this->print_render_attribute_string( 'button' ); ?>><?php skt_addons_elementor_render_button_icon( $settings, $args['old_icon'], $args['new_icon'], ['class' => 'skt-btn-icon'] ); ?> <?php echo wp_kses( $button_text, [ 'span' => [ 'class' => [] ] ] ); ?></a>
 				<?php
 			else :
 				$this->add_render_attribute( 'button', 'class', 'skt-btn--icon-after' );
 				$button_text = sprintf( '<span %1$s>%2$s</span>', $this->get_render_attribute_string( $args['text'] ), esc_html( $button_text ) );
 				?>
-                <a <?php $this->print_render_attribute_string( 'button' ); ?>><?php echo esc_html($button_text);?> <?php skt_addons_elementor_render_button_icon( $settings, $args['old_icon'], $args['new_icon'], ['class' => 'skt-btn-icon'] ); ?></a>
+                <a <?php $this->print_render_attribute_string( 'button' ); ?>><?php echo wp_kses( $button_text, [ 'span' => [ 'class' => [] ] ] ); ?> <?php skt_addons_elementor_render_button_icon( $settings, $args['old_icon'], $args['new_icon'], ['class' => 'skt-btn-icon'] ); ?></a>
 				<?php
 			endif;
 		endif;

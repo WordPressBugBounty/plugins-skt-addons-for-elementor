@@ -208,18 +208,14 @@ class Site_Title extends Base {
         }
 
         // Resolved escaping issue
-$archive_title_tag = sanitize_html_class($settings['site_title_tag']);
-$title_attributes = esc_attr($this->get_render_attribute_string('title'));
-$site_name = esc_html(get_bloginfo('name'));
-echo '<a href="' . esc_url(home_url('/')) . '">';
-printf(
-    '<%1$s %2$s>%3$s</%1$s>',
-    $archive_title_tag,
-    $title_attributes,
-    $site_name
-);
-echo '</a>';
-$escaped_js_site_name = esc_js(get_bloginfo('name'));
- 
+		echo '<a href="' . esc_url(home_url('/')) . '">';
+		printf(
+		    '<%1$s %2$s>%3$s</%1$s>',
+		    sanitize_html_class($settings['site_title_tag']),
+		    esc_attr($this->get_render_attribute_string('title')),
+		    esc_html(get_bloginfo('name'))
+		);
+		echo '</a>';
+		$escaped_js_site_name = esc_js(get_bloginfo('name'));
 	}
 }

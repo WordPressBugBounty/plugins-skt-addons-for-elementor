@@ -1498,9 +1498,9 @@ class Edd_Category_Carousel extends Base {
 								// Resolved escaping issue
 								$product_cat_name = esc_html( $product_cat->name );
 								$product_cat_link = esc_url( get_term_link( $product_cat->term_id, 'download_category' ) );
-								echo '<' . $title_tag . ' class="skt-product-cat-carousel-title">';
-								echo '<a href="' . $product_cat_link . '">' . $product_cat_name . '</a>';
-								echo '</' . $title_tag . '>';
+								echo '<' .esc_attr( $title_tag ). ' class="skt-product-cat-carousel-title">';
+								echo '<a href="' . esc_url($product_cat_link ) . '">' .esc_attr( $product_cat_name ). '</a>';
+								echo '</' . esc_attr( $title_tag ) . '>';
 								?>
 
 								<?php if ( $settings['show_cats_count'] == 'yes' ) : ?>

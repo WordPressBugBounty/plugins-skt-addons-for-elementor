@@ -1191,7 +1191,7 @@ class Widgets_Manager
 			'age-gate' => [
 				'cat' => 'general',
 				'is_active' => true,
-				'title' => __('Age Gate', 'skt-elementor-addons'),
+				'title' => __('Age Gate', 'skt-addons-for-elementor'),
 				'icon' => 'skti skti-age-gate',
 				'css' => ['age-gate'],
 				'js' => [],
@@ -1202,7 +1202,7 @@ class Widgets_Manager
 			],
 			'image-swap' => [
 				'cat' => 'general',
-				'title' => __( 'Image Swap', 'skt-elementor-addons' ),
+				'title' => __( 'Image Swap', 'skt-addons-for-elementor' ),
 				'icon' => 'skti skti-image-scroll',
 				'css' => ['image-swap'],
 				'js' => [],
@@ -1214,7 +1214,7 @@ class Widgets_Manager
 			'archive-title' => [
 				'cat' => 'theme-builder',
 				'is_active' => true,
-				'title' => __('Archive Title', 'skt-elementor-addons'),
+				'title' => __('Archive Title', 'skt-addons-for-elementor'),
 				'icon' => 'skti skti-tb-archieve-title',
 				'css' => [''],
 				'js' => [],
@@ -1226,7 +1226,7 @@ class Widgets_Manager
 			'author-meta' => [
 				'cat' => 'theme-builder',
 				'is_active' => true,
-				'title' => __('Author Meta', 'skt-elementor-addons'),
+				'title' => __('Author Meta', 'skt-addons-for-elementor'),
 				'icon' => 'skti skti-tb-author-meta',
 				'css' => ['author'],
 				'js' => [],
@@ -1238,7 +1238,7 @@ class Widgets_Manager
 			'page-title' => [
 				'cat' => 'theme-builder',
 				'is_active' => false,
-				'title' => __('Page Title', 'skt-elementor-addons'),
+				'title' => __('Page Title', 'skt-addons-for-elementor'),
 				'icon' => 'skti skti-tb-page-title',
 				'css' => [''],
 				'js' => [],
@@ -1250,7 +1250,7 @@ class Widgets_Manager
 			'post-comments' => [
 				'cat' => 'theme-builder',
 				'is_active' => true,
-				'title' => __('Post Comments', 'skt-elementor-addons'),
+				'title' => __('Post Comments', 'skt-addons-for-elementor'),
 				'icon' => 'skti skti-comment-square',
 				'css' => [''],
 				'js' => [],
@@ -1262,7 +1262,7 @@ class Widgets_Manager
 			'post-info' => [
 				'cat' => 'theme-builder',
 				'is_active' => true,
-				'title' => __('Post Meta', 'skt-elementor-addons'),
+				'title' => __('Post Meta', 'skt-addons-for-elementor'),
 				'icon' => 'skti skti-tb-post-info',
 				'css' => ['post-info'],
 				'js' => [],
@@ -1274,7 +1274,7 @@ class Widgets_Manager
 			'post-navigation' => [
 				'cat' => 'theme-builder',
 				'is_active' => true,
-				'title' => __('Post Navigation', 'skt-elementor-addons'),
+				'title' => __('Post Navigation', 'skt-addons-for-elementor'),
 				'icon' => 'skti skti-breadcrumbs',
 				'css' => ['post-navigation'],
 				'js' => [],
@@ -1286,7 +1286,7 @@ class Widgets_Manager
 			'post-title' => [
 				'cat' => 'theme-builder',
 				'is_active' => true,
-				'title' => __('Post Title', 'skt-elementor-addons'),
+				'title' => __('Post Title', 'skt-addons-for-elementor'),
 				'icon' => 'skti skti-tb-page-title',
 				'css' => [''],
 				'js' => [],
@@ -1298,7 +1298,7 @@ class Widgets_Manager
 			'site-logo' => [
 				'cat' => 'theme-builder',
 				'is_active' => true,
-				'title' => __('Site Logo', 'skt-elementor-addons'),
+				'title' => __('Site Logo', 'skt-addons-for-elementor'),
 				'icon' => 'skti skti-tb-site-logo',
 				'css' => [''],
 				'js' => [],
@@ -1310,7 +1310,7 @@ class Widgets_Manager
 			'site-tagline' => [
 				'cat' => 'theme-builder',
 				'is_active' => true,
-				'title' => __('Site Tagline', 'skt-elementor-addons'),
+				'title' => __('Site Tagline', 'skt-addons-for-elementor'),
 				'icon' => 'skti skti-tag',
 				'css' => ['site-tagline'],
 				'js' => [],
@@ -1322,7 +1322,7 @@ class Widgets_Manager
 			'site-title' => [
 				'cat' => 'theme-builder',
 				'is_active' => true,
-				'title' => __('Site Title', 'skt-elementor-addons'),
+				'title' => __('Site Title', 'skt-addons-for-elementor'),
 				'icon' => 'skti skti-tb-site-title',
 				'css' => ['site-title'],
 				'js' => [],
@@ -1334,7 +1334,7 @@ class Widgets_Manager
 			'lordicon'            => [
 				'cat'       => 'creative',
 				'is_active' => true,
-				'title'     => __('LordIcon', 'skt-elementor-addons'),
+				'title'     => __('LordIcon', 'skt-addons-for-elementor'),
 				'icon'      => 'skti skti-icon-box',
 				'css'       => ['lordicon'],
 				'js'        => [],
@@ -1345,7 +1345,7 @@ class Widgets_Manager
 			],
 			'unfold' => [
 				'cat' => 'general',
-				'title' => __( 'Unfold', 'skt-elementor-addons' ),
+				'title' => __( 'Unfold', 'skt-addons-for-elementor' ),
 				'icon' => 'skti skti-unfold-paper',
 				'css' => ['unfold'],
 				'js' => [],
@@ -1356,7 +1356,7 @@ class Widgets_Manager
 			],
 			'creative-slider' => [
 				'cat' => 'slider-&-carousel',
-				'title' => __('Creative Slider', 'skt-elementor-addons'),
+				'title' => __('Creative Slider', 'skt-addons-for-elementor'),
 				'icon' => 'skti skti-slider',
 				'css' => ['creative-slider'],
 				'js' => [],
@@ -1367,7 +1367,7 @@ class Widgets_Manager
 			],
 			'table-of-contents' => [
 				'cat' => 'general',
-				'title' => __('Table of Contents', 'skt-elementor-addons'),
+				'title' => __('Table of Contents', 'skt-addons-for-elementor'),
 				'icon' => 'skti skti-list-2',
 				'css' => ['table-of-contents'],
 				'js' => [],
@@ -1378,7 +1378,7 @@ class Widgets_Manager
 			],
 			'edd-cart' => [
 				'cat' => 'easy-digital-downloads',
-				'title' => __('EDD Cart', 'skt-elementor-addons'),
+				'title' => __('EDD Cart', 'skt-addons-for-elementor'),
 				'icon' => 'skti skti-cart',
 				'css' => ['edd-cart'],
 				'js' => [],
@@ -1389,7 +1389,7 @@ class Widgets_Manager
 			],
 			'edd-checkout' => [
 				'cat' => 'easy-digital-downloads',
-				'title' => __('EDD Checkout', 'skt-elementor-addons'),
+				'title' => __('EDD Checkout', 'skt-addons-for-elementor'),
 				'icon' => 'skti skti-checkout-2',
 				'css' => ['edd-checkout'],
 				'js' => [],
@@ -1400,7 +1400,7 @@ class Widgets_Manager
 			],
 			'edd-download' => [
 				'cat' => 'easy-digital-downloads',
-				'title' => __('EDD Download', 'skt-elementor-addons'),
+				'title' => __('EDD Download', 'skt-addons-for-elementor'),
 				'icon' => 'skti skti-Download-circle',
 				'css' => ['edd-purchase'],
 				'js' => [],
@@ -1411,7 +1411,7 @@ class Widgets_Manager
 			],
 			'edd-login' => [
 				'cat' => 'easy-digital-downloads',
-				'title' => __('EDD Login', 'skt-elementor-addons'),
+				'title' => __('EDD Login', 'skt-addons-for-elementor'),
 				'icon' => 'skti skti-checkout-2',
 				'css' => ['edd-login'],
 				'js' => [],
@@ -1422,7 +1422,7 @@ class Widgets_Manager
 			],
 			'edd-purchase' => [
 				'cat' => 'easy-digital-downloads',
-				'title' => __('EDD Purchase', 'skt-elementor-addons'),
+				'title' => __('EDD Purchase', 'skt-addons-for-elementor'),
 				'icon' => 'skti skti-user-plus',
 				'css' => ['edd-purchase'],
 				'js' => [],
@@ -1433,7 +1433,7 @@ class Widgets_Manager
 			],
 			'edd-register' => [
 				'cat' => 'easy-digital-downloads',
-				'title' => __('EDD Register', 'skt-elementor-addons'),
+				'title' => __('EDD Register', 'skt-addons-for-elementor'),
 				'icon' => 'skti skti-user-plus',
 				'css' => ['edd-register'],
 				'js' => [],
@@ -1444,7 +1444,7 @@ class Widgets_Manager
 			],
 			'edd-category-carousel' => [
 				'cat' => 'easy-digital-downloads',
-				'title' => __('EDD Category Carousel', 'skt-elementor-addons'),
+				'title' => __('EDD Category Carousel', 'skt-addons-for-elementor'),
 				'icon' => 'skti skti-Category-Carousel',
 				'css' => ['edd-category-carousel'],
 				'js' => [],
@@ -1455,7 +1455,7 @@ class Widgets_Manager
 			],
 			'edd-category-grid' => [
 				'cat' => 'easy-digital-downloads',
-				'title' => __('EDD Category Grid', 'skt-elementor-addons'),
+				'title' => __('EDD Category Grid', 'skt-addons-for-elementor'),
 				'icon' => 'skti skti-Category-Carousel',
 				'css' => ['product-category-grid'],
 				'js' => [],
@@ -1466,7 +1466,7 @@ class Widgets_Manager
 			],
 			'edd-product-carousel' => [
 				'cat' => 'easy-digital-downloads',
-				'title' => __('EDD Product Carousel', 'skt-elementor-addons'),
+				'title' => __('EDD Product Carousel', 'skt-addons-for-elementor'),
 				'icon' => 'skti skti-Product-Carousel',
 				'css' => ['edd-product-carousel', 'edd-quick-view'],
 				'js' => [],
@@ -1477,7 +1477,7 @@ class Widgets_Manager
 			],
 			'edd-product-grid' => [
 				'cat' => 'easy-digital-downloads',
-				'title' => __('EDD Product Grid', 'skt-elementor-addons'),
+				'title' => __('EDD Product Grid', 'skt-addons-for-elementor'),
 				'icon' => 'skti skti-product-grid',
 				'css' => ['edd-product-grid', 'edd-quick-view'],
 				'js' => [],
@@ -1488,7 +1488,7 @@ class Widgets_Manager
 			],
 			'edd-single-product' => [
 				'cat' => 'easy-digital-downloads',
-				'title' => __('EDD Single Product', 'skt-elementor-addons'),
+				'title' => __('EDD Single Product', 'skt-addons-for-elementor'),
 				'icon' => 'skti skti-Category-Carousel',
 				'css' => ['edd-single-product', 'edd-quick-view'],
 				'js' => [],
@@ -1500,7 +1500,7 @@ class Widgets_Manager
 			'photo-stack'         => [
 				'cat'       => 'creative',
 				'is_active' => true,
-				'title'     => __('Photo Stack', 'skt-elementor-addons'),
+				'title'     => __('Photo Stack', 'skt-addons-for-elementor'),
 				'icon'      => 'skti skti-lens',
 				'css'       => ['photo-stack'],
 				'js'        => [],

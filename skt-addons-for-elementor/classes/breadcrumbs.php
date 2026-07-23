@@ -1,6 +1,6 @@
 <?php
 
-namespace Skt_Addons_Elementor_Pro;
+namespace SKT_Addons_Elementor;
 
 /**
  * Class Breadcrumb_Trail

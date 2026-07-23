@@ -2288,12 +2288,13 @@ class Edd_Product_Carousel extends Base {
 									<?php echo skt_addons_elementor_pro_the_first_taxonomy( $loop->ID, 'download_category', ['class'=>'skt-product-carousel-category-inner'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 								</div>
 							<?php endif; ?>
-							<<?php echo skt_addons_elementor_escape_tags( $settings['title_tag'], 'h2' ) . ' class="skt-product-carousel-title"';  ?>>
-                            
-								<a href="<?php the_permalink(); ?>">
-									<?php the_title(); ?>
-								</a>
-							</<?php echo skt_addons_elementor_escape_tags( $settings['title_tag'], 'h2' );?>>
+							<?php $title_tag = skt_addons_elementor_escape_tags( $settings['title_tag'], 'h2' ); ?>
+
+							<<?php echo tag_escape( $title_tag ); ?> class="skt-product-carousel-title">
+							    <a href="<?php the_permalink(); ?>">
+							        <?php the_title(); ?>
+							    </a>
+							</<?php echo tag_escape( $title_tag ); ?>>
 
 							<?php if ( $settings[ 'show_excerpt' ] == 'yes' && !empty( $settings[ 'excerpt_length' ] ) ) : ?>
 								<p class="skt-product-carousel-desc">

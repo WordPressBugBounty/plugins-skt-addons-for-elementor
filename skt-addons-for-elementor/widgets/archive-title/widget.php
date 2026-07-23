@@ -201,24 +201,22 @@ class Archive_Title extends Base {
 	}
 
 	protected function render() {
-		$settings = $this->get_settings_for_display();
-		$this->add_render_attribute('title', 'class', 'skt-archive-title');
+	    $settings = $this->get_settings_for_display();
 
-        if ( ! empty( $settings['size'] ) ) {
-            $this->add_render_attribute('title', 'class', 'elementor-size-' . $settings['size']);
-        }
+	    $this->add_render_attribute( 'title', 'class', 'skt-archive-title' );
 
-		$archive_title_tag = sanitize_html_class($settings['archive_title_tag']);
-		$title_attributes = esc_attr($this->get_render_attribute_string('title'));
-		$archive_title = esc_js(get_the_archive_title());
-		// Resolved escaping issue
-		printf(
-			'<%1$s %2$s>%3$s</%1$s>',
-			$archive_title_tag,     // Tag (sanitized)
-			$title_attributes,      // Attributes (escaped)
-			$archive_title          // Title content (escaped)
-		);
+	    if ( ! empty( $settings['size'] ) ) {
+	        $this->add_render_attribute( 'title', 'class', 'elementor-size-' . $settings['size'] );
+	    }
 
+	    // Whitelist the tag — a tag name isn't an HTML class, so sanitize_html_class was the wrong tool.
+	    $archive_title_tag = \Elementor\Utils::validate_html_tag( $settings['archive_title_tag'] );
 
+	    printf(
+	        '<%1$s %2$s>%3$s</%1$s>',
+	        tag_escape( $archive_title_tag ),
+	        $this->get_render_attribute_string( 'title' ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Elementor escapes attribute values internally via esc_attr.
+	        wp_kses_post( get_the_archive_title() )
+	    );
 	}
 }

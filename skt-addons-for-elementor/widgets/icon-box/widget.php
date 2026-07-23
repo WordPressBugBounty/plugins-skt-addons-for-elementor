@@ -756,12 +756,12 @@ class Icon_Box extends Base {
 			if ( ! in_array( $title_tag, $valid_tags, true ) ) {
 				$title_tag = 'h2';
 			}
-			$title_content = wp_kses_post( skt_addons_elementor_kses_basic( $settings['title'] ) );
+
 			printf(
 				'<%1$s %2$s>%3$s</%1$s>',
 				esc_html( $title_tag ),
 				wp_kses_post( $this->get_render_attribute_string( 'title' ) ),
-				$title_content // Add this argument for %3$s
+				wp_kses_post( skt_addons_elementor_kses_basic( $settings['title'] ) ) // Add this argument for %3$s
 			);
 		endif;
 	}

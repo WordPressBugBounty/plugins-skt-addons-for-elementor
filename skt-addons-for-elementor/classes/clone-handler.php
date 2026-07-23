@@ -48,7 +48,7 @@ class Clone_Handler {
 				esc_html__( 'SKT Clone', 'skt-addons-for-elementor' )
 			);
 		}
-
+		
 		return $actions;
 	}
 
@@ -89,12 +89,31 @@ class Clone_Handler {
 		$post_id = sanitize_text_field(wp_unslash(isset( $_GET['post_id'] ) ? absint( $_GET['post_id'] ) : 0));
 		$ref = sanitize_text_field(wp_unslash(isset( $_GET['ref'] ) ? $_GET['ref'] : ''));
 
-		if ( ! wp_verify_nonce( $nonce, self::ACTION ) ) {
+		// Nonce is scoped to the specific post_id, so a nonce issued for one
+		// post cannot be replayed against a different post_id. Must match the
+		// action string used when the nonce is generated in self::get_url().
+		if ( ! wp_verify_nonce( $nonce, self::ACTION . '_' . $post_id ) ) {
 			return;
 		}
 
 		if ( is_null( ( $post = get_post( $post_id ) ) ) ) {
 			return;
+		}
+
+		// Object-level authorization. A user may clone a post only if they
+		// own it, or if they have edit rights on that specific post. This
+		// still blocks a Contributor from reusing a valid nonce with an
+		// arbitrary post_id to clone another user's private/draft content,
+		// while allowing them to clone their own posts (including published
+		// ones, which 'edit_post' alone would wrongly deny for Contributors
+		// because they lack the 'edit_published_posts' capability).
+		$is_author = ( (int) get_post_field( 'post_author', $post_id ) === get_current_user_id() );
+		if ( ! $is_author && ! current_user_can( 'edit_post', $post_id ) ) {
+			wp_die(
+				esc_html__( 'You are not allowed to clone this item.', 'skt-addons-for-elementor' ),
+				esc_html__( 'Permission denied', 'skt-addons-for-elementor' ),
+				[ 'response' => 403 ]
+			);
 		}
 
 		$post = sanitize_post( $post, 'db' );
@@ -135,7 +154,9 @@ class Clone_Handler {
 				],
 				admin_url( 'admin.php' )
 			),
-			self::ACTION
+			// Scope the nonce to this specific post_id. Must match the action
+			// string checked in self::duplicate_thing().
+			self::ACTION . '_' . $post_id
 		);
 	}
 
@@ -205,7 +226,7 @@ class Clone_Handler {
 				$_records[] = "( $duplicated_post_id, '{$entry->meta_key}', '{$_value}' )";
 			}
 			$query .= implode( ', ', $_records ) . ';';
-			$wpdb->query( $query  ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared 
+			$wpdb->query( $query  ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared, PluginCheck.Security.DirectDB.UnescapedDBParameter
 
 			// Fix Template Type Wrong issue
 			$source_type = get_post_meta($post->ID, '_elementor_template_type', true);

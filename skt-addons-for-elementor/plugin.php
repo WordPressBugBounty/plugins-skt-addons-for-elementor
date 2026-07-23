@@ -3,11 +3,11 @@
  * Plugin Name: SKT Addons for Elementor
  * Plugin URI: https://www.sktthemes.org/shop/flexible-addons-for-elementor/
  * Description: SKT Addons for Elementor page builder is one of the great Elementor Addons that includes 123 absolutely free Elementor Widgets. These provide you more options to easily add more features and functionality into your existing website.
- * Version: 3.9
+ * Version: 4.0
  * Author: SKT Themes
  * Author URI: https://www.sktthemes.org/
- * Elementor tested up to: 3.29.2
- * Elementor Pro tested up to: 3.29.2
+ * Elementor tested up to: 4.2.0
+ * Elementor Pro tested up to: 4.2.0
  * License: GPLv2
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: skt-addons-for-elementor
@@ -20,14 +20,14 @@ Copyright 2024 SKT Themes <https://www.sktthemes.org>
 
 defined('ABSPATH') || die();
 
-define('SKT_ADDONS_ELEMENTOR_VERSION', '3.9');
+define('SKT_ADDONS_ELEMENTOR_VERSION', '4.0');
 define('SKT_ADDONS_ELEMENTOR__FILE__', __FILE__);
 define('SKT_ADDONS_ELEMENTOR_DIR_PATH', plugin_dir_path(SKT_ADDONS_ELEMENTOR__FILE__));
 define('SKT_ADDONS_ELEMENTOR_DIR_URL', plugin_dir_url(SKT_ADDONS_ELEMENTOR__FILE__));
 define('SKT_ADDONS_ELEMENTOR_ASSETS', trailingslashit(SKT_ADDONS_ELEMENTOR_DIR_URL . 'assets'));
 define('SKT_ADDONS_ELEMENTOR_REDIRECTION_FLAG', 'sktaddonselementor_do_activation_direct');
 
-define('SKT_ADDONS_ELEMENTOR_MINIMUM_ELEMENTOR_VERSION', '3.9.0');
+define('SKT_ADDONS_ELEMENTOR_MINIMUM_ELEMENTOR_VERSION', '4.0.0');
 define('SKT_ADDONS_ELEMENTOR_MINIMUM_PHP_VERSION', '7.4');
 
 /**
@@ -86,26 +86,40 @@ function skt_addons_elementor_required_php_version_missing_notice()
  *
  * @return void
  */
-function skt_addons_elementor_missing_notice()
-{
+function skt_addons_elementor_missing_notice() {
 
-    if (file_exists(WP_PLUGIN_DIR . '/elementor/elementor.php')) {
-        $notice_title = esc_attr__('Activate Elementor', 'skt-addons-for-elementor');
-        $notice_url = wp_nonce_url('plugins.php?action=activate&plugin=elementor/elementor.php&plugin_status=all&paged=1', 'activate-plugin_elementor/elementor.php');
+    if ( file_exists( WP_PLUGIN_DIR . '/elementor/elementor.php' ) ) {
+        $notice_title = esc_html__( 'Activate Elementor', 'skt-addons-for-elementor' );
+        $notice_url   = wp_nonce_url(
+            self_admin_url( 'plugins.php?action=activate&plugin=elementor/elementor.php&plugin_status=all&paged=1' ),
+            'activate-plugin_elementor/elementor.php'
+        );
     } else {
-        $notice_title = esc_attr__('Install Elementor', 'skt-addons-for-elementor');
-        $notice_url = wp_nonce_url(self_admin_url('update.php?action=install-plugin&plugin=elementor'), 'install-plugin_elementor');
+        $notice_title = esc_html__( 'Install Elementor', 'skt-addons-for-elementor' );
+        $notice_url   = wp_nonce_url(
+            self_admin_url( 'update.php?action=install-plugin&plugin=elementor' ),
+            'install-plugin_elementor'
+        );
     }
 
-    $notice = skt_addons_elementor_kses_intermediate(sprintf(
-        /* translators: 1: Plugin name 2: Elementor 3: Elementor installation link */
-        esc_attr__('%1$s requires %2$s to be installed and activated to function properly. %3$s', 'skt-addons-for-elementor'),
-        '<strong>' . esc_attr__('SKT Elementor Addons', 'skt-addons-for-elementor') . '</strong>',
-        '<strong>' . esc_attr__('Elementor', 'skt-addons-for-elementor') . '</strong>',
-        '<a href="' . esc_url($notice_url) . '">' . $notice_title . '</a>'
-    ));
+    $notice = sprintf(
+        /* translators: 1: Plugin name, 2: Elementor, 3: Install/activate link */
+        __( '%1$s requires %2$s to be installed and activated to function properly. %3$s', 'skt-addons-for-elementor' ),
+        '<strong>' . esc_html__( 'SKT Elementor Addons', 'skt-addons-for-elementor' ) . '</strong>',
+        '<strong>' . esc_html__( 'Elementor', 'skt-addons-for-elementor' ) . '</strong>',
+        '<a href="' . esc_url( $notice_url ) . '">' . $notice_title . '</a>'
+    );
 
-    printf('<div class="notice notice-warning is-dismissible"><p style="padding: 13px 0">%1$s</p></div>', $notice);
+    printf(
+        '<div class="notice notice-warning is-dismissible"><p style="padding: 13px 0">%1$s</p></div>',
+        wp_kses(
+            $notice,
+            [
+                'strong' => [],
+                'a'      => [ 'href' => [] ],
+            ]
+        )
+    );
 }
 
 /**
@@ -113,17 +127,20 @@ function skt_addons_elementor_missing_notice()
  *
  * @return void
  */
-function skt_addons_elementor_required_elementor_version_missing_notice()
-{
+function skt_addons_elementor_required_elementor_version_missing_notice() {
+
     $notice = sprintf(
-        /* translators: 1: Plugin name 2: Elementor 3: Required Elementor version */
-        esc_attr__('"%1$s" requires "%2$s" version %3$s or greater.', 'skt-addons-for-elementor'),
-        '<strong>' . esc_attr__('SKT Elementor Addons', 'skt-addons-for-elementor') . '</strong>',
-        '<strong>' . esc_attr__('Elementor', 'skt-addons-for-elementor') . '</strong>',
-        SKT_ADDONS_ELEMENTOR_MINIMUM_ELEMENTOR_VERSION
+        /* translators: 1: Plugin name, 2: Elementor, 3: Required Elementor version */
+        __( '"%1$s" requires "%2$s" version %3$s or greater.', 'skt-addons-for-elementor' ),
+        '<strong>' . esc_html__( 'SKT Elementor Addons', 'skt-addons-for-elementor' ) . '</strong>',
+        '<strong>' . esc_html__( 'Elementor', 'skt-addons-for-elementor' ) . '</strong>',
+        esc_html( SKT_ADDONS_ELEMENTOR_MINIMUM_ELEMENTOR_VERSION )
     );
 
-    printf('<div class="notice notice-warning is-dismissible"><p style="padding: 13px 0">%1$s</p></div>', $notice);
+    printf(
+        '<div class="notice notice-warning is-dismissible"><p style="padding: 13px 0">%1$s</p></div>',
+        wp_kses( $notice, [ 'strong' => [] ] )
+    );
 }
 
 /**

@@ -32,7 +32,7 @@ class Product_Grid_New extends Base {
 	 *
 	 */
 	public function get_title() {
-		return _x('Product Grid', 'Widget name', 'skt-addons-elementor');
+		return _x('Product Grid', 'Widget name', 'skt-addons-for-elementor');
 	}
 
 	/**
@@ -71,7 +71,7 @@ class Product_Grid_New extends Base {
 		$this->start_controls_section(
 			'_section_layout',
 			[
-				'label' => __('Layout', 'skt-addons-elementor'),
+				'label' => __('Layout', 'skt-addons-for-elementor'),
 				'tab' => Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -79,11 +79,11 @@ class Product_Grid_New extends Base {
 		$this->add_control(
 			'skin',
 			[
-				'label' => __('Skin', 'skt-addons-elementor'),
+				'label' => __('Skin', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'classic' => __('Classic', 'skt-addons-elementor'),
-					'hover' => __('Hover', 'skt-addons-elementor'),
+					'classic' => __('Classic', 'skt-addons-for-elementor'),
+					'hover' => __('Hover', 'skt-addons-for-elementor'),
 				],
 				'default' => 'classic',
 				'prefix_class' => 'skt-product-grid--',
@@ -94,7 +94,7 @@ class Product_Grid_New extends Base {
 		$this->add_responsive_control(
 			'columns',
 			[
-				'label' => __('Columns', 'skt-addons-elementor'),
+				'label' => __('Columns', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::SELECT,
 				'desktop_default' => 4,
 				'tablet_default' => 3,
@@ -117,7 +117,7 @@ class Product_Grid_New extends Base {
 			'show_badge',
 			[
 				'type' => Controls_Manager::SWITCHER,
-				'label' => __('Show Badge', 'skt-addons-elementor'),
+				'label' => __('Show Badge', 'skt-addons-for-elementor'),
 				'default' => 'yes',
 				'return_value' => 'yes',
 				'style_transfer' => true,
@@ -128,7 +128,7 @@ class Product_Grid_New extends Base {
 			'show_rating',
 			[
 				'type' => Controls_Manager::SWITCHER,
-				'label' => __('Show Rating', 'skt-addons-elementor'),
+				'label' => __('Show Rating', 'skt-addons-for-elementor'),
 				'default' => 'yes',
 				'return_value' => 'yes',
 				'style_transfer' => true,
@@ -139,7 +139,7 @@ class Product_Grid_New extends Base {
 			'show_price',
 			[
 				'type' => Controls_Manager::SWITCHER,
-				'label' => __('Show Price', 'skt-addons-elementor'),
+				'label' => __('Show Price', 'skt-addons-for-elementor'),
 				'default' => 'yes',
 				'return_value' => 'yes',
 				'style_transfer' => true,
@@ -150,7 +150,7 @@ class Product_Grid_New extends Base {
 			'show_cart_button',
 			[
 				'type' => Controls_Manager::SWITCHER,
-				'label' => __('Show Cart Button', 'skt-addons-elementor'),
+				'label' => __('Show Cart Button', 'skt-addons-for-elementor'),
 				'default' => 'yes',
 				'return_value' => 'yes',
 				'style_transfer' => true,
@@ -174,7 +174,7 @@ class Product_Grid_New extends Base {
 		$this->start_controls_section(
 			'_section_query',
 			[
-				'label' => __('Query', 'skt-addons-elementor'),
+				'label' => __('Query', 'skt-addons-for-elementor'),
 				'tab' => Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -195,8 +195,8 @@ class Product_Grid_New extends Base {
 			'posts_include_by',
 			[
 				'options' => [
-					'terms' => __('Terms', 'skt-addons-elementor'),
-					'featured' => __('Featured Products', 'skt-addons-elementor'),
+					'terms' => __('Terms', 'skt-addons-for-elementor'),
+					'featured' => __('Featured Products', 'skt-addons-for-elementor'),
 				]
 			]
 		);
@@ -207,9 +207,9 @@ class Product_Grid_New extends Base {
 			'posts_exclude_by',
 			[
 				'options' => [
-					'current_post'      => __('Current Product', 'skt-addons-elementor'),
-					'manual_selection'  => __('Manual Selection', 'skt-addons-elementor'),
-					'terms'             => __('Terms', 'skt-addons-elementor'),
+					'current_post'      => __('Current Product', 'skt-addons-for-elementor'),
+					'manual_selection'  => __('Manual Selection', 'skt-addons-for-elementor'),
+					'terms'             => __('Terms', 'skt-addons-for-elementor'),
 				]
 			]
 		);
@@ -219,14 +219,14 @@ class Product_Grid_New extends Base {
 		$this->update_control(
 			'posts_include_term_ids',
 			[
-				'description' => __('Select product categories and tags', 'skt-addons-elementor'),
+				'description' => __('Select product categories and tags', 'skt-addons-for-elementor'),
 			]
 		);
 
 		$this->update_control(
 			'posts_exclude_term_ids',
 			[
-				'description' => __('Select product categories and tags', 'skt-addons-elementor'),
+				'description' => __('Select product categories and tags', 'skt-addons-for-elementor'),
 			]
 		);
 
@@ -246,12 +246,12 @@ class Product_Grid_New extends Base {
 			'posts_orderby',
 			[
 				'options' => [
-					'comment_count' => __('Review Count', 'skt-addons-elementor'),
-					'date'          => __('Date', 'skt-addons-elementor'),
-					'ID'            => __('ID', 'skt-addons-elementor'),
-					'menu_order'    => __('Menu Order', 'skt-addons-elementor'),
-					'rand'          => __('Random', 'skt-addons-elementor'),
-					'title'         => __('Title', 'skt-addons-elementor'),
+					'comment_count' => __('Review Count', 'skt-addons-for-elementor'),
+					'date'          => __('Date', 'skt-addons-for-elementor'),
+					'ID'            => __('ID', 'skt-addons-for-elementor'),
+					'menu_order'    => __('Menu Order', 'skt-addons-for-elementor'),
+					'rand'          => __('Random', 'skt-addons-for-elementor'),
+					'title'         => __('Title', 'skt-addons-for-elementor'),
 				],
 				'default' => 'title',
 			]
@@ -277,8 +277,8 @@ class Product_Grid_New extends Base {
 		$this->add_control(
 			'posts_per_page',
 			[
-				'label' => __('Number Of Products', 'skt-addons-elementor'),
-				'description' => __('Only visible products will be shown in the products grid. Hence number of products in the grid may differ from number of products setting.', 'skt-addons-elementor'),
+				'label' => __('Number Of Products', 'skt-addons-for-elementor'),
+				'description' => __('Only visible products will be shown in the products grid. Hence number of products in the grid may differ from number of products setting.', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::NUMBER,
 				'default' => 9,
 			]
@@ -291,7 +291,7 @@ class Product_Grid_New extends Base {
 		$this->start_controls_section(
 			'_section_content_advance',
 			[
-				'label' => __('Advance', 'skt-addons-elementor'),
+				'label' => __('Advance', 'skt-addons-for-elementor'),
 				'tab' => Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -301,8 +301,8 @@ class Product_Grid_New extends Base {
 			[
 				'type' => Controls_Manager::TEXT,
 				'label_block' => true,
-				'label' => __('Add To Cart Text', 'skt-addons-elementor'),
-				'placeholder' => __('Your add to cart text', 'skt-addons-elementor'),
+				'label' => __('Add To Cart Text', 'skt-addons-for-elementor'),
+				'placeholder' => __('Your add to cart text', 'skt-addons-for-elementor'),
 				'dynamic' => [
 					'active' => true,
 				],
@@ -313,7 +313,7 @@ class Product_Grid_New extends Base {
 			'show_load_more',
 			[
 				'type' => Controls_Manager::SWITCHER,
-				'label' => __('Show Load More Button', 'skt-addons-elementor'),
+				'label' => __('Show Load More Button', 'skt-addons-for-elementor'),
 				'default' => 'yes',
 				'return_value' => 'yes',
 				'style_transfer' => true,
@@ -325,8 +325,8 @@ class Product_Grid_New extends Base {
 			[
 				'type' => Controls_Manager::TEXT,
 				'label_block' => true,
-				'label' => __('Button Text', 'skt-addons-elementor'),
-				'default' => __('More products', 'skt-addons-elementor'),
+				'label' => __('Button Text', 'skt-addons-for-elementor'),
+				'default' => __('More products', 'skt-addons-for-elementor'),
 				'dynamic' => [
 					'active' => true,
 				],
@@ -340,7 +340,7 @@ class Product_Grid_New extends Base {
 			'load_more_link',
 			[
 				'type' => Controls_Manager::URL,
-				'label' => __('Button URL', 'skt-addons-elementor'),
+				'label' => __('Button URL', 'skt-addons-for-elementor'),
 				'dynamic' => [
 					'active' => true,
 				],
@@ -370,7 +370,7 @@ class Product_Grid_New extends Base {
 		$this->start_controls_section(
 			'_section_style_layout',
 			[
-				'label' => __('Layout', 'skt-addons-elementor'),
+				'label' => __('Layout', 'skt-addons-for-elementor'),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -378,7 +378,7 @@ class Product_Grid_New extends Base {
 		$this->add_control(
 			'_heading_layout_grid',
 			[
-				'label' => __('Grid', 'skt-addons-elementor'),
+				'label' => __('Grid', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::HEADING,
 			]
 		);
@@ -386,7 +386,7 @@ class Product_Grid_New extends Base {
 		$this->add_responsive_control(
 			'layout_row_gap',
 			[
-				'label' => __('Row Gap', 'skt-addons-elementor'),
+				'label' => __('Row Gap', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
@@ -398,7 +398,7 @@ class Product_Grid_New extends Base {
 		$this->add_responsive_control(
 			'layout_column_gap',
 			[
-				'label' => __('Column Gap', 'skt-addons-elementor'),
+				'label' => __('Column Gap', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
@@ -410,7 +410,7 @@ class Product_Grid_New extends Base {
 		$this->add_control(
 			'_heading_layout_item',
 			[
-				'label' => __('Product', 'skt-addons-elementor'),
+				'label' => __('Product', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -419,19 +419,19 @@ class Product_Grid_New extends Base {
 		$this->add_control(
 			'item_align',
 			[
-				'label' => __('Alignment', 'skt-addons-elementor'),
+				'label' => __('Alignment', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => __('Left', 'skt-addons-elementor'),
+						'title' => __('Left', 'skt-addons-for-elementor'),
 						'icon' => 'eicon-text-align-left',
 					],
 					'center' => [
-						'title' => __('Center', 'skt-addons-elementor'),
+						'title' => __('Center', 'skt-addons-for-elementor'),
 						'icon' => 'eicon-text-align-center',
 					],
 					'right' => [
-						'title' => __('Right', 'skt-addons-elementor'),
+						'title' => __('Right', 'skt-addons-for-elementor'),
 						'icon' => 'eicon-text-align-right',
 					],
 				],
@@ -448,7 +448,7 @@ class Product_Grid_New extends Base {
 		$this->add_responsive_control(
 			'item_padding',
 			[
-				'label' => __('Padding', 'skt-addons-elementor'),
+				'label' => __('Padding', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%', 'rem'],
 				'selectors' => [
@@ -468,7 +468,7 @@ class Product_Grid_New extends Base {
 		$this->add_responsive_control(
 			'item_border_radius',
 			[
-				'label' => __('Border Radius', 'skt-addons-elementor'),
+				'label' => __('Border Radius', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors' => [
@@ -501,7 +501,7 @@ class Product_Grid_New extends Base {
 		$this->start_controls_section(
 			'_section_style_badge',
 			[
-				'label' => __('Badge', 'skt-addons-elementor'),
+				'label' => __('Badge', 'skt-addons-for-elementor'),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -509,7 +509,7 @@ class Product_Grid_New extends Base {
 		$this->add_control(
 			'badge_offset_toggle',
 			[
-				'label' => __('Offset', 'skt-addons-elementor'),
+				'label' => __('Offset', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::POPOVER_TOGGLE,
 				'return_value' => 'yes',
 			]
@@ -520,7 +520,7 @@ class Product_Grid_New extends Base {
 		$this->add_responsive_control(
 			'badge_offset_x',
 			[
-				'label' => __('Left', 'skt-addons-elementor'),
+				'label' => __('Left', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => ['px', '%'],
 				'condition' => [
@@ -541,7 +541,7 @@ class Product_Grid_New extends Base {
 		$this->add_responsive_control(
 			'badge_offset_y',
 			[
-				'label' => __('Top', 'skt-addons-elementor'),
+				'label' => __('Top', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => ['px', '%'],
 				'condition' => [
@@ -564,7 +564,7 @@ class Product_Grid_New extends Base {
 		$this->add_responsive_control(
 			'badge_padding',
 			[
-				'label' => __('Padding', 'skt-addons-elementor'),
+				'label' => __('Padding', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
@@ -576,7 +576,7 @@ class Product_Grid_New extends Base {
 		$this->add_control(
 			'badge_color',
 			[
-				'label' => __('Text Color', 'skt-addons-elementor'),
+				'label' => __('Text Color', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .skt-product-grid__badge' => 'color: {{VALUE}};',
@@ -587,7 +587,7 @@ class Product_Grid_New extends Base {
 		$this->add_control(
 			'badge_bg_color',
 			[
-				'label' => __('Background Color', 'skt-addons-elementor'),
+				'label' => __('Background Color', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .skt-product-grid__badge' => 'background-color: {{VALUE}};',
@@ -606,7 +606,7 @@ class Product_Grid_New extends Base {
 		$this->add_responsive_control(
 			'badge_border_radius',
 			[
-				'label' => __('Border Radius', 'skt-addons-elementor'),
+				'label' => __('Border Radius', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors' => [
@@ -627,7 +627,7 @@ class Product_Grid_New extends Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'badge_typography',
-				'label' => __('Typography', 'skt-addons-elementor'),
+				'label' => __('Typography', 'skt-addons-for-elementor'),
 				'default' => [
 					'font_size' => ['']
 				],
@@ -645,7 +645,7 @@ class Product_Grid_New extends Base {
 		$this->start_controls_section(
 			'_section_style_img',
 			[
-				'label' => __('Image', 'skt-addons-elementor'),
+				'label' => __('Image', 'skt-addons-for-elementor'),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -653,7 +653,7 @@ class Product_Grid_New extends Base {
 		$this->add_responsive_control(
 			'img_spacing',
 			[
-				'label' => __('Bottom Spacing', 'skt-addons-elementor'),
+				'label' => __('Bottom Spacing', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => ['px', 'em'],
 				'selectors' => [
@@ -665,7 +665,7 @@ class Product_Grid_New extends Base {
 		$this->add_responsive_control(
 			'img_height',
 			[
-				'label' => __('Height', 'skt-addons-elementor'),
+				'label' => __('Height', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => ['px', 'em'],
 				'range' => [
@@ -687,7 +687,7 @@ class Product_Grid_New extends Base {
 		$this->add_responsive_control(
 			'img_padding',
 			[
-				'label' => __('Padding', 'skt-addons-elementor'),
+				'label' => __('Padding', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
@@ -707,7 +707,7 @@ class Product_Grid_New extends Base {
 		$this->add_responsive_control(
 			'img_border_radius',
 			[
-				'label' => __('Border Radius', 'skt-addons-elementor'),
+				'label' => __('Border Radius', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors' => [
@@ -729,14 +729,14 @@ class Product_Grid_New extends Base {
 		$this->start_controls_tab(
 			'_tab_img_effects_normal',
 			[
-				'label' => __('Normal', 'skt-addons-elementor'),
+				'label' => __('Normal', 'skt-addons-for-elementor'),
 			]
 		);
 
 		$this->add_control(
 			'img_opacity',
 			[
-				'label' => __('Opacity', 'skt-addons-elementor'),
+				'label' => __('Opacity', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -764,14 +764,14 @@ class Product_Grid_New extends Base {
 		$this->start_controls_tab(
 			'_tab_img_effects_hover',
 			[
-				'label' => __('Hover', 'skt-addons-elementor'),
+				'label' => __('Hover', 'skt-addons-for-elementor'),
 			]
 		);
 
 		$this->add_control(
 			'img_hover_opacity',
 			[
-				'label' => __('Opacity', 'skt-addons-elementor'),
+				'label' => __('Opacity', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -797,7 +797,7 @@ class Product_Grid_New extends Base {
 		$this->add_control(
 			'img_hover_transition',
 			[
-				'label' => __('Transition Duration', 'skt-addons-elementor'),
+				'label' => __('Transition Duration', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -824,7 +824,7 @@ class Product_Grid_New extends Base {
 		$this->start_controls_section(
 			'_section_style_content',
 			[
-				'label' => __('Content', 'skt-addons-elementor'),
+				'label' => __('Content', 'skt-addons-for-elementor'),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -833,14 +833,14 @@ class Product_Grid_New extends Base {
 			'_heading_rating',
 			[
 				'type' => Controls_Manager::HEADING,
-				'label' => __('Rating', 'skt-addons-elementor'),
+				'label' => __('Rating', 'skt-addons-for-elementor'),
 			]
 		);
 
 		$this->add_responsive_control(
 			'rating_spacing',
 			[
-				'label' => __('Bottom Spacing', 'skt-addons-elementor'),
+				'label' => __('Bottom Spacing', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => ['px', 'em'],
 				'selectors' => [
@@ -852,7 +852,7 @@ class Product_Grid_New extends Base {
 		$this->add_responsive_control(
 			'rating_size',
 			[
-				'label' => __('Size', 'skt-addons-elementor'),
+				'label' => __('Size', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => ['px'],
 				'selectors' => [
@@ -864,7 +864,7 @@ class Product_Grid_New extends Base {
 		$this->add_control(
 			'rating_color',
 			[
-				'label' => __('Color', 'skt-addons-elementor'),
+				'label' => __('Color', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .skt-product-grid__rating' => 'color: {{VALUE}}',
@@ -876,7 +876,7 @@ class Product_Grid_New extends Base {
 			'_heading_title',
 			[
 				'type' => Controls_Manager::HEADING,
-				'label' => __('Title', 'skt-addons-elementor'),
+				'label' => __('Title', 'skt-addons-for-elementor'),
 				'separator' => 'before'
 			]
 		);
@@ -884,7 +884,7 @@ class Product_Grid_New extends Base {
 		$this->add_responsive_control(
 			'title_spacing',
 			[
-				'label' => __('Bottom Spacing', 'skt-addons-elementor'),
+				'label' => __('Bottom Spacing', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => ['px', 'em'],
 				'selectors' => [
@@ -896,7 +896,7 @@ class Product_Grid_New extends Base {
 		$this->add_control(
 			'title_color',
 			[
-				'label' => __('Text Color', 'skt-addons-elementor'),
+				'label' => __('Text Color', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .skt-product-grid__title' => 'color: {{VALUE}}',
@@ -908,7 +908,7 @@ class Product_Grid_New extends Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'title_typography',
-				'label' => __('Typography', 'skt-addons-elementor'),
+				'label' => __('Typography', 'skt-addons-for-elementor'),
 				'selector' => '{{WRAPPER}} .skt-product-grid__title',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
@@ -920,7 +920,7 @@ class Product_Grid_New extends Base {
 			'_heading_price',
 			[
 				'type' => Controls_Manager::HEADING,
-				'label' => __('Price', 'skt-addons-elementor'),
+				'label' => __('Price', 'skt-addons-for-elementor'),
 				'separator' => 'before'
 			]
 		);
@@ -928,7 +928,7 @@ class Product_Grid_New extends Base {
 		$this->add_responsive_control(
 			'price_spacing',
 			[
-				'label' => __('Bottom Spacing', 'skt-addons-elementor'),
+				'label' => __('Bottom Spacing', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => ['px', 'em'],
 				'selectors' => [
@@ -940,7 +940,7 @@ class Product_Grid_New extends Base {
 		$this->add_control(
 			'price_color',
 			[
-				'label' => __('Text Color', 'skt-addons-elementor'),
+				'label' => __('Text Color', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .skt-product-grid__price' => 'color: {{VALUE}}',
@@ -952,7 +952,7 @@ class Product_Grid_New extends Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'price_typography',
-				'label' => __('Typography', 'skt-addons-elementor'),
+				'label' => __('Typography', 'skt-addons-for-elementor'),
 				'selector' => '{{WRAPPER}} .skt-product-grid__price',
 				'global' => [
 					'default' => Global_Typography::TYPOGRAPHY_TEXT,
@@ -967,7 +967,7 @@ class Product_Grid_New extends Base {
 		$this->start_controls_section(
 			'_section_style_buttons',
 			[
-				'label' => __('Cart Button', 'skt-addons-elementor'),
+				'label' => __('Cart Button', 'skt-addons-for-elementor'),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -975,7 +975,7 @@ class Product_Grid_New extends Base {
 		$this->add_control(
 			'btn_offset_toggle',
 			[
-				'label' => __('Offset', 'skt-addons-elementor'),
+				'label' => __('Offset', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::POPOVER_TOGGLE,
 				'return_value' => 'yes',
 				'condition' => [
@@ -987,19 +987,19 @@ class Product_Grid_New extends Base {
 		$this->add_control(
 			'btns_align',
 			[
-				'label' => __('Alignment', 'skt-addons-elementor'),
+				'label' => __('Alignment', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => __('Left', 'skt-addons-elementor'),
+						'title' => __('Left', 'skt-addons-for-elementor'),
 						'icon' => 'eicon-text-align-left',
 					],
 					'center' => [
-						'title' => __('Center', 'skt-addons-elementor'),
+						'title' => __('Center', 'skt-addons-for-elementor'),
 						'icon' => 'eicon-text-align-center',
 					],
 					'right' => [
-						'title' => __('Right', 'skt-addons-elementor'),
+						'title' => __('Right', 'skt-addons-for-elementor'),
 						'icon' => 'eicon-text-align-right',
 					],
 				],
@@ -1015,7 +1015,7 @@ class Product_Grid_New extends Base {
 		$this->add_responsive_control(
 			'btn_offset_x',
 			[
-				'label' => __('Position X', 'skt-addons-elementor'),
+				'label' => __('Position X', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => ['px', '%'],
 				'condition' => [
@@ -1039,7 +1039,7 @@ class Product_Grid_New extends Base {
 		$this->add_responsive_control(
 			'btn_offset_y',
 			[
-				'label' => __('Position Y', 'skt-addons-elementor'),
+				'label' => __('Position Y', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => ['px', '%'],
 				'condition' => [
@@ -1066,7 +1066,7 @@ class Product_Grid_New extends Base {
 			'_heading_button_cart',
 			[
 				'type' => Controls_Manager::HEADING,
-				'label' => __('Cart Button', 'skt-addons-elementor'),
+				'label' => __('Cart Button', 'skt-addons-for-elementor'),
 				'separator' => 'before',
 			]
 		);
@@ -1074,7 +1074,7 @@ class Product_Grid_New extends Base {
 		$this->add_responsive_control(
 			'btn_padding',
 			[
-				'label' => __('Padding', 'skt-addons-elementor'),
+				'label' => __('Padding', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
@@ -1105,7 +1105,7 @@ class Product_Grid_New extends Base {
 		$this->add_control(
 			'btn_border_radius',
 			[
-				'label' => __('Border Radius', 'skt-addons-elementor'),
+				'label' => __('Border Radius', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors' => [
@@ -1119,14 +1119,14 @@ class Product_Grid_New extends Base {
 		$this->start_controls_tab(
 			'_tab_btn_normal',
 			[
-				'label' => __('Normal', 'skt-addons-elementor'),
+				'label' => __('Normal', 'skt-addons-for-elementor'),
 			]
 		);
 
 		$this->add_control(
 			'btn_color',
 			[
-				'label' => __('Text Color', 'skt-addons-elementor'),
+				'label' => __('Text Color', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
@@ -1138,7 +1138,7 @@ class Product_Grid_New extends Base {
 		$this->add_control(
 			'btn_bg_color',
 			[
-				'label' => __('Background Color', 'skt-addons-elementor'),
+				'label' => __('Background Color', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .button, {{WRAPPER}} .added_to_cart' => 'background-color: {{VALUE}};',
@@ -1159,14 +1159,14 @@ class Product_Grid_New extends Base {
 		$this->start_controls_tab(
 			'_tab_btn_hover',
 			[
-				'label' => __('Hover', 'skt-addons-elementor'),
+				'label' => __('Hover', 'skt-addons-for-elementor'),
 			]
 		);
 
 		$this->add_control(
 			'btn_hover_color',
 			[
-				'label' => __('Text Color', 'skt-addons-elementor'),
+				'label' => __('Text Color', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .button:hover, {{WRAPPER}} .button:focus' => 'color: {{VALUE}};',
@@ -1178,7 +1178,7 @@ class Product_Grid_New extends Base {
 		$this->add_control(
 			'btn_hover_bg_color',
 			[
-				'label' => __('Background Color', 'skt-addons-elementor'),
+				'label' => __('Background Color', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .button:hover, {{WRAPPER}} .button:focus' => 'background-color: {{VALUE}};',
@@ -1190,7 +1190,7 @@ class Product_Grid_New extends Base {
 		$this->add_control(
 			'btn_hover_border_color',
 			[
-				'label' => __('Border Color', 'skt-addons-elementor'),
+				'label' => __('Border Color', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::COLOR,
 				'condition' => [
 					'btn_border_border!' => '',
@@ -1220,7 +1220,7 @@ class Product_Grid_New extends Base {
 		$this->start_controls_section(
 			'_section_style_load_more_button',
 			[
-				'label' => __('Load More Button', 'skt-addons-elementor'),
+				'label' => __('Load More Button', 'skt-addons-for-elementor'),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -1228,19 +1228,19 @@ class Product_Grid_New extends Base {
 		$this->add_control(
 			'load_more_btn_align',
 			[
-				'label' => __('Alignment', 'skt-addons-elementor'),
+				'label' => __('Alignment', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => __('Left', 'skt-addons-elementor'),
+						'title' => __('Left', 'skt-addons-for-elementor'),
 						'icon' => 'eicon-text-align-left',
 					],
 					'center' => [
-						'title' => __('Center', 'skt-addons-elementor'),
+						'title' => __('Center', 'skt-addons-for-elementor'),
 						'icon' => 'eicon-text-align-center',
 					],
 					'right' => [
-						'title' => __('Right', 'skt-addons-elementor'),
+						'title' => __('Right', 'skt-addons-for-elementor'),
 						'icon' => 'eicon-text-align-right',
 					],
 				],
@@ -1253,7 +1253,7 @@ class Product_Grid_New extends Base {
 		$this->add_responsive_control(
 			'load_more_btn_padding',
 			[
-				'label' => __('Padding', 'skt-addons-elementor'),
+				'label' => __('Padding', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
@@ -1284,7 +1284,7 @@ class Product_Grid_New extends Base {
 		$this->add_control(
 			'load_more_btn_border_radius',
 			[
-				'label' => __('Border Radius', 'skt-addons-elementor'),
+				'label' => __('Border Radius', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors' => [
@@ -1298,14 +1298,14 @@ class Product_Grid_New extends Base {
 		$this->start_controls_tab(
 			'_tab_load_more_btn_normal',
 			[
-				'label' => __('Normal', 'skt-addons-elementor'),
+				'label' => __('Normal', 'skt-addons-for-elementor'),
 			]
 		);
 
 		$this->add_control(
 			'load_more_btn_color',
 			[
-				'label' => __('Text Color', 'skt-addons-elementor'),
+				'label' => __('Text Color', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
@@ -1317,7 +1317,7 @@ class Product_Grid_New extends Base {
 		$this->add_control(
 			'load_more_btn_bg_color',
 			[
-				'label' => __('Background Color', 'skt-addons-elementor'),
+				'label' => __('Background Color', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .skt-product-grid__load-more-btn' => 'background-color: {{VALUE}};',
@@ -1338,14 +1338,14 @@ class Product_Grid_New extends Base {
 		$this->start_controls_tab(
 			'_tab_load_more_btn_hover',
 			[
-				'label' => __('Hover', 'skt-addons-elementor'),
+				'label' => __('Hover', 'skt-addons-for-elementor'),
 			]
 		);
 
 		$this->add_control(
 			'load_more_btn_hover_color',
 			[
-				'label' => __('Text Color', 'skt-addons-elementor'),
+				'label' => __('Text Color', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .skt-product-grid__load-more-btn:hover, {{WRAPPER}} .skt-product-grid__load-more-btn:focus' => 'color: {{VALUE}};',
@@ -1356,7 +1356,7 @@ class Product_Grid_New extends Base {
 		$this->add_control(
 			'load_more_btn_hover_bg_color',
 			[
-				'label' => __('Background Color', 'skt-addons-elementor'),
+				'label' => __('Background Color', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .skt-product-grid__load-more-btn:hover, {{WRAPPER}} .skt-product-grid__load-more-btn:focus' => 'background-color: {{VALUE}};',
@@ -1367,7 +1367,7 @@ class Product_Grid_New extends Base {
 		$this->add_control(
 			'load_more_btn_hover_border_color',
 			[
-				'label' => __('Border Color', 'skt-addons-elementor'),
+				'label' => __('Border Color', 'skt-addons-for-elementor'),
 				'type' => Controls_Manager::COLOR,
 				'condition' => [
 					'btn_border_border!' => '',
@@ -1424,7 +1424,7 @@ class Product_Grid_New extends Base {
 			printf(
 				'<div %s>%s</div>',
 				'style="margin: 1rem;padding: 1rem 1.25rem;border-left: 5px solid #f5c848;color: #856404;background-color: #fff3cd;"',
-				esc_attr__('WooCommerce is missing! Please install and activate WooCommerce.', 'skt-addons-elementor')
+				esc_attr__('WooCommerce is missing! Please install and activate WooCommerce.', 'skt-addons-for-elementor')
 			);
 		}
 	}

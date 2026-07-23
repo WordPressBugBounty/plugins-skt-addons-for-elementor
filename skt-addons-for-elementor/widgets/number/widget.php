@@ -80,7 +80,7 @@ class Number extends Base {
             'animate_number',
             [
                 'label' => __( 'Animate', 'skt-addons-for-elementor' ),
-                'description' => __( 'Only number is animatable' ),
+                'description' => __( 'Only number is animatable', 'skt-addons-for-elementor' ),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => __( 'Yes', 'skt-addons-for-elementor' ),
                 'label_off' => __( 'No', 'skt-addons-for-elementor' ),
