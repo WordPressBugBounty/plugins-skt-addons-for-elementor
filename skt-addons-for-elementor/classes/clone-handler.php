@@ -214,19 +214,21 @@ class Clone_Handler {
 	protected static function duplicate_meta_entries( $post, $duplicated_post_id ) {
 		global $wpdb;
 
-		$entries = $wpdb->get_results( // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared 
-			 "SELECT meta_key, meta_value FROM {$wpdb->postmeta} WHERE post_id = %d", $post->ID  // 
+		$entries = $wpdb->get_results( // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+			$wpdb->prepare( "SELECT meta_key, meta_value FROM {$wpdb->postmeta} WHERE post_id = %d", $post->ID )
 		);
 
-		if ( is_array( $entries ) ) {
-			$query = "INSERT INTO {$wpdb->postmeta} ( post_id, meta_key, meta_value ) VALUES ";
-			$_records = [];
+		if ( ! empty( $entries ) && is_array( $entries ) ) {
+			$placeholders = [];
+			$values       = [];
 			foreach ( $entries as $entry ) {
-				$_value = wp_slash( $entry->meta_value );
-				$_records[] = "( $duplicated_post_id, '{$entry->meta_key}', '{$_value}' )";
+				$placeholders[] = '(%d, %s, %s)';
+				$values[]       = $duplicated_post_id;
+				$values[]       = $entry->meta_key;
+				$values[]       = wp_slash( $entry->meta_value );
 			}
-			$query .= implode( ', ', $_records ) . ';';
-			$wpdb->query( $query  ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared, PluginCheck.Security.DirectDB.UnescapedDBParameter
+			$query = "INSERT INTO {$wpdb->postmeta} ( post_id, meta_key, meta_value ) VALUES " . implode( ', ', $placeholders );
+			$wpdb->query( $wpdb->prepare( $query, $values ) ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared
 
 			// Fix Template Type Wrong issue
 			$source_type = get_post_meta($post->ID, '_elementor_template_type', true);

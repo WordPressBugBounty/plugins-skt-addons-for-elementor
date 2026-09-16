@@ -1,12 +1,12 @@
 === SKT Addons for Elementor ===
 Plugin Name: SKT Addons for Elementor
-Version: 4.0
+Version: 4.1
 Author: sonalsinha21
 Author URI: https://www.sktthemes.org/
 Tags: Elementor, Elementor Addons, Elementor Widget, Elementor extension, page builder
 Requires at least: 5.0
 Tested up to: 7.0
-Stable tag: 4.0
+Stable tag: 4.1
 Requires PHP: 7.4
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -362,6 +362,9 @@ Check our documentation for a detailed working and guide:
 
 
 == Changelog ==
+= 4.1 =
+* Resolved vulnerable to SQL Injection issue for patchstack in SKT Clone.
+
 = 4.0 =
 * Security: Fixed an authorization issue in the clone functionality by enforcing object-level capability checks and strengthening nonce validation.
 
