@@ -1111,11 +1111,28 @@ class Advanced_Data_Table extends Base {
 		if ( empty( $table_name ) ) {
 			return printf( '<div class="skt-data-table-error">%s</div>', esc_html( 'Select Table', 'skt-addons-for-elementor' ) );
 		}
-		
-		$table = $wpdb->get_results("SELECT * FROM $table_name", ARRAY_A); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared, PluginCheck.Security.DirectDB.UnescapedDBParameter 
+
+		// Security: the 'database_tables_list' setting is rendered from a SELECT
+		// control in the editor, but Elementor's save_builder AJAX action does
+		// NOT validate a widget setting against that control's option list on
+		// the server side. An authenticated user (Author and above) can submit
+		// an arbitrary string here (e.g. "wp_users WHERE ID=1 UNION ALL SELECT
+		// ...") which would previously be interpolated directly into SQL. We
+		// therefore re-validate the value against the real list of tables in
+		// the current DB connection before it is ever used in a query.
+		$table_name = $this->sanitize_database_table_name( $table_name );
+		if ( empty( $table_name ) ) {
+			return printf( '<div class="skt-data-table-error">%s</div>', esc_html__( 'Invalid Table Selected', 'skt-addons-for-elementor' ) );
+		}
+
+		$table = $wpdb->get_results( "SELECT * FROM `{$table_name}`", ARRAY_A ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared, PluginCheck.Security.DirectDB.UnescapedDBParameter -- $table_name is validated against an allow-list of real DB tables in sanitize_database_table_name().
 
 		if ( is_wp_error( $table ) ) {
 			return printf( '<div class="skt-data-table-error">%s</div>', esc_html($table->get_error_message()) );
+		}
+
+		if ( empty( $table ) ) {
+			return printf( '<div class="skt-data-table-error">%s</div>', esc_html__( 'Table is Empty', 'skt-addons-for-elementor' ) );
 		}
 
 		$this->attributes();
@@ -1142,6 +1159,46 @@ class Advanced_Data_Table extends Base {
 		</table>
 
 		<?php
+	}
+
+	/**
+	 * Validate a table name against the real tables that exist in the
+	 * current WordPress database connection, to prevent SQL injection via
+	 * a tampered 'database_tables_list' widget setting.
+	 *
+	 * This is a hard allow-list check, not sanitization/escaping: a value
+	 * is accepted only if, after passing a strict identifier check, it is
+	 * an exact, case-sensitive match for a table that actually exists.
+	 * Anything else (including any UNION/WHERE/comment payload, which can
+	 * never pass the identifier regex below) is rejected outright.
+	 *
+	 * @param string $table_name Raw table name coming from widget settings.
+	 * @return string Sanitized table name, or empty string if invalid.
+	 */
+	protected function sanitize_database_table_name( $table_name ) {
+		global $wpdb;
+
+		$table_name = trim( (string) $table_name );
+
+		// MySQL unquoted identifiers: letters, digits, underscore, dollar sign.
+		// Anything with spaces, quotes, backticks, semicolons, comments, etc.
+		// (as required by a SQL injection payload) is rejected here before we
+		// even touch the database.
+		if ( '' === $table_name || ! preg_match( '/^[A-Za-z0-9_$]+$/', $table_name ) ) {
+			return '';
+		}
+
+		static $allowed_tables = null;
+		if ( null === $allowed_tables ) {
+			// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- building a one-time allow-list of real table names, not a user-influenced query.
+			$allowed_tables = $wpdb->get_col( 'SHOW TABLES' );
+		}
+
+		if ( ! is_array( $allowed_tables ) || ! in_array( $table_name, $allowed_tables, true ) ) {
+			return '';
+		}
+
+		return $table_name;
 	}
 
 	protected function tablepress_render() {

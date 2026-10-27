@@ -3,11 +3,11 @@
  * Plugin Name: SKT Addons for Elementor
  * Plugin URI: https://www.sktthemes.org/shop/flexible-addons-for-elementor/
  * Description: SKT Addons for Elementor page builder is one of the great Elementor Addons that includes 123 absolutely free Elementor Widgets. These provide you more options to easily add more features and functionality into your existing website.
- * Version: 4.1
+ * Version: 4.2
  * Author: SKT Themes
  * Author URI: https://www.sktthemes.org/
- * Elementor tested up to: 4.2.0
- * Elementor Pro tested up to: 4.2.0
+ * Elementor tested up to: 4.3.5
+ * Elementor Pro tested up to: 4.3.5
  * License: GPLv2
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: skt-addons-for-elementor
@@ -20,7 +20,7 @@ Copyright 2024 SKT Themes <https://www.sktthemes.org>
 
 defined('ABSPATH') || die();
 
-define('SKT_ADDONS_ELEMENTOR_VERSION', '4.1');
+define('SKT_ADDONS_ELEMENTOR_VERSION', '4.2');
 define('SKT_ADDONS_ELEMENTOR__FILE__', __FILE__);
 define('SKT_ADDONS_ELEMENTOR_DIR_PATH', plugin_dir_path(SKT_ADDONS_ELEMENTOR__FILE__));
 define('SKT_ADDONS_ELEMENTOR_DIR_URL', plugin_dir_url(SKT_ADDONS_ELEMENTOR__FILE__));

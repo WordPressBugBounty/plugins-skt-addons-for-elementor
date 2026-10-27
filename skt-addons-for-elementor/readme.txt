@@ -1,12 +1,12 @@
 === SKT Addons for Elementor ===
 Plugin Name: SKT Addons for Elementor
-Version: 4.1
+Version: 4.2
 Author: sonalsinha21
 Author URI: https://www.sktthemes.org/
 Tags: Elementor, Elementor Addons, Elementor Widget, Elementor extension, page builder
 Requires at least: 5.0
-Tested up to: 7.0
-Stable tag: 4.1
+Tested up to: 7.1
+Stable tag: 4.2
 Requires PHP: 7.4
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -360,8 +360,10 @@ Check our documentation for a detailed working and guide:
 6. Logo Grid
 7. Image Stack Group
 
-
 == Changelog ==
+= 4.2 =
+* Resolved vulnerable to SQL Injection issue for patchstack in Advanced Data Table widget.
+
 = 4.1 =
 * Resolved vulnerable to SQL Injection issue for patchstack in SKT Clone.
 
