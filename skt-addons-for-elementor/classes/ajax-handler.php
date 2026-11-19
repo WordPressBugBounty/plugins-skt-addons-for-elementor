@@ -240,7 +240,6 @@ class Ajax_Handler {
         $subsciber = [];
         parse_str(sanitize_text_field(wp_unslash(isset($_POST['subscriber_info']) ? $_POST['subscriber_info'] : '', $subsciber))); // phpcs:ignore PluginCheck.CodeAnalysis.RequiredFunctionParameters.parse_str_resultMissing
 
-
 		if(!class_exists('Skt_Addons_Elementor\Elementor\Widget\Mailchimp\Mailchimp_api')) {
 			include_once SKT_ADDONS_ELEMENTOR_DIR_PATH . 'widgets/mailchimp/mailchimp-api.php';
 		}
@@ -252,7 +251,7 @@ class Ajax_Handler {
         wp_die();
     }
 	
-		/**
+	/**
 	 * Product quick view ajax handler
 	 *
 	 * @return void
@@ -273,6 +272,17 @@ class Ajax_Handler {
 
 		if ( empty( $_product ) || get_post_type( $_product ) !== 'download' ) {
 			wp_send_json_error( 'Incomplete request!' );
+		}
+
+		// Authorization: only published products are public. Anything else
+		// (draft, pending, private, future, trash...) needs edit capability.
+		if ( 'publish' !== get_post_status( $_product ) && ! current_user_can( 'edit_post', $_product->ID ) ) {
+			wp_send_json_error( 'Not found' );
+		}
+
+		// Password protected products must not leak their content excerpt.
+		if ( post_password_required( $_product ) && ! current_user_can( 'edit_post', $_product->ID ) ) {
+			wp_send_json_error( 'Not found' );
 		}
 
 		global $post;
@@ -314,9 +324,6 @@ class Ajax_Handler {
 
 		exit;
 	}
-	
 }
-
-
 
 Ajax_Handler::init();
